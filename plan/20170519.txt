@@ -1,0 +1,10 @@
+Plan for 2017-05-19
+
+Bryan: 
+- slacker with essay 
+
+Jen: 
+- Create Customer and Order classes
+
+Brooke: 
+- Create Waiter and Restaurant classes
