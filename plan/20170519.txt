@@ -1,7 +1,7 @@
 Plan for 2017-05-19
 
 Bryan: 
-- slacker with essay 
+- Google form submission
 
 Jen: 
 - Create Customer and Order classes
