@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Waiter {
 
     //instance vars
@@ -5,8 +7,8 @@ public class Waiter {
     private ArrayList<Integer> tables;
 
     //creates a waiter with a list of customers
-    public Waiter(ArrayList<Customer> c) {
-	customers = c;
+    public Waiter() {
+	customers = new ArrayList<Customer>();
 
 	//creates ten tables
 	for (int i = 1; i <= 10; i++)
@@ -15,9 +17,12 @@ public class Waiter {
 
     //assigns a table to the next customer by removing one of the values from
     //ArrayList tables
-    public void assignTable(Customer c) {
-	if (tables.size() != 0)
+    public boolean assignTable(Customer c) {
+	if (tables.size() != 0) {
 	    c.setTable(tables.remove(tables.size()-1));
+	    return true;
+	}
+	return false;
     }
 
     //adds a customer to the customers ArrayList
@@ -32,8 +37,8 @@ public class Waiter {
 
     //removes the customer c from customers, adds to tables
     public void removeCustomer(Customer c) {
-	for (int i = 0; i < customers.length; i++) {
-	    if (customers[i].equals(c))
+	for (int i = 0; i < customers.size(); i++) {
+	    if (customers.get(i).equals(c))
 		customers.remove(i);
 	}
 	tables.add(tables.size()-1);

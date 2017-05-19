@@ -1,10 +1,11 @@
+import java.util.*;
+
 public class Restaurant {
 
     //instance vars
     private int points;
     private int goal;
     private int level;
-    Waiter w;
     ArrayList<Customer> clientList;
 
     //overloaded constructor
@@ -13,9 +14,8 @@ public class Restaurant {
 	goal = level * 6;
 	clientList = new ArrayList<Customer>();
 	for (int i = 0; i < goal + 5; i++)
-	    clienList.add(new Customer());
+	    clientList.add(new Customer());
 	points = 0;
-	w = new Waiter(clientList);
     }
 
     //adds p points to the total points
@@ -32,12 +32,8 @@ public class Restaurant {
     //and while there are still customers to serve, a waiter serves them
     public static void main(String[] args) {
 	Restaurant pekingWong = new Restaurant(1);
+	Waiter w = new Waiter();
         while (pekingWong.hasCust()) {
-	    for (Customer c: pekingWong.clientList()) {
-		c.assignTable();
-		//pekingWong.w.serve(c,__);
-		//pekingWong.w.removeCustomer();
-	    }
 	}
     }
 
