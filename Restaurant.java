@@ -15,7 +15,7 @@ public class Restaurant {
 	for (int i = 0; i < goal + 5; i++)
 	    clienList.add(new Customer());
 	points = 0;
-	w = new Waiter(clientList());
+	w = new Waiter(clientList);
     }
 
     //adds p points to the total points
@@ -33,7 +33,11 @@ public class Restaurant {
     public static void main(String[] args) {
 	Restaurant pekingWong = new Restaurant(1);
         while (pekingWong.hasCust()) {
-	    
+	    for (Customer c: pekingWong.clientList()) {
+		c.assignTable();
+		//pekingWong.w.serve(c,__);
+		//pekingWong.w.removeCustomer();
+	    }
 	}
     }
 
