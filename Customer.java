@@ -15,7 +15,7 @@ public class Customer
 		while (size >= 0)
 		{
 			int index = (int) (Math.random() * dishes.length);
-			orders.add(new Order(dishes[index]);
+			orders.add(new Order(dishes[index], table#);
 			size --;
 		}
 	}
