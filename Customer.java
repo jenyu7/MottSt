@@ -39,6 +39,11 @@ public class Customer
 		return s;
 	}
 	
+	//Sets the table# of the customer
+	public void setTable(int num) {
+	    table# = num;
+	}
+	
 	//Accesses the table# the customer is seated at
 	public int getTable()
 	{
