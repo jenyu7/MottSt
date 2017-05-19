@@ -1,9 +1,11 @@
 //Class Customer (Vanilla)
+import java.util.ArrayList;
+
 public class Customer
 {
 	//Instance Variables
 	private String name;
-	private int table#;
+	private int tableNum;
 	String[] dishes = {"chow mein", "chow fun", "chicken n broccoli", "duck soup", "lo mein", "soup dumplings"};
 	private ArrayList<Order> orders;
 	
@@ -15,7 +17,7 @@ public class Customer
 		while (size >= 0)
 		{
 			int index = (int) (Math.random() * dishes.length);
-			orders.add(new Order(dishes[index], table#);
+			orders.add(new Order(dishes[index], tableNum));
 			size --;
 		}
 	}
@@ -41,13 +43,13 @@ public class Customer
 	
 	//Sets the table# of the customer
 	public void setTable(int num) {
-	    table# = num;
+	    tableNum = num;
 	}
 	
 	//Accesses the table# the customer is seated at
 	public int getTable()
 	{
-		return table#;
+		return tableNum;
 	}
 	
 	//two customers are equal if they are sitting at the same table
@@ -63,7 +65,7 @@ public class Customer
 	}
 	
 	//removes an order after a Customer has been served it
-	public void removeOrder(Order oldOrder)
+	public int removeOrder(Order oldOrder)
 	{
 		int index = 0;
 		for (Order o: orders)
