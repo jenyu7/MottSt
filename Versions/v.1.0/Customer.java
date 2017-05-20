@@ -42,14 +42,6 @@ public class Customer
 		return s;
 	}
 	
-	//two customers are equal if they are sitting at the same table
-	public boolean equals(Customer c)
-	{
-		return this.getTable() == c.getTable();
-	}
-	
-	//Mutators
-	
 	//Sets the table# of the customer
 	public void setTable(int num) {
 	    tableNum = num;
@@ -57,6 +49,18 @@ public class Customer
 		{
 			o.setTable(num);
 		}
+	}
+	
+	//Accesses the table# the customer is seated at
+	public int getTable()
+	{
+		return tableNum;
+	}
+	
+	//two customers are equal if they are sitting at the same table
+	public boolean equals(Customer c)
+	{
+		return this.getTable() == c.getTable();
 	}
 	
 	//adds an order for a Customer
@@ -81,17 +85,8 @@ public class Customer
 		return -1;
 	}
 	
-	//Accessors
-	
-	//returns orders
 	public ArrayList<Order> getOrders()
 	{
 		return orders;
-	}
-	
-	//returns table number
-	public int getTable()
-	{
-		return tableNum;
 	}
 }

@@ -19,7 +19,6 @@ public class Waiter
 		}
     }
 
-	//gets the next dish in the orders ArrayList, returns null if there are no more
 	public Order getNextOrder(Customer c)
 	{
 		if (c.orders.size() != 0)
@@ -28,8 +27,8 @@ public class Waiter
 		}
 		return null;
 	}
-	
-    //assigns a table to the next customer by removing one of the values from ArrayList tables
+    //assigns a table to the next customer by removing one of the values from
+    //ArrayList tables
     public boolean assignTable(Customer c) 
 	{
 		if (tables.size() != 0) 
@@ -66,9 +65,6 @@ public class Waiter
 		tables.add(c.getTable());
     }
 
-	//Accessor
-	
-	//returns customer list
 	public ArrayList<Customer> getCustomers()
 	{
 		return customers;
