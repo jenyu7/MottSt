@@ -18,5 +18,5 @@ Bryan:
 
 Jen: 
 - Fleshing out the ideal flow for the final game (vision still nebulous)
-- Create the SmallDish, MediumDish, LargeDish classes (should be v.1.3, etc)
+- Create the waiter commands and the Kitchen class
 - Maybe we need a Kitchen class? We'll see.
