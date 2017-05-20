@@ -12,6 +12,11 @@ public class Order
 		tableNum = num;
 	}
 	
+	public String toString()
+	{
+		return "Table Number " + tableNum + ": " + dishName;
+	}
+	
 	//Two orders are the same if they have the same name and the same table placed the order
 	public boolean equals(Order o)
 	{

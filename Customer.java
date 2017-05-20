@@ -7,13 +7,14 @@ public class Customer
 	private String name;
 	private int tableNum;
 	String[] dishes = {"chow mein", "chow fun", "chicken n broccoli", "duck soup", "lo mein", "soup dumplings"};
-	private ArrayList<Order> orders;
+	ArrayList<Order> orders;
 	
 	//Constructor: populates order with random dishes
 	public Customer()
 	{
 		name = "Unknown Customer";
 		int size = (int) (Math.random() * 6);
+		orders = new ArrayList<Order>();
 		while (size >= 0)
 		{
 			int index = (int) (Math.random() * dishes.length);
@@ -44,6 +45,10 @@ public class Customer
 	//Sets the table# of the customer
 	public void setTable(int num) {
 	    tableNum = num;
+		for (Order o : orders)
+		{
+			o.setTable(num);
+		}
 	}
 	
 	//Accesses the table# the customer is seated at
@@ -78,5 +83,10 @@ public class Customer
 			index ++;
 		}
 		return -1;
+	}
+	
+	public ArrayList<Order> getOrders()
+	{
+		return orders;
 	}
 }
