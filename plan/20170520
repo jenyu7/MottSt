@@ -1,0 +1,22 @@
+Brooke: 
+- Modify Restaurant class with Priority heap structure
+  - removeCustomer should remove the highest priority Customer
+  - waitList should be priority heap
+  - serveList should remain as ArrayList, current functionality already makes sure that earlier customers are served first
+  - maybe, if you want, you can add a reservations priority heap, but don't write methods for it yet. 
+- When you finish, make sure it compiles and works! Your version should be v.1.2, but don't make a folder for it yet. We need a runnable version from the root of the repo, I'll move it when I expand the classes (-Jen)
+
+Bryan: 
+- Do some research on the Timer class in Java, probably will be implementing in like v.1.4/5  
+  - link is: http://docs.oracle.com/javase/7/docs/api/java/util/Timer.html
+  - find useful methods for following functionalities
+    - time stamp for when a customer is first seated
+    - time stamp for when a customer first arrives at the restaurant
+    - something to keep track of elapsed time e.g. if a customer waits too long, she/he leaves the restaurant
+    - maybe some sort of delay e.g. main courses will take a longer time to be prepared than a beverage
+- Make a .txt file w your findings :) put in da root
+
+Jen: 
+- Fleshing out the ideal flow for the final game (vision still nebulous)
+- Create the SmallDish, MediumDish, LargeDish classes (should be v.1.3, etc)
+- Maybe we need a Kitchen class? We'll see.
