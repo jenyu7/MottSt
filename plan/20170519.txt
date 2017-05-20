@@ -1,10 +1,4 @@
-Plan for 2017-05-19
-
-Bryan: 
-- Google form submission
-
 Jen: 
-- Create Customer and Order classes
+Flowchart and UML
+Write main method for Restaurant
 
-Brooke: 
-- Create Waiter and Restaurant classes

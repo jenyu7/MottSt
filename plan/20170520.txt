@@ -1,4 +1,0 @@
-Jen: 
-Flowchart and UML
-Write main method for Restaurant
-
