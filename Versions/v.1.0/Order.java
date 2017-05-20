@@ -12,6 +12,7 @@ public class Order
 		tableNum = num;
 	}
 	
+	//returns table number and name of dish
 	public String toString()
 	{
 		return "Table Number " + tableNum + ": " + dishName;
@@ -23,6 +24,16 @@ public class Order
 		return this.dishName.equals(o.dishName) && (this.tableNum == o.tableNum);
 	}
 	
+	//Mutator
+	
+	//sets the table# of the order, if it needs to change
+	public void setTable(int t)
+	{
+		tableNum = t;
+	}
+	
+	//Accessors
+	
 	//returns the dishName
 	public String getDishName()
 	{
@@ -33,11 +44,5 @@ public class Order
 	public int getTable()
 	{
 		return tableNum;
-	}
-	
-	//sets the table# of the order, if it needs to change
-	public void setTable(int t)
-	{
-		tableNum = t;
 	}
 }
