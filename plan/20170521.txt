@@ -1,0 +1,26 @@
+State: 
+Current working version in root: v.1.1
+Versions to add features to (navigate to corresponding folder in Versions/): 
+Brooke: v.1.2 (Just add Kitchen class file)
+Jen: v.1.3, v.1.4
+
+Jen: 
+- Create commands for the waiter
+(I have these written on paper somewhere) 
+- Write SDish, MDish and LDish classes
+
+Bryan: 
+- Finish up research of Timer class. If you have time, maybe look into how the game could be coded in Processing. 
+- Research should include not code, but just like, functions in the Timer class that could be useful, what they do, how they can be helpful for a certain task in the Peking Wong Restaurant (e.g. this function can be used to determine how much time a customer has been waiting, etc)
+- For processing, look into images, and how we could load images to create animations
+
+Brooke: 
+- Start on the Kitchen class. 
+  - Deque used for the Pending Food List
+  - Queue for the Finished Food List
+  - ^^ Make these handle strings, later today I'll try to write the SmallDish, MedDish, LDish classes, and I'll put those in as the object types for the Deque and Queue
+  - A Kitchen should makeFood(), for now, this function can probably just removeFirst from the deque and then enqueue that item in the finished food list
+  - Most important is probably the toString() method, which should print out like a table thing, pending food in one column, finished food in the other column (w headers that specify which column is what) 
+  - Don't worry about incorporating Kitchen into any other class, just write a main method within the Kitchen class and try to test if the deque and queue work 
+     - I'm thinking later that Kitchen could be an instance variable type for the Restaurant class, like the Restaurant has-a Kitchen
+- Ik this is a lot, so if you're super busy today, just lmk and I'll try to do part of this^^
