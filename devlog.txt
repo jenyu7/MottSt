@@ -31,3 +31,10 @@ pd5
 <Bryan> :: Linked submodule 
 <Jen> :: Wrote the main method for the Restarant Driver file 
          Uploaded Flowchart for Vanilla Version and next version
+
+2017-05-20
+<Bryan> :: Started research on the Timer class
+<Brooke> :: Provided an ALHeap structure to the Restaurant class
+
+2017-05-21
+
