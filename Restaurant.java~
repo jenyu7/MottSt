@@ -7,8 +7,7 @@ public class Restaurant {
     private int goal;
     private int level;
     ArrayList<Customer> waitList;
-    ALHeap waitListVIP;
-    ArrayList<Customer> serveList;
+	ArrayList<Customer> serveList;
 
     //overloaded constructor
     public Restaurant(int levelNum) 
@@ -20,25 +19,8 @@ public class Restaurant {
 		{
 			waitList.add(new Customer());
 		}
-		waitListVIP = new ALHeap();
-		for (int i = 0; i < waitList.size(); i++) {
-		    waitListVIP.add(waitList.get(i).getVIPNum());
-		}
 		serveList = new ArrayList<Customer>();
 		points = 0;
-    }
-
-    //sorts waitList where highest priority customers are first
-    public void prioritize() {
-	ArrayList<Customer> tempWaitList = waitList;
-	for (int i = 0; i < waitList.size(); i++) {
-	    for (int n = 0; n < waitList.size(); n++) {
-		if (tempWaitList.get(i).getVIPNum() == waitListVIP.peekMin()) {
-		    waitList.set(n,tempWaitList.get(i));
-		    waitListVIP.removeMin();
-		}
-	    }
-	}
     }
 	
 	//removes the customer c from serveList
@@ -90,7 +72,6 @@ public class Restaurant {
 				//While there are still customers waiting
 				while(pekingWong.waitList.size() != 0)
 				{
-				    pekingWong.prioritize();
 					//Get the next customer
 					Customer c = pekingWong.getWaitList().get(0);
 					//assign customer to a table, if possible
