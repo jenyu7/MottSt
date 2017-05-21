@@ -1,6 +1,4 @@
-import cs1.Keyboard;
-import java.io.*;
-import java.util.*;
+
 public class PekingWong
 {
 	//creates a restaurant and a waiter, and serves if there are still people waiting/to be served
@@ -8,6 +6,11 @@ public class PekingWong
 	{
 		Restaurant pekingWong = new Restaurant(1);
 		Waiter ling = new Waiter();
+		Customer b = new Customer("Bob");
+		ling.assignTable(b);
+		System.out.println(b);
+		ling.chooseAction();
+		/*
 			while (pekingWong.hasCust()) 
 			{
 				//While there are still customers waiting
@@ -59,5 +62,6 @@ public class PekingWong
 				}
 			}
 			System.out.println("Points: " + pekingWong.getPoints());
+			*/
     }
 }

@@ -13,7 +13,7 @@ public class Customer
 	//Constructor: populates order with random dishes
 	public Customer()
 	{
-		name = "Unknown Customer";
+		name = "BJB";
 		VIPNum = (int) (Math.random() * 10);
 		int size = (int) (Math.random() * 6);
 		orders = new ArrayList<Order>();
@@ -53,7 +53,8 @@ public class Customer
 	//Mutators
 	
 	//Sets the table# of the customer
-	public void setTable(int num) {
+	public void setTable(int num) 
+	{
 	    tableNum = num;
 		for (Order o : orders)
 		{
@@ -83,6 +84,21 @@ public class Customer
 		return -1;
 	}
 	
+	//finds an order given the name
+	public Order findOrder(String name)
+	{
+		Order temp = null;
+		for (Order o : orders)
+		{
+			if(o.getDishName().equals(name))
+			{
+				temp = o;
+				break;
+			}
+		}
+		return temp;
+	}
+	
 	//Accessors
 	
 	//returns orders
@@ -98,7 +114,14 @@ public class Customer
 	}
 
     //returns VIP number
-    public int getVIPNum() {
-	return VIPNum;
+    public int getVIPNum() 
+	{
+		return VIPNum;
     }
+	
+	//returns name
+	public String getName()
+	{
+		return name;
+	}
 }
