@@ -41,6 +41,11 @@ public class Restaurant {
 	}
     }
 	
+	public void checkCommands()
+	{
+		
+	}
+	
 	//removes the customer c from serveList
     public void removeCustomer(Customer c) 
 	{

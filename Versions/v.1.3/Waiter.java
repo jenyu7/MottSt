@@ -155,9 +155,9 @@ public class Waiter
 			}
 			System.out.println(findCust(table));
 		}
-		else if (input.substring(0,6).equals("place "))
+		else if (input.substring(0,6).equals("place ") || input.equals("kitchen"))
 		{
-			
+			return;
 		}
 		else
 		{
