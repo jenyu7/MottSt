@@ -37,4 +37,6 @@ pd5
 <Brooke> :: Provided an ALHeap structure to the Restaurant class
 
 2017-05-21
+<Brooke> :: Created Kitchen class
+<Jen> :: Placed in commands for the waiter
 
