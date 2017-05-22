@@ -50,6 +50,13 @@ public class Customer
 		return this.getTable() == c.getTable();
 	}
 	
+	public int compareTo(Customer other)
+	{
+		if (this.VIPNum < other.VIPNum) {return -1;}
+		else if (this.VIPNum > other.VIPNum){return 1;}
+		return 0;
+	}
+	
 	//Mutators
 	
 	//Sets the table# of the customer

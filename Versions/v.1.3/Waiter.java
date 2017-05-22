@@ -1,17 +1,12 @@
-import cs1.Keyboard;
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
 
 public class Waiter 
 {
-
     //instance vars
     private ArrayList<Customer> customers;
     private ArrayList<Integer> tables;
-	private InputStreamReader isr;
-    private BufferedReader in;
 
-    //creates a waiter with a list of customers
+    //creates a waiter
     public Waiter() 
 	{
 		customers = new ArrayList<Customer>();
@@ -21,8 +16,6 @@ public class Waiter
 		{
 			tables.add(i);
 		}
-		isr = new InputStreamReader( System.in );
-		in = new BufferedReader( isr );
     }
 
 	//gets the next dish in the orders ArrayList, returns null if there are no more
@@ -95,21 +88,16 @@ public class Waiter
 		str += "tables : Displays the tables and the customers seated at each, with current mood levels.\n";
 		str += "pending table# : Displays the food still needed to be served for the Table table#.\n";
 		str += "kitchen : Shows the food in the kitchen that is ready, and the food that is still pending.\n";
-		str += "place table# : Places the customer at Table table#.\n";
+		str += "place : Places the next customer at an open table.\n";
 		String input = "";
 		System.out.println(str);
-		try
-		{
-			input = in.readLine();
-		}
-		catch (IOException e) {}
-		checkCommands(input);
 	}
 	
-	public void checkCommands(String input)
+	public boolean checkCommands(String input)
 	{
 		input = input.trim();
-		if (input.substring(0,6).equals("serve "))
+		boolean executed = true;
+		if (input.length() > 6 && input.substring(0,6).equals("serve "))
 		{
 			String s = input.substring(5).trim();
 			int table;
@@ -120,14 +108,14 @@ public class Waiter
 			catch (Exception e)
 			{
 				System.out.println("You don't seem to have entered a valid table number.");
-				return;
+				return false;
 			}
-			if (s.substring(2).length() == 0){System.out.println("You don't seem to have entered in an order.");return;}
+			if (s.substring(2).length() == 0){System.out.println("You don't seem to have entered in an order.");return false;}
 			String order = s.substring(2);
 			Customer c = findCust(table);
-			if (c == null){System.out.println("Sorry, that table is unoccupied."); return;}
+			if (c == null){System.out.println("Sorry, that table is unoccupied."); return false;}
 			Order o = c.findOrder(order);
-			if (o == null){System.out.println("Sorry, that table hasn't made that order."); return;}
+			if (o == null){System.out.println("Sorry, that table hasn't made that order."); return false;}
 			serve(c, o);
 		}
 		else if (input.equals("tables"))
@@ -137,10 +125,10 @@ public class Waiter
 			{
 				str += "Table " + c.getTable() + " " + c.getName();
 			}
-			if (str.length() == 0){System.out.println("There are no customers being served currently."); return;}
+			if (str.length() == 0){System.out.println("There are no customers being served currently."); return false;}
 			System.out.println(str);
 		}
-		else if (input.substring(0,8).equals("pending "))
+		else if (input.length() > 8 && input.substring(0,8).equals("pending "))
 		{
 			String s = input.substring(7).trim();
 			int table;
@@ -151,18 +139,20 @@ public class Waiter
 			catch(Exception e)
 			{
 				System.out.println("You don't seem to have entered a valid table number.");
-				return;
+				return false;
 			}
 			System.out.println(findCust(table));
 		}
-		else if (input.substring(0,6).equals("place ") || input.equals("kitchen"))
+		else if (input.equals("place") || input.equals("kitchen"))
 		{
-			return;
+			return false;
 		}
 		else
 		{
 			System.out.println("Sorry, that command is not recognized. Type in 'commands' for a full list of commands.");
+			executed = false;
 		}
+		return executed;
 	}
 
 	//Accessor
