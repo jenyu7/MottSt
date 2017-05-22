@@ -1,0 +1,6 @@
+State: Current working version in v.1.3, but not yet in root
+
+Jen: 
+- Finish place and kitchen command
+- Begin work on driver file for waiter to make requests for food in kitchen and to obtain food from kitchen 
+
