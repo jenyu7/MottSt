@@ -15,7 +15,7 @@ public class Order
 	//returns table number and name of dish
 	public String toString()
 	{
-		return "Table Number " + tableNum + ": " + dishName;
+		return "Table Number " + tableNum + " was served " + dishName + " !";
 	}
 	
 	//Two orders are the same if they have the same name and the same table placed the order
