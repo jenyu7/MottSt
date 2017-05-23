@@ -50,6 +50,7 @@ public class Customer
 		return this.getTable() == c.getTable();
 	}
 	
+	//compares the VIPNums of two customers
 	public int compareTo(Customer other)
 	{
 		if (this.VIPNum < other.VIPNum) {return -1;}

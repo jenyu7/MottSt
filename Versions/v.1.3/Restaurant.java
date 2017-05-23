@@ -7,8 +7,7 @@ public class Restaurant {
     private int goal;
     private int level;
 	private Kitchen kitchen;
-    ArrayList<Customer> waitList;
-    ALHeap waitListVIP;
+    ALHeap waitList;
     ArrayList<Customer> serveList;
 
     //overloaded constructor
@@ -16,35 +15,13 @@ public class Restaurant {
 	{
 		level = levelNum;
 		goal = level * 6;
-		waitList = new ArrayList<Customer>();
+		waitList = new ALHeap();
 		for (int i = 0; i < goal + 5; i++)
 		{
 			waitList.add(new Customer());
 		}
-		waitListVIP = new ALHeap();
-		for (int i = 0; i < waitList.size(); i++) 
-		{
-		    waitListVIP.add(waitList.get(i).getVIPNum());
-		}
 		serveList = new ArrayList<Customer>();
 		points = 0;
-    }
-
-    //sorts waitList where highest priority customers are first
-    public void prioritize() 
-	{
-		ArrayList<Customer> tempWaitList = waitList;
-		for (int i = 0; i < waitList.size(); i++) 
-		{
-			for (int n = 0; n < waitList.size(); n++) 
-			{
-				if (tempWaitList.get(i).getVIPNum() == waitListVIP.peekMin()) 
-				{
-					waitList.set(n,tempWaitList.get(i));
-					waitListVIP.removeMin();
-				}
-			}
-		}
     }
 	
 	public Customer checkCommands(String input)
@@ -63,19 +40,14 @@ public class Restaurant {
 	
 	public Customer getNextCustomer()
 	{
-		if (waitList.size() != 0)
-		{
-			prioritize();
-			Customer c = waitList.get(0);
-			return c;
-		}
-		return null;
+		Customer c = waitList.removeMin();
+		return c;
 	}
 	
 	//returns true if there are still customers in clientList, false otherwise
     public boolean hasCust() 
 	{
-		return serveList.size() != 0 || waitList.size() != 0;
+		return serveList.size() != 0 || !waitList.isEmpty();
     }
 	
 	//removes the customer c from serveList
@@ -99,7 +71,7 @@ public class Restaurant {
 	//ACCESSORS
 	
 	//return wait list
-	public ArrayList<Customer> getWaitList()
+	public ALHeap getWaitList()
 	{
 		return waitList;
 	}
