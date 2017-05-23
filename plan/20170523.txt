@@ -1,0 +1,18 @@
+Bryan: 
+- Test out current working version in root. 
+- Add comments to Deque and Queue classes
+- Research on Timer class and Processing implementation of game
+
+Brooke, Jen (Individual tasks allocated tomorrow in class):
+- Begin writing SDish, MDish, LDish classes
+- Instance variables: dishName, dishTime (necessitates Timer class knowledge), ArrayList of Strings with dishNames
+- On Instantiation, each dish should have a randomized name and a constant dishTime (depending on whether it is a SDish, MDish or LDIsh)
+- Should these extend the Order class? Does the relationship SDish is-a Order make sense? 
+- Incorporate Timer class functions in the Kitchen class. 
+    - dishes with lower dishTime should be placed at the front of the pending food deque. 
+    - Kitchen should only produce food after an elapsed time has passed. 
+    - MAYBE the kitchen should send a notification everytime food is produced. 
+    - In the Driver, the Restaurant has-a Kitchen, which the waiter should be able to access to pick up food items and drop off food requests. 
+
+
+- Instead of spawning customers, some of them can be randomly added throughout the course of the level, but only to a certain limit. 

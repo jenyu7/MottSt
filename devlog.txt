@@ -40,3 +40,8 @@ pd5
 <Brooke> :: Created Kitchen class
 <Jen> :: Placed in commands for the waiter
 
+2017-05-22
+<Brooke, Bryan, Jen> :: Facetime in class, discussed how to write driver
+       			Decided that a Restaurant has-a Kitchen
+<Jen> :: Finished up commands, modified driver file to solicit user input
+         Added Deque and Queue classes for underlying data structures in other classes

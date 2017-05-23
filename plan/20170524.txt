@@ -1,0 +1,12 @@
+Brooke, Jen (to be divied up in class): 
+- Incorporate the Timer class functions in the Customer class
+     - Customers will only stay for a certain time span before they become angry. 
+     - Maybe this timer restarts every time they are served? Waiting too long for a dish will make a customer angry. 
+     - Vice versa, a customer cannot spend too much time waiting for a table, before he/she leaves
+     - Elapsed time should correspond to mood of customer, represented by an int
+     - The mood of customer should correspond to the points gained when the customer leaves. 
+- Make sure that Levels can be increased without issue. 
+
+All: 
+- Research ways to do this game in processing. 
+- sad life, deadline is JUNE 6TH, less than 2 weeks until completion...!
