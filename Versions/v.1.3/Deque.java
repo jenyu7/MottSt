@@ -1,11 +1,11 @@
 import java.util.LinkedList;
-public class Queue<T>
+public class Deque<T>
 {
-	LinkedList<T> a; 
+	private LinkedList<T> a;
 	
-	public Queue()
+	public Deque()
 	{
-		a = new LinkedList<T>():
+		a = new LinkedList<T>();
 	}
 	
 	public boolean isEmpty()
@@ -13,15 +13,27 @@ public class Queue<T>
 		return a.size() == 0;
 	}
 	
-	public void enqueue(T val)
+	public void addFirst(T val)
+	{
+		a.addFirst(val);
+	}
+	
+	public T removeFirst()
+	{
+		if (! isEmpty())
+			return a.removeFirst();
+		return null;
+	}
+	
+	public void addLast(T val)
 	{
 		a.addLast(val);
 	}
 	
-	public T dequeue()
+	public T removeLast()
 	{
 		if (!isEmpty())
-			return a.removeFirst();
+			return a.removeLast();
 		return null;
 	}
 	

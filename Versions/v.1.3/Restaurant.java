@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Restaurant {
 
     //instance vars

@@ -1,4 +1,4 @@
-//Class Customer (Vanilla)
+//Class Customer
 import java.util.ArrayList;
 
 public class Customer
