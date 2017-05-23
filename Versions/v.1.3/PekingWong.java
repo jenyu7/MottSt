@@ -10,27 +10,43 @@ public class PekingWong
 		BufferedReader in = new BufferedReader( isr );
 		Waiter ling = new Waiter();
 		Restaurant pekingWong = new Restaurant(1);
-		
-		//Waiter determines what she/he wants to do. 
-		boolean executed = false;
-		while (!executed)
+		System.out.println("Type in 'commands' for a full list of commands.");
+		while(pekingWong.hasCust())
 		{
-			ling.chooseAction();
-			String input = "";
-			try
+			//Waiter determines what she/he wants to do. 
+			boolean executed = false;
+			while (!executed)
 			{
-				input = in.readLine();
+				ling.chooseAction();
+				String input = "";
+				try
+				{
+					input = in.readLine();
+				}
+				catch (IOException e) {}
+				executed = ling.checkCommands(input);
+				Customer next = pekingWong.checkCommands(input);
+				if ( next != null)
+				{
+					if(ling.assignTable(next))
+					{
+						pekingWong.addCustServe(next);
+						executed = true;
+						break;
+					}
+					System.out.println("There are no more tables!");
+				}
 			}
-			catch (IOException e) {}
-			executed = ling.checkCommands(input);
-			Customer next = pekingWong.checkCommands(input);
-			if ( next != null)
+			for(Customer c : pekingWong.getServeList())
 			{
-				ling.assignTable(next);
-				executed = true;
+				if (c.getOrders().size() == 0)
+				{
+					pekingWong.getServeList().remove(c);
+					ling.removeCustomer(c);
+					System.out.println("Customer "+ c.getName()+ " has finished eating and left the restaurant!");
+					break;
+				}
 			}
 		}
-		
-		
     }
 }

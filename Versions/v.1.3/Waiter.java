@@ -12,7 +12,7 @@ public class Waiter
 		customers = new ArrayList<Customer>();
 		tables = new ArrayList<Integer>();
 		//creates ten tables
-		for (int i = 1; i <= 10; i++)
+		for (int i = 1; i <= 3; i++)
 		{
 			tables.add(i);
 		}
@@ -35,6 +35,7 @@ public class Waiter
 		{
 			c.setTable(tables.remove(0));
 			addCustomer(c);
+			System.out.println("Customer " + c.getName() + " was seated at Table " + c.getTable()+ ".");
 			return true;
 		}
 		return false;
@@ -84,11 +85,6 @@ public class Waiter
 	public void chooseAction()
 	{
 		String str = "\nWhat do you want to do? \n\n";
-		str += "serve [table#] [order name] : Serves the customers at table# the order specified.\n";
-		str += "tables : Displays the tables and the customers seated at each, with current mood levels.\n";
-		str += "pending table# : Displays the food still needed to be served for the Table table#.\n";
-		str += "kitchen : Shows the food in the kitchen that is ready, and the food that is still pending.\n";
-		str += "place : Places the next customer at an open table.\n";
 		String input = "";
 		System.out.println(str);
 	}
@@ -97,7 +93,18 @@ public class Waiter
 	{
 		input = input.trim();
 		boolean executed = true;
-		if (input.length() > 6 && input.substring(0,6).equals("serve "))
+		if (input.equals("commands"))
+		{
+			String str = "\nGame commands:\n";
+			str += "commands : displays the commands of the game.\n";
+			str += "serve [table#] [order name] : Serves the customers at table# the order specified.\n";
+			str += "tables : Displays the tables and the customers seated at each, with current mood levels.\n";
+			str += "pending table# : Displays the food still needed to be served for the Table table#.\n";
+			str += "kitchen : Shows the food in the kitchen that is ready, and the food that is still pending.\n";
+			str += "place : Places the next customer at an open table.\n";
+			System.out.println(str);
+		}
+		else if (input.length() > 6 && input.substring(0,6).equals("serve "))
 		{
 			String s = input.substring(5).trim();
 			int table;
@@ -123,7 +130,7 @@ public class Waiter
 			String str = "";
 			for (Customer c : customers)
 			{
-				str += "Table " + c.getTable() + " " + c.getName();
+				str += "Table " + c.getTable() + " " + c.getName() + "\n";
 			}
 			if (str.length() == 0){System.out.println("There are no customers being served currently."); return false;}
 			System.out.println(str);

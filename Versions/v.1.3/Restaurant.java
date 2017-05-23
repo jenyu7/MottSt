@@ -61,6 +61,11 @@ public class Restaurant {
 		}
     }
 	
+	public void addCustServe(Customer c)
+	{
+		serveList.add(c);
+	}
+	
 	//adds p points to the total points
     public void addPoints(int p) 
 	{

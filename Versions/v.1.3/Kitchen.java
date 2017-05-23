@@ -3,14 +3,14 @@ import java.util.*;
 public class Kitchen {
 
     //instance vars
-    private ArrayDeque<String> pendingFoodList; //this is a deque
-    private ALQueue<String> finishedFoodList; //this is a queue
+    private Deque<String> pendingFoodList; //this is a deque
+    private Queue<String> finishedFoodList; //this is a queue
 
     //default constructor
     public Kitchen() 
 	{
-		pendingFoodList = new ArrayDeque<String>();
-		finishedFoodList = new ALQueue<String>();
+		pendingFoodList = new Deque<String>();
+		finishedFoodList = new Queue<String>();
     }
 
     //removes the first item in pendingFoodList

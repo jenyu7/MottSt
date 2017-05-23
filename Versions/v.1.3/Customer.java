@@ -40,7 +40,7 @@ public class Customer
 		{
 			s += o.getDishName() + ", ";
 		}
-		s = s.substring(0, s.length()-1);
+		s = s.substring(0, s.length()-2);
 		return s;
 	}
 	
