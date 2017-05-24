@@ -7,7 +7,6 @@ public class Customer
     private String name;
     private int tableNum;
     private int VIPNum;
-    String[] dishes = {"chow mein", "chow fun", "chicken n broccoli", "duck soup", "lo mein", "soup dumplings"};
     ArrayList<Order> orders;
 	
 	//Constructor: populates order with random dishes
@@ -17,12 +16,6 @@ public class Customer
 		VIPNum = (int) (Math.random() * 10);
 		int size = (int) (Math.random() * 6);
 		orders = new ArrayList<Order>();
-		while (size >= 0)
-		{
-			int index = (int) (Math.random() * dishes.length);
-			orders.add(new Order(dishes[index], tableNum));
-			size --;
-		}
 	}
 	
 	//Overloaded Constructor: sets a name for the Customer
@@ -64,10 +57,9 @@ public class Customer
 	public void setTable(int num) 
 	{
 	    tableNum = num;
-		for (Order o : orders)
-		{
-			o.setTable(num);
-		}
+	    orders.add(new SDish(tableNum));
+	    orders.add(new MDish(tableNum));
+	    orders.add(new LDish(tableNum));
 	}
 	
 	//adds an order for a Customer

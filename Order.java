@@ -2,16 +2,11 @@
 public class Order
 {
 	//Instance Variables
-	private String dishName;
-	private int tableNum;
-	
-	//Default Constructor
-	Order(String s, int num)
-	{
-		dishName = s;
-		tableNum = num;
-	}
-	
+	protected String dishName;
+	protected int tableNum;
+    //protected Timer dishTime; add in when we know more about Timer class
+    protected String[] dishes;
+        
 	//returns table number and name of dish
 	public String toString()
 	{
