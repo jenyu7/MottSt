@@ -45,3 +45,8 @@ pd5
        			Decided that a Restaurant has-a Kitchen
 <Jen> :: Finished up commands, modified driver file to solicit user input
          Added Deque and Queue classes for underlying data structures in other classes
+         
+2017-05-23
+<Brooke, Jen> :: Facetime in class, discussed next steps
+<Brooke> :: Wrote the SDish, MDish, LDish classes
+<Jen> :: Wrote the flowchart and UML diagrams
