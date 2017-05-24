@@ -8,9 +8,19 @@ public class Kitchen {
 
     //default constructor
     public Kitchen() 
-	{
+    {
 		pendingFoodList = new Deque<String>();
 		finishedFoodList = new Queue<String>();
+    }
+
+    //returns the pendingFoodList
+    public Deque getPending() {
+	return pendingFoodList;
+    }
+
+    //returns the finishedFoodList
+    public Queue getFinished() {
+	return finishedFoodList;
     }
 
     //removes the first item in pendingFoodList

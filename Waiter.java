@@ -5,6 +5,7 @@ public class Waiter
     //instance vars
     private ArrayList<Customer> customers;
     private ArrayList<Integer> tables;
+    private Kitchen kitch;
 
     //creates a waiter
     public Waiter() 
@@ -16,6 +17,7 @@ public class Waiter
 		{
 			tables.add(i);
 		}
+		kitch = new Kitchen();
     }
 
 	//gets the next dish in the orders ArrayList, returns null if there are no more
@@ -97,12 +99,29 @@ public class Waiter
 		{
 			String str = "\nGame commands:\n";
 			str += "commands : displays the commands of the game.\n";
+			str += "add [table#] [order name]: Adds the customer's order to the waiter's pending food list. \n";
 			str += "serve [table#] [order name] : Serves the customers at table# the order specified.\n";
 			str += "tables : Displays the tables and the customers seated at each, with current mood levels.\n";
 			str += "pending table# : Displays the food still needed to be served for the Table table#.\n";
 			str += "kitchen : Shows the food in the kitchen that is ready, and the food that is still pending.\n";
 			str += "place : Places the next customer at an open table.\n";
 			System.out.println(str);
+		}
+		else if (input.length() > 4 && input.substring(0,4).equals("add ")) {
+		    String s = input.substring(3).trim();
+		    int table;
+		    try {
+			table = Integer.parseInt(s.substring(0,1));
+		    }
+		    catch(Exception e) { System.out.println("You don't seem to have entered a valid table number."); return false; }
+		    if (s.substring(2).length() == 0) {System.out.println("You don't seem to have entered in an order."); return false;}
+		    String order = s.substring(2);
+		    Customer c = findCust(table);
+		    if (c == null) {System.out.println("Sorry, that table is unoccupied."); return false;}
+		    Order o = c.findOrder(order);
+		    if (o == null) {System.out.println("Sorry, that table hasn't made that order."); return false;}
+		    //adds to finished list for now, later will add to pending and "chef" will add to finished
+		    kitch.enqueueFinished(o.toString());
 		}
 		else if (input.length() > 6 && input.substring(0,6).equals("serve "))
 		{
@@ -123,7 +142,14 @@ public class Waiter
 			if (c == null){System.out.println("Sorry, that table is unoccupied."); return false;}
 			Order o = c.findOrder(order);
 			if (o == null){System.out.println("Sorry, that table hasn't made that order."); return false;}
-			serve(c, o);
+		        if (!kitch.getFinished().isEmpty()) {
+			    if (kitch.getFinished().peekFirst().equals(o)) {
+				kitch.dequeueFinished();
+				serve(c, o);
+			    }
+			    else { System.out.println("Sorry, that is not the next order to be served."); return false; }
+			}
+			else { System.out.println("There is nothing in the kitchen."); return false; }
 		}
 		else if (input.equals("tables"))
 		{
@@ -150,9 +176,12 @@ public class Waiter
 			}
 			System.out.println(findCust(table));
 		}
-		else if (input.equals("place") || input.equals("kitchen"))
+		else if (input.equals("place"))
 		{
 			return false;
+		}
+		else if (input.equals("kitchen")) {
+		    System.out.println(kitch.toString());
 		}
 		else
 		{
