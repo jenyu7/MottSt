@@ -3,23 +3,23 @@ import java.util.*;
 public class Kitchen {
 
     //instance vars
-    private Deque<String> pendingFoodList; //this is a deque
-    private Queue<String> finishedFoodList; //this is a queue
+    private ArrayDeque<String> pendingFoodList; //this is a deque
+    private ALQueue<String> finishedFoodList; //this is a queue
 
     //default constructor
     public Kitchen() 
     {
-		pendingFoodList = new Deque<String>();
-		finishedFoodList = new Queue<String>();
+		pendingFoodList = new ArrayDeque<String>();
+		finishedFoodList = new ALQueue<String>();
     }
 
     //returns the pendingFoodList
-    public Deque getPending() {
+    public ArrayDeque getPending() {
 	return pendingFoodList;
     }
 
     //returns the finishedFoodList
-    public Queue getFinished() {
+    public ALQueue getFinished() {
 	return finishedFoodList;
     }
 

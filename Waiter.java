@@ -121,7 +121,7 @@ public class Waiter
 		    Order o = c.findOrder(order);
 		    if (o == null) {System.out.println("Sorry, that table hasn't made that order."); return false;}
 		    //adds to finished list for now, later will add to pending and "chef" will add to finished
-		    kitch.enqueueFinished(o.toString());
+		    kitch.enqueueFinished(o.getDishName());
 		}
 		else if (input.length() > 6 && input.substring(0,6).equals("serve "))
 		{
@@ -142,8 +142,8 @@ public class Waiter
 			if (c == null){System.out.println("Sorry, that table is unoccupied."); return false;}
 			Order o = c.findOrder(order);
 			if (o == null){System.out.println("Sorry, that table hasn't made that order."); return false;}
-		        if (!kitch.getFinished().isEmpty()) {
-			    if (kitch.getFinished().peekFirst().equals(o)) {
+		        if (!(kitch.getFinished().isEmpty())) {
+			    if (kitch.getFinished().peekFront().equals(o.getDishName())) {
 				kitch.dequeueFinished();
 				serve(c, o);
 			    }
