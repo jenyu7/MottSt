@@ -50,3 +50,7 @@ pd5
 <Brooke, Jen> :: Facetime in class, discussed next steps
 <Brooke> :: Wrote the SDish, MDish, LDish classes
 <Jen> :: Wrote the flowchart and UML diagrams
+
+2017-05-24
+<Brooke> :: Added to commands such that orders will be added to the kitchen and served from the kitchen
+<Bryan, Jen> :: Started work on the processing version
