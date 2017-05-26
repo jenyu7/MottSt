@@ -70,4 +70,9 @@ class Table
   {
     return orders;
   }
+  
+  public Customer getCust()
+  {
+    return c;
+  }
 }
