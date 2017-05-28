@@ -5,24 +5,24 @@ public class Restaurant {
     private int points;
     private int goal;
     private int level;
-  private Kitchen kitchen;
+    private Kitchen kitchen;
     ALHeap waitList;
     ArrayList<Customer> serveList;
 
     //overloaded constructor
     public Restaurant(int levelNum) 
-  {
-    level = levelNum;
-    goal = level * 6;
-    waitList = new ALHeap();
-    for (int i = 0; i < goal + 5; i++)
     {
-      waitList.add(new Customer());
-    }
-    serveList = new ArrayList<Customer>();
-    points = 0;
-    }
-  
+      level = levelNum;
+      goal = level * 6;
+      waitList = new ALHeap();
+      for (int i = 0; i < goal + 5; i++)
+      {
+        waitList.add(new Customer());
+      }
+      serveList = new ArrayList<Customer>();
+      points = 0;
+     }
+
   public Customer getNextCustomer()
   {
     Customer c = waitList.removeMin();
@@ -30,10 +30,10 @@ public class Restaurant {
   }
   
   //returns true if there are still customers in clientList, false otherwise
-    public boolean hasCust() 
+  public boolean hasCust() 
   {
     return serveList.size() != 0 || !waitList.isEmpty();
-    }
+  }
   
   //removes the customer c from serveList
     public void removeCustomer(Customer c) 
@@ -45,7 +45,7 @@ public class Restaurant {
         serveList.remove(i);
       }
     }
-    }
+  }
   
   public void addCustServe(Customer c)
   {

@@ -4,13 +4,26 @@ public class Order
   //Instance Variables
   protected String dishName;
   protected int tableNum;
-    //protected Timer dishTime; add in when we know more about Timer class
-    protected String[] dishes;
+  int x;
+  int y;
+  int state;
+  
+  //Display
+  void display()
+  {
+    fill(36);
+    ellipse(x,y,5,5);
+  }
         
+  //Mechanics
+  Order(int table)
+  {
+    tableNum = table;
+  }
   //returns table number and name of dish
   public String toString()
   {
-    return "Table Number " + tableNum + " was served " + dishName + " !";
+    return dishName;
   }
   
   //Two orders are the same if they have the same name and the same table placed the order
