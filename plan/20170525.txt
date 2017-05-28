@@ -1,0 +1,5 @@
+Brooke, Jen: 
+- Begin implementing in Processing
+- Timer class is not needed, only need nanoTime()
+- Allow the Waiter to retrieve food from the Kitchen 
+

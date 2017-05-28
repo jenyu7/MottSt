@@ -1,0 +1,20 @@
+Vision for PekingWong: 
+- A waiter, represented by a circle in Vanilla version 
+- The waiter is not moved by arrow keys, but rather follows a path from table to table. 
+- Diner Dash Endless is going to be implemented instead of a bunch of levels, with a set number of tables (8), but start off with two tables as functional
+  - The layout in the Vanilla version will show 8 tables. However, the mechanics only allow the Waiter to work with two tables in the outset. 8 tables are shown for Brooke's part (shown below), where she creates the path to all 8 tables. 
+- Customers can be dragged to their tables
+- Clicking on tables does the action required by the table: 
+  - If the customers are ready to order, you take their order
+  - If you have the customer's food, you serve it to them 
+  - If the customer is ready to leave, give them their check. 
+- The mood of the customer determines how much money you receive at the end
+
+Changes: 
+- Each Table only places one order. (Therefore, we don't need the SDish, MDish, LDish classes)
+- Make Restaurant a sort of driver file, in that it incorporates the graphics part with the mechanics of the game. In PekingWong, you should be able to create a new Restaurant and then do something like Restaurant.run()
+
+Assignments: 
+Bryan: Continue working on graphics, follow the example of the Diner Dash video sent in the group chat
+Jen: Write Display functions for the necessary classes, and make the click-and-drag customer capability as well as the ability of tables to be clicked. 
+Brooke: Wait for Jen before editing, but modify v.1.8, and create a series of paths for the Waiter to navigate table to table non-awkwardly. 

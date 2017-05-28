@@ -1,0 +1,3 @@
+Jen: 
+- Mess around with processing and graphic depictions of animation 
+- Try out follower/leader thing coded in class
