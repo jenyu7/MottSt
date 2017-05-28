@@ -3,6 +3,7 @@ import controlP5.*;
 Follower f;
 Leader l;
 ControlP5 cp5;
+Draggable d;
 
 void setup()
 {
@@ -18,6 +19,7 @@ void setup()
      .updateSize()
      .setBroadcast(true);
      ;
+  d = new Draggable();
 }
 
 void draw()
@@ -25,9 +27,33 @@ void draw()
   background(50);
   f.display();
   l.display();
+  d.display();
 }
 
 void table()
 {
   f.state = 1;
+}
+
+void mousePressed() {
+  if(d.overBox) { 
+    d.locked = true; 
+    fill(255, 255, 255);
+  } else {
+    d.locked = false;
+  }
+  d.xOffset = mouseX-d.bx; 
+  d.yOffset = mouseY-d.by; 
+
+}
+
+void mouseDragged() {
+  if(d.locked) {
+    d.bx = mouseX-d.xOffset; 
+    d.by = mouseY-d.yOffset; 
+  }
+}
+
+void mouseReleased() {
+  d.locked = false;
 }
