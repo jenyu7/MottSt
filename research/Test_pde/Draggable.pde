@@ -20,6 +20,7 @@ class Draggable{
   
   void display() 
   { 
+    pushStyle();
     // Test if the cursor is over the box 
     if (mouseX > bx-boxSize && mouseX < bx+boxSize && 
         mouseY > by-boxSize && mouseY < by+boxSize) {
@@ -35,6 +36,7 @@ class Draggable{
     }
     // Draw the box
     rect(bx, by, boxSize, boxSize);
+    popStyle();
   }
   
 

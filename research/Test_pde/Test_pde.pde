@@ -36,10 +36,13 @@ void table()
 }
 
 void mousePressed() {
-  if(d.overBox) { 
+  if(d.overBox) 
+  { 
     d.locked = true; 
     fill(255, 255, 255);
-  } else {
+  } 
+  else 
+  {
     d.locked = false;
   }
   d.xOffset = mouseX-d.bx; 
@@ -47,13 +50,16 @@ void mousePressed() {
 
 }
 
-void mouseDragged() {
-  if(d.locked) {
+void mouseDragged() 
+{
+  if(d.locked) 
+  {
     d.bx = mouseX-d.xOffset; 
     d.by = mouseY-d.yOffset; 
   }
 }
 
-void mouseReleased() {
+void mouseReleased() 
+{
   d.locked = false;
 }
