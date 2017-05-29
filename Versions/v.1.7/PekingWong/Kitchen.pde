@@ -5,6 +5,14 @@ public class Kitchen {
     //instance vars
     private ArrayDeque<String> pendingFoodList; //this is a deque
     private ALQueue<String> finishedFoodList; //this is a queue
+    
+    //Display
+    
+    void display()
+    {
+    }
+    
+    //Mechanics
 
     //default constructor
     public Kitchen() 

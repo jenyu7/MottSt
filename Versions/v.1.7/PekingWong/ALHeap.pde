@@ -5,7 +5,7 @@
 
 import java.util.ArrayList;
 
-public class ALHeap 
+public class ALHeap
 {
     //instance vars
     private ArrayList<Customer> _heap; //underlying container is array of Customers
@@ -17,8 +17,6 @@ public class ALHeap
     { 
     _heap = new ArrayList<Customer>();
     }
-
-
 
     /*****************************************************
      * toString()  ---  overrides inherited method

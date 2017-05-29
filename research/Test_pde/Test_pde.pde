@@ -19,7 +19,7 @@ void setup()
      .updateSize()
      .setBroadcast(true);
      ;
-  d = new Draggable();
+  d = new Rect();
 }
 
 void draw()
@@ -35,11 +35,11 @@ void table()
   f.state = 1;
 }
 
-void mousePressed() {
+void mousePressed() 
+{
   if(d.overBox) 
   { 
     d.locked = true; 
-    fill(255, 255, 255);
   } 
   else 
   {

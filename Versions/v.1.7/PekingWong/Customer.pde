@@ -1,7 +1,7 @@
 //Class Customer
 import java.util.ArrayList;
 
-public class Customer
+public class Customer extends Draggable
 {
   //Instance Variables
   private String name;
@@ -14,17 +14,20 @@ public class Customer
     
   void display()
   {
+    ellipse(x, y, 20, 20);
     if (state == 0)
     {
-      ellipse(x, y, 20, 20);
-      x ++;
-      y ++;
+    }
+    if (state == 1)
+    {
+      super.display();
     }
   }
   
   //Constructor: populates order with random dishes
   public Customer()
   {
+    super(20);
     name = "BJB";
     VIPNum = (int) (Math.random() * 10);
     state = 0;

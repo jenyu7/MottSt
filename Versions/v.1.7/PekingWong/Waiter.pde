@@ -4,9 +4,14 @@ public class Waiter
 {
   //instance vars
   private ArrayList<Customer> customers;
+  private Customer currCust;
   private ArrayList<Table> tables;
   private Kitchen kitch;
 
+  void display()
+  {
+  }
+  
   //creates a waiter
   public Waiter() 
   {
@@ -18,16 +23,6 @@ public class Waiter
       tables.add(new Table(i));
     }
     kitch = new Kitchen();
-  }
-
-  //gets the next dish in the orders ArrayList, returns null if there are no more
-  public Order getNextOrder(Table t)
-  {
-    if (t.orders.size() != 0)
-    {
-      return t.orders.get(0);
-    }
-    return null;
   }
 
   //assigns a table to the next customer by removing one of the values from ArrayList tables
@@ -51,13 +46,6 @@ public class Waiter
     customers.add(c);
   }
 
-  //serves the order o to customer c
-  public void serve(Table t, Order o) 
-  {
-    System.out.println(o);
-    t.removeOrder(o);
-  }
-
   //removes the customer c from customers, adds to tables
   public void removeCustomer(Customer c) 
   {
@@ -70,6 +58,7 @@ public class Waiter
     }
     tables.add(c.getTable());
   }
+  
   //Accessor
 
   //returns customer list
