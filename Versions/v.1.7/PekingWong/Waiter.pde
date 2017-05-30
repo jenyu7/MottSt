@@ -7,9 +7,22 @@ public class Waiter
   private Customer currCust;
   private ArrayList<Table> tables;
   private Kitchen kitch;
+  float x;
+  float y;
 
   void display()
   {
+    fill(255);
+    rect(100, 350, 50, 50,7);
+    rect(100, 450, 50, 50, 7);
+    rect(500, 250, 50, 50, 7);
+    rect(500, 350, 50, 50, 7);
+    rect(500, 450, 50, 50, 7);
+    rect(300, 250, 50, 50, 7);
+    rect(300, 350, 50, 50, 7);
+    rect(300, 450, 50, 50, 7);
+    fill(0,120,100);
+    ellipse(x,y,10,10);
   }
   
   //creates a waiter
@@ -23,6 +36,9 @@ public class Waiter
       tables.add(new Table(i));
     }
     kitch = new Kitchen();
+    
+    x = 15;
+    y = 15;
   }
 
   //assigns a table to the next customer by removing one of the values from ArrayList tables
