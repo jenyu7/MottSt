@@ -3,6 +3,8 @@ class Table
   Customer c; 
   Order order;
   int tableNum;
+  int x;
+  int y;
   
   //New table with no customer, but a number assignment
   Table(int num)
