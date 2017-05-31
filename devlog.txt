@@ -54,3 +54,22 @@ pd5
 2017-05-24
 <Brooke> :: Added to commands such that orders will be added to the kitchen and served from the kitchen
 <Bryan, Jen> :: Started work on the processing version
+
+2017-05-25
+<Brooke, Jen> :: Continued on Processing implementation of the game 
+                 Decided on creating a Table class
+
+2017-05-26
+<Brooke, Jen> :: Coded example with follower and leader
+                 Messed around with animation 
+<Bryan, Brooke, Jen> :: Discussed navigation of waiter, layout of restaurant, etc. 
+
+2017-05-28
+<Bryan> :: Finished waiter graphics and created four customers. Additionally made backdrop of the Restaurant. 
+<Brooke> :: Coded pathways for the waiter throughout the restaurant, still needs to be improved
+<Jen> :: Worked with the cp5 class to create potential buttons
+         Wrote the Table class
+2017-05-29
+<Bryan> :: Added table widgets
+<Brooke> :: Continued working on paths for waiter within restaurant
+<Jen> :: Made the Draggable class for future customers that are dragged to tables
