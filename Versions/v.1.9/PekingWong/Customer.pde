@@ -14,17 +14,22 @@ public class Customer extends Draggable
     
   void display()
   {
-    super.display();
+    if (state == 0){super.display();}
+    if (state == 1){bx = table.x - 10;}
     fill(20,20,150);
     ellipse(bx, by, 20, 20);
-    /*
+  }
+  
+  void checkState()
+  {
     if (state == 0)
     {
+      if(locked) 
+      {
+        bx = mouseX-xOffset; 
+        by = mouseY-yOffset; 
+      }
     }
-    if (state == 1)
-    {
-      super.display();
-    }*/
   }
   
   //Constructor: populates order with random dishes
@@ -70,6 +75,11 @@ public class Customer extends Draggable
   public void setTable(Table t)
   {
     table = t;
+  }
+  
+  public void setState(int i)
+  {
+    state = i;
   }
   
   //returns table number

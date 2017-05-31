@@ -22,11 +22,9 @@ void draw()
 {
  // background(bgimg);
   background(0);
-  d.display();
   ling.display();
-  if (ling.waiterMoves) {
-    ling.move();
-  }
+  if (ling.waiterMoves) {ling.move();}
+  d.display();
 }
 
 void mouseClicked() 
@@ -34,15 +32,10 @@ void mouseClicked()
   ling.waiterMoves = true;
   ling.xMouse = pmouseX;
   ling.yMouse = pmouseY;
-  for (Table t : ling.getTables())
-  {
+  for (Table t : ling.getTables()){
     if (t.overTable()) {
-      if (t.state == 2)
-      {
-        t.state = 1;
-        break;
-      }
-      t.state = 2;
+      if (t.state == 2){t.state = 1;}
+      else{t.state = 2;}
       break;
     }
   }
@@ -50,25 +43,15 @@ void mouseClicked()
 
 void mousePressed()
 {
-  if(d.overBox) 
-  { 
-    d.locked = true; 
-  } 
-  else 
-  {
-    d.locked = false;
-  }
+  if(d.overBox) { d.locked = true; } 
+  else {d.locked = false;}
   d.xOffset = mouseX-d.bx; 
   d.yOffset = mouseY-d.by; 
 }
 
 void mouseDragged() 
 {
-  if(d.locked) 
-  {
-    d.bx = mouseX-d.xOffset; 
-    d.by = mouseY-d.yOffset; 
-  }
+  d.checkState();
 }
 
 void mouseReleased() 
@@ -78,17 +61,20 @@ void mouseReleased()
   {
     if (t.inside(d.bx, d.by))
     {
-      if (t.getCust == null)
+      if (t.getCust() == null)
       {
         t.setCust(d);
         d.setTable(t);
         ling.addCustomer(d);
+        pekingWong.waitList.removeMin();
+        d.setState(1);
+        d = pekingWong.waitList.peekMin();
         break;
       }
       else
       {
-        d.bx = origX;
-        d.by = origY;
+        d.bx = d.origX;
+        d.by = d.origY;
       }
     }
   }

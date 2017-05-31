@@ -19,6 +19,10 @@ public class Waiter
     for (int i = 0; i < 8; i++) {
        tables.get(i).display();
     }
+    for (Customer c : customers)
+    {
+      c.display();
+    }
     fill(0,120,100);
     ellipse(x,y,10,10);
   }
@@ -45,22 +49,6 @@ public class Waiter
     waiterMoves = false;
     state = 0;
   }
-
-  //assigns a table to the next customer by removing one of the values from ArrayList tables
-  /*
-  public boolean assignTable(Customer c) 
-  {
-    if (tables.size() != 0) 
-    {
-      Table t = tables.remove(0);
-      t.setCust(c);
-      c.setTable(t);
-      addCustomer(c);
-      System.out.println("Customer " + c.getName() + " was seated at Table " + c.getTable()+ ".");
-      return true;
-    }
-    return false;
-   }*/
 
   //adds a customer to the customers ArrayList
   public void addCustomer(Customer c) 
