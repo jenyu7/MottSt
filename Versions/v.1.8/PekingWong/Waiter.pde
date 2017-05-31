@@ -19,7 +19,6 @@ public class Waiter
   {
     for (int i = 0; i < 8; i++) {
        tables.get(i).display();
-       println("displaying");
     }
     fill(0,120,100);
     ellipse(x,y,10,10);
@@ -91,6 +90,11 @@ public class Waiter
   public ArrayList<Customer> getCustomers()
   {
     return customers;
+  }
+  
+  public ArrayList<Table> getTables()
+  {
+    return tables;
   }
  
  void move()

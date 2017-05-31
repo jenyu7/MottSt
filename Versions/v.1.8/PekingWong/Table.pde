@@ -4,6 +4,7 @@ class Table
   Customer c; 
   Order order;
   int tableNum;
+  int state;
   int x;
   int y;
   //Location l;
@@ -19,14 +20,16 @@ class Table
   }
   
   void display() { 
-    if(overTable())
+    if(state == 2)
     {
-      println("in here");
       fill(255);
       rect(x,y,50,50,7);
     }
-    fill(120);
-    rect(x,y,50,50);
+    else
+    {
+      fill(120);
+      rect(x,y,50,50);
+    }
   }
   
   boolean overTable()  {

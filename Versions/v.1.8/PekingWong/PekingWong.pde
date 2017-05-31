@@ -33,6 +33,18 @@ void mouseClicked() {
   ling.waiterMoves = true;
   ling.xMouse = pmouseX;
   ling.yMouse = pmouseY;
+  for (Table t : ling.getTables())
+  {
+    if (t.overTable()) {
+      if (t.state == 2)
+      {
+        t.state = 1;
+        break;
+      }
+      t.state = 2;
+      break;
+    }
+  }
 }
 
 void run()
