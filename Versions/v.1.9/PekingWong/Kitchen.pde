@@ -27,8 +27,8 @@ public class Kitchen {
     //default constructor
     public Kitchen() 
     {
-      pendingFoodList = new ArrayDeque<String>();
-      finishedFoodList = new ALQueue<String>();
+      pendingFoodList = new ArrayDeque<Order>();
+      finishedFoodList = new ALQueue<Order>();
     }
 
     //returns the pendingFoodList
@@ -51,13 +51,13 @@ public class Kitchen {
     }
 
     //adds order (e.g. small foods) to the front of pendingFoodList
-    public void addFirstToPending(String order) 
+    public void addFirstToPending(Order order) 
     {
       pendingFoodList.addFirst(order);
     }
 
     //adds order (e.g. large foods) to the end of pendingFoodList
-    public void addLastToPending(String order) 
+    public void addLastToPending(Order order) 
     {
        pendingFoodList.addLast(order);
     }
@@ -75,7 +75,7 @@ public class Kitchen {
     }
 
     //enqueues order to finishedFoodList when it is done
-    public void enqueueFinished(String order) 
+    public void enqueueFinished(Order order) 
     {
       finishedFoodList.enqueue(order);
     }

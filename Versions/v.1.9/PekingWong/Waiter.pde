@@ -7,7 +7,6 @@ public class Waiter
   private Customer currCust;
   private ArrayList<Table> tables;
   private int[][] nodes;
-  private Kitchen kitch;
   float x;
   float y;
   boolean waiterMoves;
@@ -41,9 +40,6 @@ public class Waiter
     
     nodes = new int[9][2];
     
-    
-    kitch = new Kitchen();
-    
     x = 15;
     y = 15;
     waiterMoves = false;
@@ -51,6 +47,7 @@ public class Waiter
   }
 
   //assigns a table to the next customer by removing one of the values from ArrayList tables
+  /*
   public boolean assignTable(Customer c) 
   {
     if (tables.size() != 0) 
@@ -63,7 +60,7 @@ public class Waiter
       return true;
     }
     return false;
-   }
+   }*/
 
   //adds a customer to the customers ArrayList
   public void addCustomer(Customer c) 
@@ -71,7 +68,7 @@ public class Waiter
     customers.add(c);
   }
 
-  //removes the customer c from customers, adds to tables
+  //removes the customer c from customers
   public void removeCustomer(Customer c) 
   {
     for (int i = 0; i < customers.size(); i++) 
@@ -81,7 +78,6 @@ public class Waiter
         customers.remove(i);
       }
     }
-    tables.add(c.getTable());
   }
   
   //Accessor

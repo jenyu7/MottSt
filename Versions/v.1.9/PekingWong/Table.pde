@@ -41,6 +41,10 @@ class Table
   }
 }
   
+  boolean inside(float currX, float currY)
+  {
+    return currX >= x && currX <= x + 50 && currY >= y && currY <= y+50;
+  }
   //Mutators
   //Sets the table# of the customer
   public void setTable(int num) 

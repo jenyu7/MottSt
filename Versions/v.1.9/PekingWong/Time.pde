@@ -31,8 +31,8 @@ class Time
   //Finds the elapsed time 
   long getElapsed()
   {
-    elapsed = 0.0;
-    if (start != 0.0)
+    elapsed = 0;
+    if (start != 0)
     {
       endTime();
       elapsed = toSeconds(end-start);

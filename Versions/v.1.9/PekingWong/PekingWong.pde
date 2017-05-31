@@ -10,7 +10,7 @@ void setup()
 {
  // bgimg = loadImage("RestaurantFloor.jpg");
  // size(1920,1080);
-  size(1300,800);
+  size(1024,768);
   pekingWong = new Restaurant();
   d = pekingWong.waitList.peekMin();
   ling = new Waiter();
@@ -74,6 +74,24 @@ void mouseDragged()
 void mouseReleased() 
 {
   d.locked = false;
+  for (Table t : ling.getTables())
+  {
+    if (t.inside(d.bx, d.by))
+    {
+      if (t.getCust == null)
+      {
+        t.setCust(d);
+        d.setTable(t);
+        ling.addCustomer(d);
+        break;
+      }
+      else
+      {
+        d.bx = origX;
+        d.by = origY;
+      }
+    }
+  }
 }
 
 void run()

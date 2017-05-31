@@ -9,6 +9,8 @@ public class Customer extends Draggable
   private int VIPNum;
   private int mood;
   private int state;
+  int origX;
+  int origY;
     
   void display()
   {
@@ -34,6 +36,8 @@ public class Customer extends Draggable
     state = 0;
     bx = 100;
     by = 100;
+    origX = 100;
+    origY = 100;
   }
   
   //Overloaded Constructor: sets a name for the Customer
