@@ -25,6 +25,8 @@ void draw()
 
 void mouseClicked() {
   ling.waiterMoves = true;
+  ling.xMouse = pmouseX;
+  ling.yMouse = pmouseY;
 }
 
 void run()

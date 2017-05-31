@@ -11,6 +11,8 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
+  float xMouse;
+  float yMouse;
 
   void display()
   {
@@ -87,7 +89,7 @@ public class Waiter
   }
   
   void move() {
-    if (pmouseX >= 100 && pmouseX <= 150 && pmouseY >= 350 && pmouseY <= 400) { 
+    if (xMouse >= 100 && xMouse <= 150 && yMouse >= 350 && yMouse <= 400) { 
       if (state == 1) {
         if (x > 165) {
           x--;
@@ -125,7 +127,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 100 && pmouseX <= 150 && pmouseY >= 450 && pmouseY <= 500) {
+    else if (xMouse >= 100 && xMouse <= 150 && yMouse >= 450 && yMouse <= 500) {
       if (state == 1) {
         if (x > 165) {
           x--;
@@ -163,7 +165,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 300 && pmouseX <= 350 && pmouseY >= 250 && pmouseY <= 300) {
+    else if (xMouse >= 300 && xMouse <= 350 && yMouse >= 250 && yMouse <= 300) {
       if (state == 1) {
         if (x < 285) {
           x++;
@@ -201,7 +203,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 300 && pmouseX <= 350 && pmouseY >= 350 && pmouseY <= 400) {
+    else if (xMouse >= 300 && xMouse <= 350 && yMouse >= 350 && yMouse <= 400) {
       if (state == 1) {
         if (x < 285) {
           x++;
@@ -239,7 +241,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 300 & pmouseX <= 350 && pmouseY >= 450 && pmouseY <= 500) {
+    else if (xMouse >= 300 & xMouse <= 350 && yMouse >= 450 && yMouse <= 500) {
       if (state == 1) {
         if (x < 285) {
           x++;
@@ -277,7 +279,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 500 && pmouseX <= 550 && pmouseY >= 250 && pmouseY <= 300) {
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 250 && yMouse <= 300) {
       if (state == 1) {
         if (x < 485) {
           x++;
@@ -315,7 +317,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 500 && pmouseX <= 550 && pmouseY >= 350 && pmouseY <= 400) {
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 350 && yMouse <= 400) {
       if (state == 1) {
         if (x < 485) {
           x++;
@@ -353,7 +355,7 @@ public class Waiter
         }
       }
     }
-    else if (pmouseX >= 500 && pmouseX <= 550 && pmouseY >= 450 && pmouseY <= 500) {
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 450 && yMouse <= 500) {
       if (state == 1) {
         if (x < 485) {
           x++;

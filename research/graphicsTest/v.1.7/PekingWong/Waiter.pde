@@ -6,21 +6,20 @@ public class Waiter
   private ArrayList<Customer> customers;
   private Customer currCust;
   private ArrayList<Table> tables;
+  private int[][] nodes;
   private Kitchen kitch;
   float x;
   float y;
+  boolean waiterMoves;
+  int state;
+  float xMouse;
+  float yMouse;
 
   void display()
   {
-    fill(255);
-    rect(100, 350, 50, 50,7);
-    rect(100, 450, 50, 50, 7);
-    rect(500, 250, 50, 50, 7);
-    rect(500, 350, 50, 50, 7);
-    rect(500, 450, 50, 50, 7);
-    rect(300, 250, 50, 50, 7);
-    rect(300, 350, 50, 50, 7);
-    rect(300, 450, 50, 50, 7);
+    for (int i = 0; i < 8; i++) {
+       tables.get(i).display();
+    }
     fill(0,120,100);
     ellipse(x,y,10,10);
   }
@@ -30,15 +29,25 @@ public class Waiter
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
-    //creates ten tables
-    for (int i = 1; i <= 3; i++)
-    {
-      tables.add(new Table(i));
-    }
+    //creates eight tables
+    tables.add(new Table(1,100,350));
+    tables.add(new Table(2,100,450));
+    tables.add(new Table(3,300,250));
+    tables.add(new Table(4,300,350));
+    tables.add(new Table(5,300,450));
+    tables.add(new Table(6,500,250));
+    tables.add(new Table(7,500,350));
+    tables.add(new Table(8,500,450));
+    
+    nodes = new int[9][2];
+    
+    
     kitch = new Kitchen();
     
     x = 15;
     y = 15;
+    waiterMoves = false;
+    state = 0;
   }
 
   //assigns a table to the next customer by removing one of the values from ArrayList tables
@@ -82,4 +91,312 @@ public class Waiter
   {
     return customers;
   }
+  
+  void move() {
+    if (xMouse >= 100 && xMouse <= 150 && yMouse >= 350 && yMouse <= 400) { 
+      if (state == 1) {
+        if (x > 165) {
+          x--;
+          display();
+        }
+        if (y < 375) {
+          y++;
+          display();
+        }
+        if (x == 165 && y == 375) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 225) {
+          x++;
+          display();
+        }
+        else if (x > 225) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 100 && xMouse <= 150 && yMouse >= 450 && yMouse <= 500) {
+      if (state == 1) {
+        if (x > 165) {
+          x--;
+          display();
+        }
+        if (y < 475) {
+          y++;
+          display();
+        }
+        if (x == 165 && y == 475) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 225) {
+          x++;
+          display();
+        }
+        else if (x > 225) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 300 && xMouse <= 350 && yMouse >= 250 && yMouse <= 300) {
+      if (state == 1) {
+        if (x < 285) {
+          x++;
+          display();
+        }
+        if (y < 275) {
+          y++;
+          display();
+        }
+        if (x == 285 && y == 275) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 225) {
+          x++;
+          display();
+        }
+        else if (x > 225) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 300 && xMouse <= 350 && yMouse >= 350 && yMouse <= 400) {
+      if (state == 1) {
+        if (x < 285) {
+          x++;
+          display();
+        }
+        if (y < 375) {
+          y++;
+          display();
+        }
+        if (x == 285 && y == 375) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 225) {
+          x++;
+          display();
+        }
+        else if (x > 225) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 300 & xMouse <= 350 && yMouse >= 450 && yMouse <= 500) {
+      if (state == 1) {
+        if (x < 285) {
+          x++;
+          display();
+        }
+        if (y < 475) {
+          y++;
+          display();
+        }
+        if (x == 285 && y == 475) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 225) {
+          x++;
+          display();
+        }
+        else if (x > 225) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 250 && yMouse <= 300) {
+      if (state == 1) {
+        if (x < 485) {
+          x++;
+          display();
+        }
+        if (y < 275) {
+          y++;
+          display();
+        }
+        if (x == 485 && y == 275) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 425) {
+          x++;
+          display();
+        }
+        else if (x > 425) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 350 && yMouse <= 400) {
+      if (state == 1) {
+        if (x < 485) {
+          x++;
+          display();
+        }
+        if (y < 375) {
+          y++;
+          display();
+        }
+        if (x == 485 && y == 375) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 425) {
+          x++;
+          display();
+        }
+        else if (x > 425) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+    else if (xMouse >= 500 && xMouse <= 550 && yMouse >= 450 && yMouse <= 500) {
+      if (state == 1) {
+        if (x < 485) {
+          x++;
+          display();
+        }
+        if (y < 475) {
+          y++;
+          display();
+        }
+        if (x == 485 && y == 475) {
+          state = 0;
+          waiterMoves = false;
+          return;
+        }
+      }
+      else if (y < 175) {
+        y++;
+        display();
+      }
+      else if (y > 175) {
+        y--;
+        display();
+      }
+      else {
+        if (x < 425) {
+          x++;
+          display();
+        }
+        else if (x > 425) {
+          x--;
+          display();
+        }
+        else {
+          state = 1; //reached a node
+        }
+      }
+    }
+  }
+  
 }
