@@ -27,6 +27,20 @@ public class Waiter
     ellipse(x,y,10,10);
   }
   
+  void update()
+  {
+    waiterMoves = true;
+    xMouse = pmouseX;
+    yMouse = pmouseY;
+    for (Table t : tables){
+      if (t.overTable()) {
+        if (t.state == 2){t.state = 1;}
+        else{t.state = 2;}
+        break;
+      }
+    }
+  }
+  
   //creates a waiter
   public Waiter() 
   {

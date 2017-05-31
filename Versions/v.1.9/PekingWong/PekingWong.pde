@@ -1,5 +1,3 @@
-import controlP5.*;
-
 Customer d;
 Waiter ling;
 Restaurant pekingWong;
@@ -22,6 +20,7 @@ void draw()
 {
  // background(bgimg);
   background(0);
+  pekingWong.display();
   ling.display();
   if (ling.waiterMoves) {ling.move();}
   if (d != null){d.display();}
@@ -29,16 +28,7 @@ void draw()
 
 void mouseClicked() 
 {
-  ling.waiterMoves = true;
-  ling.xMouse = pmouseX;
-  ling.yMouse = pmouseY;
-  for (Table t : ling.getTables()){
-    if (t.overTable()) {
-      if (t.state == 2){t.state = 1;}
-      else{t.state = 2;}
-      break;
-    }
-  }
+  ling.update();
 }
 
 void mousePressed()
@@ -62,12 +52,9 @@ void mouseReleased()
   if (d != null)
   {
     d.locked = false;
-    for (Table t : ling.getTables())
-    {
-      if (t.inside(d.bx, d.by))
-      {
-        if (t.getCust() == null)
-        {
+    for (Table t : ling.getTables()){
+      if (t.inside(d.bx, d.by)){
+        if (t.getCust() == null){
           t.setCust(d);
           d.setTable(t);
           ling.addCustomer(d);
@@ -76,15 +63,14 @@ void mouseReleased()
           d = pekingWong.waitList.peekMin();
           break;
         }
-        else
-        {
+        else{
           d.bx = d.origX;
           d.by = d.origY;
+            }
         }
       }
     }
   }
-}
 
 void run()
 {

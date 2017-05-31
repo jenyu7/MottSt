@@ -4,7 +4,6 @@ public class Restaurant {
     //instance vars
     private int points;
     private Kitchen kitchen;
-    private Waiter JBB;
     ALHeap waitList;
     ArrayList<Customer> serveList;
 
@@ -16,6 +15,7 @@ public class Restaurant {
       {
         waitList.add(new Customer());
       }
+      kitchen = new Kitchen();
       serveList = new ArrayList<Customer>();
       points = 0;
     }
@@ -23,7 +23,6 @@ public class Restaurant {
     void display()
     {
       kitchen.display();
-      JBB.display();
       for (Customer d : serveList)
       {
         d.display();

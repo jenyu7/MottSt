@@ -19,7 +19,7 @@ public class Kitchen {
         currOrder.display();
       }
       fill(130);
-      rect(100,50,100,50);
+      rect(400,20,300,50);
     }
     
     //Mechanics
