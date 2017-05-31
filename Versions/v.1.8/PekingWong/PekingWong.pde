@@ -1,3 +1,5 @@
+import controlP5.*;
+
 Customer c;
 Waiter ling;
 Restaurant pekingWong;
@@ -8,6 +10,7 @@ void setup()
 {
   //bgimg = loadImage("RestaurantFloor.jpg");
   //size(1920,1080);
+  size(600,600);
   pekingWong = new Restaurant();
   c = new Customer();
   ling = new Waiter();
@@ -17,7 +20,8 @@ void setup()
 
 void draw()
 {
-  background(bgimg);
+  //background(bgimg);
+  background(0);
   c.display();
   ling.display();
   if (ling.waiterMoves) {

@@ -1,3 +1,4 @@
+
 class Table
 {
   Customer c; 
@@ -5,6 +6,7 @@ class Table
   int tableNum;
   int x;
   int y;
+  //Location l;
   
   //New table with no customer, but a number assignment
   Table(int num, int setX, int setY)
@@ -12,13 +14,29 @@ class Table
     tableNum = num;
     c = null;
     x = setX;
-    y = setY;
+    y = setY; 
+    //l = new Location(x-55, y);
   }
   
-  void display() {
-    fill(255);
-    rect(x,y,50,50,7); 
+  void display() { 
+    if(overTable())
+    {
+      println("in here");
+      fill(255);
+      rect(x,y,50,50,7);
+    }
+    fill(120);
+    rect(x,y,50,50);
   }
+  
+  boolean overTable()  {
+  if (mouseX >= x && mouseX <= x+50 && 
+      mouseY >= y && mouseY <= y+50) {
+    return true;
+  } else {
+    return false;
+  }
+}
   
   //Mutators
   //Sets the table# of the customer
