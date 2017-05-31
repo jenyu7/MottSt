@@ -21,14 +21,15 @@ void draw()
  // background(bgimg);
   background(0);
   pekingWong.display();
+  ling.update();
   ling.display();
-  if (ling.waiterMoves) {ling.move();}
   if (d != null){d.display();}
 }
 
 void mouseClicked() 
 {
-  
+  ling.waiterMoves = true;
+  ling.update();
 }
 
 void mousePressed()

@@ -20,6 +20,10 @@ class Table
   }
   
   void display() { 
+    if (c != null && state == 1)
+    {
+      state = 1;
+    }
     if(state == 2)
     {
       fill(255);

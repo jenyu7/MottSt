@@ -29,16 +29,23 @@ public class Waiter
   
   void update()
   {
-    waiterMoves = true;
-    xMouse = pmouseX;
-    yMouse = pmouseY;
-    for (Table t : tables){
-      if (t.overTable()) {
-        if (t.state == 2){t.state = 1;}
-        else{t.state = 2;}
-        break;
+    if (waiterMoves)
+    {
+      xMouse = pmouseX;
+      yMouse = pmouseY;
+      for (Table t : tables){
+        if (t.overTable()) {
+          if (t.state == -1){return;}
+          else{
+            x = t.x+5;
+            y = t.y-5;
+          }
+          break;
+        }
       }
     }
+    waiterMoves = false;
+    
   }
   
   //creates a waiter
