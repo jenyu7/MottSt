@@ -15,7 +15,7 @@ public class Customer extends Draggable
   void display()
   {
     if (state == 0){super.display();}
-    if (state == 1){bx = table.x - 10;}
+    if (state == 1){bx = table.x - 10;by = table.y+20;}
     fill(20,20,150);
     ellipse(bx, by, 20, 20);
   }

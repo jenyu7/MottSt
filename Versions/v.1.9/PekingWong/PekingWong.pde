@@ -28,7 +28,7 @@ void draw()
 
 void mouseClicked() 
 {
-  ling.update();
+  
 }
 
 void mousePressed()
