@@ -7,10 +7,17 @@ class Table
   int y;
   
   //New table with no customer, but a number assignment
-  Table(int num)
+  Table(int num, int setX, int setY)
   {
     tableNum = num;
     c = null;
+    x = setX;
+    y = setY;
+  }
+  
+  void display() {
+    fill(255);
+    rect(x,y,50,50,7); 
   }
   
   //Mutators
