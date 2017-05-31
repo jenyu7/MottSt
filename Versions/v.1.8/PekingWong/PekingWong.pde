@@ -1,6 +1,6 @@
 import controlP5.*;
 
-Customer c;
+Customer d;
 Waiter ling;
 Restaurant pekingWong;
 Kitchen k;
@@ -8,11 +8,11 @@ PImage bgimg;
 
 void setup()
 {
-  //bgimg = loadImage("RestaurantFloor.jpg");
-  //size(1920,1080);
-  size(600,600);
+ // bgimg = loadImage("RestaurantFloor.jpg");
+ // size(1920,1080);
+  size(1300,800);
   pekingWong = new Restaurant();
-  c = new Customer();
+  d = pekingWong.waitList.peekMin();
   ling = new Waiter();
   k = new Kitchen();
   run();
@@ -20,16 +20,17 @@ void setup()
 
 void draw()
 {
-  //background(bgimg);
+ // background(bgimg);
   background(0);
-  c.display();
+  d.display();
   ling.display();
   if (ling.waiterMoves) {
     ling.move();
   }
 }
 
-void mouseClicked() {
+void mouseClicked() 
+{
   ling.waiterMoves = true;
   ling.xMouse = pmouseX;
   ling.yMouse = pmouseY;
@@ -45,6 +46,34 @@ void mouseClicked() {
       break;
     }
   }
+}
+
+void mousePressed()
+{
+  if(d.overBox) 
+  { 
+    d.locked = true; 
+  } 
+  else 
+  {
+    d.locked = false;
+  }
+  d.xOffset = mouseX-d.bx; 
+  d.yOffset = mouseY-d.by; 
+}
+
+void mouseDragged() 
+{
+  if(d.locked) 
+  {
+    d.bx = mouseX-d.xOffset; 
+    d.by = mouseY-d.yOffset; 
+  }
+}
+
+void mouseReleased() 
+{
+  d.locked = false;
 }
 
 void run()

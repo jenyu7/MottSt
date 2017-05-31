@@ -96,6 +96,31 @@ public class Waiter
   {
     return tables;
   }
+  /*
+  public void solve( int x, int y ) {
+
+    delay(150); //slow it down enough to be followable
+    
+    //primary base case
+    if ( solved ) {
+        System.exit(0);
+    }
+  
+    //other base case(s)...
+    else if ( !(onPath(x,y))  ) {
+        return;
+    }
+    //recursive reduction
+    else {
+        maze[x][y] = HERO;
+      System.out.println( this );
+      solve(x , y + 1);
+        solve(x , y - 1);
+        solve(x + 1, y);
+        solve(x - 1, y);
+        //System.out.println( this );
+    }
+  }*/
  
  void move()
  {

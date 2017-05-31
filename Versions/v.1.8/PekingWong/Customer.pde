@@ -9,19 +9,20 @@ public class Customer extends Draggable
   private int VIPNum;
   private int mood;
   private int state;
-  private int x;
-  private int y;
     
   void display()
   {
-    ellipse(x, y, 20, 20);
+    super.display();
+    fill(20,20,150);
+    ellipse(bx, by, 20, 20);
+    /*
     if (state == 0)
     {
     }
     if (state == 1)
     {
       super.display();
-    }
+    }*/
   }
   
   //Constructor: populates order with random dishes
@@ -31,8 +32,8 @@ public class Customer extends Draggable
     name = "BJB";
     VIPNum = (int) (Math.random() * 10);
     state = 0;
-    x = 0;
-    y = 0;
+    bx = 100;
+    by = 100;
   }
   
   //Overloaded Constructor: sets a name for the Customer
