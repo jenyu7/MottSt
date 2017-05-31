@@ -6,6 +6,8 @@ public class Waiter
   private ArrayList<Customer> customers;
   private Customer currCust;
   private ArrayList<Table> tables;
+  private ArrayList<Order> orders;
+  private Order[] finishedOrders;
   private int[][] nodes;
   float x;
   float y;
@@ -35,17 +37,40 @@ public class Waiter
       yMouse = pmouseY;
       for (Table t : tables){
         if (t.overTable()) {
-          if (t.state == -1){return;}
+          if (t.state == 0){return;}
           else{
             x = t.x+5;
             y = t.y-5;
+            detAct(t);
+            t.state ++;
           }
           break;
         }
       }
     }
     waiterMoves = false;
-    
+  }
+  
+  void detAct(Table t)
+  {
+    //Customers are ready to order
+    if (t.state == 1)
+    {
+      println("took order of table " + t.tableNum);
+      orders.add(t.getOrder());
+    }
+    //Customers are ready to be served
+    else if (t.state == 2)
+    {
+      if (finishedOrders[0].getTable() == t.tableNum || finishedOrders[1].getTable() == t.tableNum){println("served order of table " + t.tableNum);t.c.nowServed();}
+    }
+    //Customers are done eating
+    else if (t.state == 3)
+    {
+      println("finished serving table " + t.tableNum);
+      removeCustomer(t.c);
+      t.c = null;
+    }
   }
   
   //creates a waiter
@@ -64,6 +89,8 @@ public class Waiter
     tables.add(new Table(8,500,450));
     
     nodes = new int[9][2];
+    orders = new ArrayList<Order>(); 
+    finishedOrders = new Order[2];
     
     x = 15;
     y = 15;

@@ -57,6 +57,7 @@ void mouseReleased()
       if (t.inside(d.bx, d.by)){
         if (t.getCust() == null){
           t.setCust(d);
+          t.state = 1;
           d.setTable(t);
           ling.addCustomer(d);
           pekingWong.waitList.removeMin();

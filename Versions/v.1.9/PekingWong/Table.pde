@@ -65,7 +65,7 @@ class Table
   
   //Accessors
   //returns order placed by table
-  public Order getOrders()
+  public Order getOrder()
   {
     return order;
   }

@@ -9,6 +9,7 @@ public class Customer extends Draggable
   private int VIPNum;
   private int mood;
   private int state;
+  private boolean served;
   int origX;
   int origY;
     
@@ -82,6 +83,11 @@ public class Customer extends Draggable
     state = i;
   }
   
+  public void nowServed()
+  {
+    served = true;
+  }
+  
   //returns table number
   public Table getTable()
   {
@@ -92,6 +98,11 @@ public class Customer extends Draggable
     public int getVIPNum() 
   {
     return VIPNum;
+    }
+    
+    public int getMood()
+    {
+      return mood;
     }
   
   //returns name
