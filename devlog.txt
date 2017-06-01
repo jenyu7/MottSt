@@ -82,3 +82,6 @@ pd5
 2017-05-31
 <Jen> :: Tables are now buttons and clickable to trigger an action, cp5 class not going to be utilized
          Customers are now draggable around the world
+         ...hours later...
+         Basic functionality of game is complete. Waiters are able to take customer's orders, deliver them to the kitchen to be processed, pick them up, serve the customers and then deliver the bill. 
+<Bryan> :: Edited size of the world and created the final table widgets
