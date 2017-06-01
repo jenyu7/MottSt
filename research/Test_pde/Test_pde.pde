@@ -14,7 +14,7 @@ void setup()
   cp5 = new ControlP5(this);
   cp5.addButton("table")
      .setBroadcast(false)
-     .setImage("circle.png")
+     //.setImage("circle.png")
      .setValue(0)
      .setPosition(100,100)
      .updateSize()

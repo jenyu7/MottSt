@@ -73,3 +73,12 @@ pd5
 <Bryan> :: Added table widgets
 <Brooke> :: Continued working on paths for waiter within restaurant
 <Jen> :: Made the Draggable class for future customers that are dragged to tables
+
+2017-05-30
+<Bryan> :: Modified background size, working on creating widgets for final graphics
+<Brooke> :: Fixed hovering error (waiter would only move when mouse hovered over the table) and waiter no longer teleports to the table
+<Jen> :: Added comments for code and worked on created a table button
+
+2017-05-31
+<Jen> :: Tables are now buttons and clickable to trigger an action, cp5 class not going to be utilized
+         Customers are now draggable around the world
