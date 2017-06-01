@@ -13,12 +13,13 @@ public class Order
   void display()
   {
     fill(36);
-    ellipse(x,y,5,5);
+    ellipse(500,10,5,5);
   }
         
   //Mechanics
   Order(int table)
   {
+    dishName = "food";
     tableNum = table;
     t = new Time(30);
   }

@@ -11,8 +11,8 @@ void setup()
   size(1024,768);
   pekingWong = new Restaurant();
   d = pekingWong.waitList.peekMin();
-  ling = new Waiter();
   k = new Kitchen();
+  ling = new Waiter(k);
   run();
 }
 
@@ -23,6 +23,7 @@ void draw()
   pekingWong.display();
   ling.update();
   ling.display();
+  k.display();
   if (d != null){d.display();}
 }
 
@@ -58,6 +59,7 @@ void mouseReleased()
         if (t.getCust() == null){
           t.setCust(d);
           t.state = 1;
+          t.setOrder(new Order(t.tableNum));
           d.setTable(t);
           ling.addCustomer(d);
           pekingWong.waitList.removeMin();

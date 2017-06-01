@@ -16,24 +16,22 @@ class Table
     c = null;
     x = setX;
     y = setY; 
+    order = null;
     //l = new Location(x-55, y);
   }
   
   void display() { 
     if (c != null && state == 1)
     {
-      state = 1;
     }
-    if(state == 2)
+    else if(state == 2)
     {
-      fill(255);
-      rect(x,y,50,50,7);
     }
     else
     {
-      fill(120);
-      rect(x,y,50,50);
     }
+    fill(255);
+    rect(x,y,50,50,7);
   }
   
   boolean overTable()  {
@@ -54,13 +52,17 @@ class Table
   public void setTable(int num) 
   {
       tableNum = num;
-      order = new Order(num);
   }
   
   //sets the customer seated at the table
   void setCust(Customer in)
   {
     c = in;
+  }
+  
+  void setOrder(Order o)
+  {
+    order = o;
   }
   
   //Accessors

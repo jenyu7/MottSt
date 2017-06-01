@@ -6,11 +6,15 @@ public class Kitchen {
     private ArrayDeque<Order> pendingFoodList; //this is a deque
     private ALQueue<Order> finishedFoodList; //this is a queue
     Order currOrder;
+    int x;
+    int y;
     
     //Display
     
     void display()
     {
+      fill(130);
+      rect(400,20,300,50);
       if (currOrder == null)
       {}
       else
@@ -18,8 +22,16 @@ public class Kitchen {
         currOrder = finishedFoodList.dequeue();
         currOrder.display();
       }
-      fill(130);
-      rect(400,20,300,50);
+    }
+    
+    boolean overKitchen()  {
+      if (mouseX >= x && mouseX <= x+300 && 
+      mouseY >= y && mouseY <= y+50) {
+        return true;
+      } 
+      else {
+        return false;
+      }
     }
     
     //Mechanics
@@ -29,6 +41,8 @@ public class Kitchen {
     {
       pendingFoodList = new ArrayDeque<Order>();
       finishedFoodList = new ALQueue<Order>();
+      x = 400;
+      y = 20;
     }
 
     //returns the pendingFoodList

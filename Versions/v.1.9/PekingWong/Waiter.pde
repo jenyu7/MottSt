@@ -5,6 +5,7 @@ public class Waiter
   //instance vars
   private ArrayList<Customer> customers;
   private Customer currCust;
+  private Kitchen k;
   private ArrayList<Table> tables;
   private ArrayList<Order> orders;
   private Order[] finishedOrders;
@@ -26,29 +27,42 @@ public class Waiter
       c.display();
     }
     fill(0,120,100);
-    ellipse(x,y,10,10);
+    ellipse(x,y,30,30);
   }
   
   void update()
   {
     if (waiterMoves)
     {
-      xMouse = pmouseX;
-      yMouse = pmouseY;
-      for (Table t : tables){
-        if (t.overTable()) {
-          if (t.state == 0){return;}
-          else{
-            x = t.x+5;
-            y = t.y-5;
-            detAct(t);
-            t.state ++;
+      if (k.overKitchen())
+      {
+        x = k.x + 15; 
+        y = k.y+65;
+        if (orders.size() > 0)
+        {
+          Order o = orders.remove(0);
+          println(o);
+          k.addLastToPending(o);
+          k.enqueueFinished(o);
+        }
+      }
+      else{
+        for (Table t : tables){
+          if (t.overTable()) {
+            if (t.state == 0){return;}
+            else{
+              x = t.x+10;
+              y = t.y-20;
+              detAct(t);
+              t.state ++;
+            }
+            break;
           }
-          break;
         }
       }
     }
     waiterMoves = false;
+    
   }
   
   void detAct(Table t)
@@ -57,6 +71,7 @@ public class Waiter
     if (t.state == 1)
     {
       println("took order of table " + t.tableNum);
+      println(t.getOrder());
       orders.add(t.getOrder());
     }
     //Customers are ready to be served
@@ -74,7 +89,7 @@ public class Waiter
   }
   
   //creates a waiter
-  public Waiter() 
+  public Waiter(Kitchen kitch) 
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
@@ -91,6 +106,7 @@ public class Waiter
     nodes = new int[9][2];
     orders = new ArrayList<Order>(); 
     finishedOrders = new Order[2];
+    k = kitch;
     
     x = 15;
     y = 15;
@@ -115,6 +131,7 @@ public class Waiter
       }
     }
   }
+
   
   //Accessor
 
@@ -128,31 +145,6 @@ public class Waiter
   {
     return tables;
   }
-  /*
-  public void solve( int x, int y ) {
-
-    delay(150); //slow it down enough to be followable
-    
-    //primary base case
-    if ( solved ) {
-        System.exit(0);
-    }
-  
-    //other base case(s)...
-    else if ( !(onPath(x,y))  ) {
-        return;
-    }
-    //recursive reduction
-    else {
-        maze[x][y] = HERO;
-      System.out.println( this );
-      solve(x , y + 1);
-        solve(x , y - 1);
-        solve(x + 1, y);
-        solve(x - 1, y);
-        //System.out.println( this );
-    }
-  }*/
  
  void move()
  {
