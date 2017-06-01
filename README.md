@@ -11,7 +11,7 @@ Hello, and welcome! In this game, you are a new waiter at the famous Peking Wong
 
 _Seating customers:_
 
-New reservations are added to a “Reservations” Priority Heap with each reservation denoting a certain priority level  (e.g., a celebrity would have a higher priority). When customers arrive, they will be placed on a “Waiting” Priority Heap where those with reservations are prioritized. The waiter will bring the customers in the waiting list to an empty table using the "place" command. 
+Customers are on 
 
 _Taking down orders and bringing out food:_
 
