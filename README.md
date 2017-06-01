@@ -2,22 +2,10 @@
 **Peking Wong**<br>
 **Jen Yu, Brooke Jin, Bryan Chan**
 
-### _User Interaction_
+### Description
 
-As of right now, our game is command-line based. The user plays as the waiter of a restaurant named Peking Wong. Using a set of commands outlined at the beginning of the game, the waiter can perform a variety of functions. 
+Hello, and welcome! In this game, you are a new waiter at the famous Peking Wong restaurant, located on Mott Street in Chinatown. It's rush hour, and customers are just streaming in. Unfortunately, you seem to be the only waiter on duty...the objective is to serve customers and gain the highest tips possible. The game ends when you're unable to satisfactorily serve five customers and they leave the restaurant. As the time progresses, the customer flow will become denser and denser, so try to keep up!
 
-_Game Commands_
-- commands : displays the commands of the game.
-- add [table#] [order name]: Adds the customer's order to the waiter's pending food list.
-- serve [table#] [order name] : Serves the customers at table# the order specified.
-- tables : Displays the tables and the customers seated at each, with current mood levels.
-- pending table# : Displays the food still needed to be served for the Table table#.
-- kitchen : Shows the food in the kitchen that is ready, and the food that is still pending.
-- place : Places the next customer at an open table.
-
-Typing in these commands will allow the user to play the game. Each customer served will add five points to the total score of the player. 
-
-Certain functionalities, such as updating a customer's mood based on how much time she/he has been waiting, have not yet been implemented. Currently in progress is a GUI version of the same game, coded in Processing, which will afford users a more vibrant and enjoyable experience. 
 
 ### _How it Works_
 
@@ -40,10 +28,18 @@ The user is given points doing tasks correctly, such as:
 
 ### _Launch Instructions_
 
-1. Clone this repo by copying the following SSH Key in your terminal/command prompt: ```git@github.com:jenyu7/MottSt.git```
-2. Then, enter whatever folder you cloned into and copy: ```cd MottSt```, to enter the folder.
-3. Enter the PekingWong folder using ```cd PekingWong```.
-4. Enter ```processing PekingWong.pde``` to launch the game.
+Clone this repo: ```$ git clone git@github.com:jenyu7/MottSt.git```
+
+Run the GUI version: 
+1. Enter the directory path: ```$ cd <folderClonedInto>/MottSt```.
+2. Open ```PekingWong.pde``` located within the ```PekingWong``` directory in the root of the repo. 
+
+Run the Command Line version: 
+
+_Disclaimer: The command line version was utilized for testing purposes. It may contain bugs and omits features of the final GUI version._
+1. Enter the directory path: ```$ cd <folderClonedInto>/MottSt/Versions/v.1.6b```
+2. Compile the game: ```$ javac PekingWong.java```
+3. Run the game: ```$ java PekingWong```
 
 ### _Sources of Help_
 
