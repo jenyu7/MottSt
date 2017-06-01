@@ -41,14 +41,16 @@ public class Waiter
         if (k.currOrder != null && k.currOrder.overOrder())
         {
           println("order");
-          x = 615;
-          y = 95;
+          //x = 615;
+          //y = 95;
+          move();
           if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
           else if (finishedOrders[1] == null){finishedOrders[1] = k.currOrder;k.currOrder = null;}
           return;
         }
-        x = k.x + 15; 
-        y = k.y+65;
+        //x = k.x + 15; 
+        //y = k.y+65;
+        move();
         if (orders.size() > 0)
         {
           Order o = orders.remove(0);
@@ -178,15 +180,16 @@ public class Waiter
  
  void move()
  {
-   /*Table selected;
-   for (Table t : tables)
-   {
-     if (t.l.insideShape(xMouse, yMouse))
-     {
-       selected = t;
-       break;
+   if (k.overKitchen()) {
+     if (k.currOrder != null && k.currOrder.overOrder()) {
+       //x = 615;
+       //y = 95;
+       
      }
-   }*/
+     //x = k.x + 15; 
+     //y = k.y+65;
+   }
+
  }
   
 }
