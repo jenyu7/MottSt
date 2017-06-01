@@ -1,0 +1,13 @@
+Bryan: 
+- Finish up graphics
+- Make the plates and dishes
+- Make the different positions of the waiter (facing left, right, up down)
+- Sitting position of customers
+
+Brooke: 
+- Waiting moving mechanism
+- Impose a grid onto the world and find paths to tables from certain coordinated (what we discussed, implement a maze solving strategy)
+
+Jen: 
+- Work on timing, orders take a certain amount of time to cook
+- implement mood updating for customers
