@@ -42,10 +42,8 @@ The user is given points doing tasks correctly, such as:
 
 1. Clone this repo by copying the following SSH Key in your terminal/command prompt: ```git@github.com:jenyu7/MottSt.git```
 2. Then, enter whatever folder you cloned into and copy: ```cd MottSt```, to enter the folder.
-3. Copy and paste ```javac PekingWong.java``` into the terminal. Press Enter to compile. Copy and paste ```java PekingWong``` to run the game file.
-4. On launch, a list of commands will be provided for you to utilize in order to play the game. 
-5. Place and serve customers their correct orders until there are no more customers left in the restaurant. 
-6. When all customers have been served, the game will cease.
+3. Enter the PekingWong folder using ```cd PekingWong```.
+4. Enter ```processing PekingWong.pde``` to launch the game.
 
 ### _Sources of Help_
 
