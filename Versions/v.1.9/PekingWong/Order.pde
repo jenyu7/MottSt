@@ -19,8 +19,8 @@ public class Order
   }
   
   boolean overOrder()  {
-      if (mouseX >= 600 && mouseX <= 660 && 
-      mouseY >= 50 && mouseY <= 110) {
+      if (mouseX >= 570 && mouseX <= 630 && 
+      mouseY >= 20 && mouseY <= 80) {
         return true;
       } 
       else {

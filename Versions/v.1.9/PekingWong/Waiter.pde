@@ -65,7 +65,6 @@ public class Waiter
               x = t.x+10;
               y = t.y-20;
               detAct(t);
-              t.state ++;
             }
             break;
           }
@@ -84,6 +83,7 @@ public class Waiter
      // println("took order of table " + t.tableNum);
      // println(t.getOrder());
       orders.add(t.getOrder());
+      t.state ++;
     }
     //Customers are ready to be served
     else if (t.state == 2)
@@ -95,12 +95,14 @@ public class Waiter
             println("served order of table " + t.tableNum);
             t.c.nowServed();
             finishedOrders[0] = null;
+            t.state ++;
           }
         else if (finishedOrders[1].getTable() == t.tableNum)
         {
             println("served order of table " + t.tableNum);
             t.c.nowServed();
             finishedOrders[1] = null;
+            t.state ++;
         }
       }
     }
