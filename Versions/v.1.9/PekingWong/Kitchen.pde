@@ -15,13 +15,11 @@ public class Kitchen {
     {
       fill(130);
       rect(400,20,300,50);
-      if (currOrder == null)
-      {}
-      else
+      if (!finishedFoodList.isEmpty())
       {
-        currOrder = finishedFoodList.dequeue();
-        currOrder.display();
+          if (currOrder == null) {currOrder = finishedFoodList.dequeue();}
       }
+      if (currOrder != null){currOrder.display();}
     }
     
     boolean overKitchen()  {
@@ -95,9 +93,9 @@ public class Kitchen {
     }
 
     //dequeues first order from finishedFoodList when it is served
-    public void dequeueFinished() 
+    public Order dequeueFinished() 
     {
-      finishedFoodList.dequeue();
+      return finishedFoodList.dequeue();
     }
 
     //returns true if finishedFoodList is empty, false otherwise

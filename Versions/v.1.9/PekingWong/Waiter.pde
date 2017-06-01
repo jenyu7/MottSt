@@ -36,6 +36,17 @@ public class Waiter
     {
       if (k.overKitchen())
       {
+        println("kitch");
+        //if (k.currOrder != null){println(k.currOrder.overOrder());}
+        if (k.currOrder != null && k.currOrder.overOrder())
+        {
+          println("order");
+          x = 615;
+          y = 95;
+          if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
+          else if (finishedOrders[0] == null){finishedOrders[0] = k.currOrder;k.currOrder = null;}
+          return;
+        }
         x = k.x + 15; 
         y = k.y+65;
         if (orders.size() > 0)
@@ -70,14 +81,28 @@ public class Waiter
     //Customers are ready to order
     if (t.state == 1)
     {
-      println("took order of table " + t.tableNum);
-      println(t.getOrder());
+     // println("took order of table " + t.tableNum);
+     // println(t.getOrder());
       orders.add(t.getOrder());
     }
     //Customers are ready to be served
     else if (t.state == 2)
     {
-      if (finishedOrders[0].getTable() == t.tableNum || finishedOrders[1].getTable() == t.tableNum){println("served order of table " + t.tableNum);t.c.nowServed();}
+      if (finishedOrders[0] != null && finishedOrders[1] != null)
+      {
+        if (finishedOrders[0].getTable() == t.tableNum)
+          {
+            println("served order of table " + t.tableNum);
+            t.c.nowServed();
+            finishedOrders[0] = null;
+          }
+        else if (finishedOrders[1].getTable() == t.tableNum)
+        {
+            println("served order of table " + t.tableNum);
+            t.c.nowServed();
+            finishedOrders[1] = null;
+        }
+      }
     }
     //Customers are done eating
     else if (t.state == 3)

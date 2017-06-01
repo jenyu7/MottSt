@@ -12,9 +12,21 @@ public class Order
   //Display
   void display()
   {
-    fill(36);
-    ellipse(500,10,5,5);
+    fill(255);
+    ellipse(600,50,30,30);
+    fill(0);
+    text(tableNum + "", 600, 50);
   }
+  
+  boolean overOrder()  {
+      if (mouseX >= 600 && mouseX <= 660 && 
+      mouseY >= 50 && mouseY <= 110) {
+        return true;
+      } 
+      else {
+        return false;
+      }
+    }
         
   //Mechanics
   Order(int table)

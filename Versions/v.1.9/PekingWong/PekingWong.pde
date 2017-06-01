@@ -21,7 +21,6 @@ void draw()
  // background(bgimg);
   background(0);
   pekingWong.display();
-  ling.update();
   ling.display();
   k.display();
   if (d != null){d.display();}

@@ -47,7 +47,7 @@ public class ALQueue<T> implements Queue<T>
     // means of checking to see if collection is empty
     public boolean isEmpty() 
     {
-  return _queue.isEmpty();
+  return _queue.size() == 0;
     }//O(1)
 
 
