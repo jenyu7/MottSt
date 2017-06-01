@@ -46,18 +46,6 @@ public class Customer extends Draggable
     origY = 100;
   }
   
-  //Overloaded Constructor: sets a name for the Customer
-  public Customer(String s)
-  {
-    this();
-    name = s;
-  }
-  
-  //Prints out the Customer's name and her/his orders
-  public String toString()
-  {
-    return name;
-  }
   
   //two customers are equal if they are sitting at the same table
   public boolean equals(Customer c)

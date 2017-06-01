@@ -20,7 +20,7 @@ void draw()
 {
  // background(bgimg);
   background(0);
-  pekingWong.display();
+  //pekingWong.display();
   ling.display();
   k.display();
   if (d != null){d.display();}
