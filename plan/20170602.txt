@@ -6,3 +6,7 @@ Brooke:
 
 Jen: 
 - Work on animation, finish up remnants of 06/01 work
+
+Writing of chair class? 
+
+GUI Graphics should be put in starting tomorrow, need weekend to bug test and fix up code/documentation
