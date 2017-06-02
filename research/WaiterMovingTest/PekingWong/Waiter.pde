@@ -14,8 +14,6 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
-  float xMouse;
-  float yMouse;
 
   void display()
   {
@@ -42,15 +40,17 @@ public class Waiter
         {
           println("order");
           //x = 615;
-          //y = 95;
-          move();
+          //y = 85;
+          if (x != 615 || y != 85)
+            move();
           if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
           else if (finishedOrders[1] == null){finishedOrders[1] = k.currOrder;k.currOrder = null;}
           return;
         }
         //x = k.x + 15; 
         //y = k.y+65;
-        move();
+        if (x != 415 || y != 85) 
+          move();
         if (orders.size() > 0)
         {
           Order o = orders.remove(0);
@@ -64,8 +64,10 @@ public class Waiter
           if (t.overTable()) {
             if (t.state == 0){return;}
             else{
-              x = t.x+10;
-              y = t.y-20;
+              //x = t.x+65;
+              //y = t.y-15;
+              if (x != t.x+65 || y != t.y-15)
+                move();
               detAct(t);
             }
             break;
@@ -73,7 +75,6 @@ public class Waiter
         }
       }
     }
-    waiterMoves = false;
     
   }
   
@@ -182,14 +183,56 @@ public class Waiter
  {
    if (k.overKitchen()) {
      if (k.currOrder != null && k.currOrder.overOrder()) {
+       if (x != 615 || y != 85) 
+         goTo(615,85);
        //x = 615;
-       //y = 95;
+       //y = 85;
        
      }
+     if (x != 415 || y != 85)
+       goTo(415,85);
      //x = k.x + 15; 
      //y = k.y+65;
    }
-
+   else{
+        for (Table t : tables){
+          if (t.overTable()) {
+            if (t.state == 0){return;}
+            else{
+              if (x != t.x+65 || y != t.y-15)
+                goTo(t.x+65,t.y-15);
+              //x = t.x+65;
+              //y = t.y-15;
+            }
+            break;
+          }
+        }
+      } 
+   waiterMoves = false;
+ }
+ 
+ void goTo(int targetX, int targetY) {
+   if (y < targetY) {
+     y+=10;
+     display();
+   }
+   else if (y > targetY) {
+     y-=10;
+     display();
+   }
+   else {
+     if (x < targetX) {
+       x+=10;
+       display();
+     }
+     else if (x > targetX) {
+       x-=10;
+       display();
+     }
+     else {
+       state = 1;
+     }
+   }
  }
   
 }
