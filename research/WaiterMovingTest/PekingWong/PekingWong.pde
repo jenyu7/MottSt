@@ -24,6 +24,8 @@ void draw()
   ling.display();
   k.display();
   if (d != null){d.display();}
+  if (ling.waiterMoves)
+    ling.move();
 }
 
 void mouseClicked() 
@@ -38,8 +40,8 @@ void mousePressed()
   {
     if(d.overBox) { d.locked = true; } 
     else {d.locked = false;}
-    d.xOffset = mouseX-d.bx; 
-    d.yOffset = mouseY-d.by; 
+    d.xOffset = pmouseX-d.bx; 
+    d.yOffset = pmouseY-d.by; 
   }
 }
 

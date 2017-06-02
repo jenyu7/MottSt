@@ -26,6 +26,10 @@ public class Waiter
     }
     fill(0,120,100);
     ellipse(x,y,30,30);
+    //if (waiterMoves) {
+      //update();
+      //delay(100);
+    //}
   }
   
   void update()
@@ -41,16 +45,14 @@ public class Waiter
           println("order");
           //x = 615;
           //y = 85;
-          if (x != 615 || y != 85)
-            move();
+          //goTo(615,85);
           if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
           else if (finishedOrders[1] == null){finishedOrders[1] = k.currOrder;k.currOrder = null;}
           return;
         }
         //x = k.x + 15; 
         //y = k.y+65;
-        if (x != 415 || y != 85) 
-          move();
+        //goTo(k.x+15,k.y+65);
         if (orders.size() > 0)
         {
           Order o = orders.remove(0);
@@ -66,8 +68,7 @@ public class Waiter
             else{
               //x = t.x+65;
               //y = t.y-15;
-              if (x != t.x+65 || y != t.y-15)
-                move();
+              //goTo(t.x+65,t.y-15);
               detAct(t);
             }
             break;
@@ -75,7 +76,7 @@ public class Waiter
         }
       }
     }
-    
+    //waiterMoves = false;
   }
   
   void detAct(Table t)
@@ -179,18 +180,21 @@ public class Waiter
     return tables;
   }
  
+ 
  void move()
  {
    if (k.overKitchen()) {
      if (k.currOrder != null && k.currOrder.overOrder()) {
-       if (x != 615 || y != 85) 
+       if (x != 615 || y != 85) {
          goTo(615,85);
+       }
        //x = 615;
        //y = 85;
        
      }
-     if (x != 415 || y != 85)
+     if (x != 415 || y != 85) {
        goTo(415,85);
+     }
      //x = k.x + 15; 
      //y = k.y+65;
    }
@@ -199,40 +203,42 @@ public class Waiter
           if (t.overTable()) {
             if (t.state == 0){return;}
             else{
-              if (x != t.x+65 || y != t.y-15)
+              if (x != t.x+65 || y != t.y-15) {
                 goTo(t.x+65,t.y-15);
+              }
               //x = t.x+65;
               //y = t.y-15;
             }
             break;
           }
         }
-      } 
-   waiterMoves = false;
+      }
  }
+ 
  
  void goTo(int targetX, int targetY) {
    if (y < targetY) {
+     //y+=.5;
      y+=10;
-     display();
    }
    else if (y > targetY) {
+     //y-=.5;
      y-=10;
-     display();
    }
    else {
      if (x < targetX) {
+       //x+=.5;
        x+=10;
-       display();
      }
      else if (x > targetX) {
+       //x-=.5;
        x-=10;
-       display();
      }
      else {
-       state = 1;
+       waiterMoves = false;
      }
    }
+   display();
  }
   
 }

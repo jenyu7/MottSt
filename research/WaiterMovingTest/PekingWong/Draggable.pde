@@ -22,8 +22,8 @@ class Draggable
   void display() 
   { 
     // Test if the cursor is over the box 
-    if (mouseX > bx-size && mouseX < bx+size && 
-        mouseY > by-size && mouseY < by+size) 
+    if (pmouseX > bx-size && pmouseX < bx+size && 
+        pmouseY > by-size && pmouseY < by+size) 
     {
       overBox = true;  
     } 
