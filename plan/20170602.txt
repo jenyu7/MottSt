@@ -1,0 +1,8 @@
+Bryan: 
+- Begin loading images into actual game
+
+Brooke: 
+- Finish up waiter moving mechanism 
+
+Jen: 
+- Work on animation, finish up remnants of 06/01 work
