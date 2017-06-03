@@ -5,6 +5,7 @@ Jen:
 - Create customer spawning mechanism
 
 Brooke and Bryan: 
+EDIT THE VERSION IN THE FOLDER "V.2.1"
 - Begin to code to plug in graphics
 - Load images and utilize animation for the following tasks: 
    - waiter should change direction visually
