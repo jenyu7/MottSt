@@ -85,3 +85,14 @@ pd5
          ...hours later...
          Basic functionality of game is complete. Waiters are able to take customer's orders, deliver them to the kitchen to be processed, pick them up, serve the customers and then deliver the bill. 
 <Bryan> :: Edited size of the world and created the final table widgets
+
+2017-06-01
+<Bryan> :: Waiter has different positions, lucky cat is the kitchen
+<Brooke> :: Started on the waiter moving mechanism 
+
+2017-06-02
+<Brooke> :: Completed the waiter moving mechanism (no usage of grid!!)
+
+2017-06-03
+<Jen> :: May have passed her Physics SAT II
+         Fixed the waiter moving problem with state vars
