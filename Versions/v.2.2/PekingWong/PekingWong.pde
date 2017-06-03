@@ -8,10 +8,8 @@ void setup()
 {
 
   bgimg = loadImage("RestaurantFloorV3.jpg");
-  // size(1920,1080);
-
   size(1280, 720);
-  pekingWong = new Restaurant();
+  pekingWong = new Restaurant(ling);
   d = pekingWong.waitList.peekMin();
   k = new Kitchen();
   ling = new Waiter(k);
@@ -31,17 +29,6 @@ void draw()
   if (d != null) {
     d.display();
   }
-  if (ling.waiterMoves)
-    ling.move();
-
-  background(0);
-  ling.display();
-  k.display();
-  if (d != null) {
-    d.display();
-  }
-
-
   if (ling.waiterMoves)
     ling.move();
 }
