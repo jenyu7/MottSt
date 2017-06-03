@@ -1,10 +1,9 @@
 import java.util.*;
-
 public class Restaurant {
 
     //instance vars
-    private int points;
     private Kitchen kitchen;
+    private Time calcSpawn;
     ALHeap waitList;
     ArrayList<Customer> serveList;
     Waiter BJB;
@@ -19,8 +18,9 @@ public class Restaurant {
       }
       kitchen = new Kitchen();
       serveList = new ArrayList<Customer>();
-      points = 0;
       BJB = w;
+      calcSpawn = new Time();
+      calcSpawn.startTime();
     }
      
     void display()
@@ -32,9 +32,34 @@ public class Restaurant {
       }
     }
     
+    void update()
+    {
+      if (shouldSpawn())
+      {
+        spawn();
+      }
+    }
+    
+    void spawn()
+    {
+      waitList.add(new Customer());
+      println("spawn");
+      calcSpawn.startTime();
+    }
+    
     boolean hasCust()
     {
-      return waitList.sizeOf() == 0 && BJB.getCustomers().size() == 0;
+      return waitList.sizeOf() != 0 || BJB.getCustomers().size() != 0;
+    }
+    
+    boolean shouldSpawn()
+    {
+      if (calcSpawn.getElapsed() > 30)
+      {
+        println(calcSpawn);
+        return true;
+      }
+      return false;
     }
 
 }

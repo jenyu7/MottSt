@@ -6,11 +6,7 @@ PImage bgimg;
 
 void setup()
 {
-
-  bgimg = loadImage("RestaurantFloorV3.jpg");
-  size(1280, 720);
-  pekingWong = new Restaurant(ling);
-  d = pekingWong.waitList.peekMin();
+  size(1024, 768);
   k = new Kitchen();
   ling = new Waiter(k);
   pekingWong = new Restaurant(ling);
@@ -20,17 +16,18 @@ void setup()
 
 void draw()
 {
-
-  background(bgimg);
-  //background(0);
-  //pekingWong.display();
-  ling.display();
-  k.display();
-  if (d != null) {
-    d.display();
+  background(0);
+  if (pekingWong.hasCust())
+  {
+    ling.display();
+    k.display();
+    if (d != null) {
+      d.display();
+    }
+    if (ling.waiterMoves)
+      ling.move();
+    pekingWong.update();
   }
-  if (ling.waiterMoves)
-    ling.move();
 }
 
 void mouseClicked() 
@@ -77,13 +74,12 @@ void mouseReleased()
           pekingWong.waitList.removeMin();
           d.setState(1);
           d = pekingWong.waitList.peekMin();
-          break;
-        } else {
-          d.bx = d.origX;
-          d.by = d.origY;
+          return;
         }
       }
     }
+    d.bx = d.origX;
+    d.by = d.origY;
   }
 }
 
