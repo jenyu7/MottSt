@@ -26,11 +26,6 @@ class Time
     target = goalTime;
   }
   
-  String toString()
-  {
-    return "Time passed: " + getElapsed();
-  }
-  
   //Starts the time
   void startTime()
   {

@@ -1,15 +1,13 @@
 import java.io.*;
 import java.util.concurrent.*; 
 
-long start;
-long end;
-long elapsedTime;
+Time t;
 
 void setup()
 {
   background(0);
   size(300,300);
-  start = System.nanoTime(); 
+  t.startTime();
 }
 
 void draw()
@@ -27,7 +25,5 @@ long toSeconds(long time)
 
 void mouseClicked()
 {
-  end = System.nanoTime(); 
-  elapsedTime = end - start;
-  System.out.println("which is " + toSeconds(elapsedTime) + " seconds"); 
+  System.out.println("which is " + t.getElapsed() + " seconds"); 
 }

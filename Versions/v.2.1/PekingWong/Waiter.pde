@@ -14,6 +14,7 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
+  private int points;
 
   //create a waiter
   public Waiter(Kitchen kitch) 
@@ -168,7 +169,7 @@ public class Waiter
     //Customers are ready to order
     if (t.state == 1)
     {
-      //println("took order of table " + t.tableNum);
+      println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
       t.state = 2;
     }
@@ -179,7 +180,7 @@ public class Waiter
       {
         if (finishedOrders[0].getTable() == t.tableNum)
         {
-          //println("served order of table " + t.tableNum);
+          println("served order of table " + t.tableNum);
           t.c.nowServed();
           finishedOrders[0] = null;
           t.state = 3;
@@ -189,7 +190,7 @@ public class Waiter
       {
         if (finishedOrders[1].getTable() == t.tableNum)
         {
-          //println("served order of table " + t.tableNum);
+          println("served order of table " + t.tableNum);
           t.c.nowServed();
           finishedOrders[1] = null;
           t.state = 3;
@@ -199,9 +200,10 @@ public class Waiter
     //Customers are done eating
     else if (t.state == 3)
     {
-      //println("finished serving table " + t.tableNum);
+      println("finished serving table " + t.tableNum);
       removeCustomer(t.c);
       t.c = null;
+      t.state = 0;
     }
   }
   
@@ -223,6 +225,7 @@ public class Waiter
         customers.remove(i);
       }
     }
+    points += 5;
   }
 
 
@@ -238,5 +241,11 @@ public class Waiter
   public ArrayList<Table> getTables()
   {
     return tables;
+  }
+  
+  //returns current number of points
+  public int getPoints()
+  {
+    return points;
   }
 }
