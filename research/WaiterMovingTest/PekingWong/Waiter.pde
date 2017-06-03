@@ -185,16 +185,12 @@ public class Waiter
  {
    if (k.overKitchen()) {
      if (k.currOrder != null && k.currOrder.overOrder()) {
-       if (x != 615 || y != 85) {
-         goTo(615,85);
-       }
+       goTo(615,85);
        //x = 615;
        //y = 85;
        
      }
-     if (x != 415 || y != 85) {
-       goTo(415,85);
-     }
+     goTo(415,85);
      //x = k.x + 15; 
      //y = k.y+65;
    }
@@ -203,9 +199,7 @@ public class Waiter
           if (t.overTable()) {
             if (t.state == 0){return;}
             else{
-              if (x != t.x+65 || y != t.y-15) {
-                goTo(t.x+65,t.y-15);
-              }
+              goTo(t.x+65,t.y-15);
               //x = t.x+65;
               //y = t.y-15;
             }

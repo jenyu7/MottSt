@@ -40,8 +40,8 @@ void mousePressed()
   {
     if(d.overBox) { d.locked = true; } 
     else {d.locked = false;}
-    d.xOffset = pmouseX-d.bx; 
-    d.yOffset = pmouseY-d.by; 
+    d.xOffset = mouseX-d.bx; 
+    d.yOffset = mouseY-d.by; 
   }
 }
 
@@ -52,6 +52,7 @@ void mouseDragged()
 
 void mouseReleased() 
 {
+  ling.waiterMoves = false;
   if (d != null)
   {
     d.locked = false;

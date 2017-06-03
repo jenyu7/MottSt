@@ -35,8 +35,8 @@ class Table
   }
   
   boolean overTable()  {
-  if (pmouseX >= x && pmouseX <= x+50 && 
-      pmouseY >= y && pmouseY <= y+50) {
+  if (mouseX >= x && mouseX <= x+50 && 
+      mouseY >= y && mouseY <= y+50) {
     return true;
   } else {
     return false;
