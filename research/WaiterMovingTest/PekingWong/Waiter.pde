@@ -4,7 +4,7 @@ public class Waiter
 {
   //instance vars
   private ArrayList<Customer> customers;
-  private Customer currCust;
+  private Table currTable;
   private Kitchen k;
   private ArrayList<Table> tables;
   private ArrayList<Order> orders;
@@ -34,50 +34,30 @@ public class Waiter
   
   void update()
   {
-    if (waiterMoves)
-    {
       if (k.overKitchen())
       {
-        println("kitch");
-        //if (k.currOrder != null){println(k.currOrder.overOrder());}
         if (k.currOrder != null && k.currOrder.overOrder())
         {
-          println("order");
-          //x = 615;
-          //y = 85;
-          //goTo(615,85);
-          if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
-          else if (finishedOrders[1] == null){finishedOrders[1] = k.currOrder;k.currOrder = null;}
+          //state 1: picking up order from kitchen
+          state = 1;
           return;
         }
-        //x = k.x + 15; 
-        //y = k.y+65;
-        //goTo(k.x+15,k.y+65);
-        if (orders.size() > 0)
-        {
-          Order o = orders.remove(0);
-          println(o);
-          k.addLastToPending(o);
-          k.enqueueFinished(o);
-        }
+        //state 2: going to kitchen to place order
+        state = 2;
       }
       else{
         for (Table t : tables){
           if (t.overTable()) {
             if (t.state == 0){return;}
             else{
-              //x = t.x+65;
-              //y = t.y-15;
-              //goTo(t.x+65,t.y-15);
-              detAct(t);
+              state = 3;
+              currTable = t;
             }
             break;
           }
         }
       }
     }
-    //waiterMoves = false;
-  }
   
   void detAct(Table t)
   {
@@ -180,34 +160,50 @@ public class Waiter
     return tables;
   }
  
+ void performAct()
+ {
+   if (state == 1)
+   {
+     if (finishedOrders[0] == null) {finishedOrders[0] = k.currOrder;k.currOrder = null;}
+     else if (finishedOrders[1] == null){finishedOrders[1] = k.currOrder;k.currOrder = null;}
+   }
+   
+   else if (state == 2)
+   {
+     if (orders.size() > 0)
+      {
+        Order o = orders.remove(0);
+        println(o);
+        k.addLastToPending(o);
+        k.enqueueFinished(o);
+      }
+   }
+   
+   else if (state == 3)
+   {
+     detAct(currTable);
+   }
+   state = 0;
+ }
  
  void move()
  {
-   if (k.overKitchen()) {
-     if (k.currOrder != null && k.currOrder.overOrder()) {
+   
+  if (state == 1) {
        goTo(615,85);
        //x = 615;
        //y = 85;
        
      }
+  else if (state == 2) {
      goTo(415,85);
      //x = k.x + 15; 
      //y = k.y+65;
-   }
-   else{
-        for (Table t : tables){
-          if (t.overTable()) {
-            if (t.state == 0){return;}
-            else{
-              goTo(t.x+65,t.y-15);
-              //x = t.x+65;
-              //y = t.y-15;
-            }
-            break;
-          }
-        }
-      }
- }
+     }  
+   else if (state == 3){
+     goTo(currTable.x+65,currTable.y-15);
+     }
+  }
  
  
  void goTo(int targetX, int targetY) {
@@ -230,6 +226,7 @@ public class Waiter
      }
      else {
        waiterMoves = false;
+       performAct();
      }
    }
    display();
