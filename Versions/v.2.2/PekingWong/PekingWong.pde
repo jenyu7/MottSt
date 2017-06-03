@@ -9,23 +9,24 @@ void setup()
  // bgimg = loadImage("RestaurantFloor.jpg");
  // size(1920,1080);
   size(1024,768);
-  pekingWong = new Restaurant();
-  d = pekingWong.waitList.peekMin();
   k = new Kitchen();
   ling = new Waiter(k);
+  pekingWong = new Restaurant(ling);
+  d = pekingWong.waitList.peekMin();
   run();
 }
 
 void draw()
 {
- // background(bgimg);
   background(0);
-  //pekingWong.display();
-  ling.display();
-  k.display();
-  if (d != null){d.display();}
-  if (ling.waiterMoves)
-    ling.move();
+  if (pekingWong.hasCust())
+  {
+    ling.display();
+    k.display();
+    if (d != null){d.display();}
+    if (ling.waiterMoves)
+      ling.move();
+  }
 }
 
 void mouseClicked() 
