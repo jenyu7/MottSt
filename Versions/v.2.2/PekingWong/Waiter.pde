@@ -17,7 +17,7 @@ public class Waiter
 
   void display()
   {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 6; i++) {
        tables.get(i).display();
     }
     for (Customer c : customers)
@@ -107,15 +107,13 @@ public class Waiter
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
-    //creates eight tables
-    tables.add(new Table(1,100,350));
-    tables.add(new Table(2,100,450));
-    tables.add(new Table(3,300,250));
-    tables.add(new Table(4,300,350));
-    tables.add(new Table(5,300,450));
-    tables.add(new Table(6,500,250));
-    tables.add(new Table(7,500,350));
-    tables.add(new Table(8,500,450));
+    //creates six tables
+    tables.add(new Table(1,400,400));
+    tables.add(new Table(2,656,400));
+    tables.add(new Table(3,913,400));
+    tables.add(new Table(4,400,600));
+    tables.add(new Table(5,656,600));
+    tables.add(new Table(6,912,600));
     
     nodes = new int[9][2];
     orders = new ArrayList<Order>(); 

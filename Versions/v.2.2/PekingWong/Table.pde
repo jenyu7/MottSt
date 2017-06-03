@@ -7,6 +7,7 @@ class Table
   int state;
   int x;
   int y;
+  PImage visual;
   //Location l;
   
   //New table with no customer, but a number assignment
@@ -17,6 +18,7 @@ class Table
     x = setX;
     y = setY; 
     order = null;
+    visual = loadImage("table2v2.png");
     //l = new Location(x-55, y);
   }
   
@@ -31,7 +33,8 @@ class Table
     {
     }
     fill(255);
-    rect(x,y,50,50,7);
+    image(visual, x , y);
+    //rect(x,y,50,50,7);
   }
   
   boolean overTable()  {

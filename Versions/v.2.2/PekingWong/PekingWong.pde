@@ -6,9 +6,9 @@ PImage bgimg;
 
 void setup()
 {
- // bgimg = loadImage("RestaurantFloor.jpg");
+ bgimg = loadImage("RestaurantFloorV3.jpg");
  // size(1920,1080);
-  size(1024,768);
+  size(1280,720);
   pekingWong = new Restaurant();
   d = pekingWong.waitList.peekMin();
   k = new Kitchen();
@@ -18,8 +18,8 @@ void setup()
 
 void draw()
 {
- // background(bgimg);
-  background(0);
+   background(bgimg);
+  //background(0);
   //pekingWong.display();
   ling.display();
   k.display();
