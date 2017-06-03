@@ -20,15 +20,13 @@ public class Waiter
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
-    //creates eight tables
-    tables.add(new Table(1, 100, 350));
-    tables.add(new Table(2, 100, 450));
-    tables.add(new Table(3, 300, 250));
-    tables.add(new Table(4, 300, 350));
-    tables.add(new Table(5, 300, 450));
-    tables.add(new Table(6, 500, 250));
-    tables.add(new Table(7, 500, 350));
-    tables.add(new Table(8, 500, 450));
+    //creates six tables
+    tables.add(new Table(1, 400, 400));
+    tables.add(new Table(2, 656, 400));
+    tables.add(new Table(3, 913, 400));
+    tables.add(new Table(4, 400, 600));
+    tables.add(new Table(5, 656, 600));
+    tables.add(new Table(6, 912, 600));
 
     nodes = new int[9][2];
     orders = new ArrayList<Order>(); 
@@ -208,36 +206,12 @@ public class Waiter
       }
     }
 
-    <<<<<<< HEAD
-      //creates a waiter
-      public Waiter(Kitchen kitch) 
-    {
-      customers = new ArrayList<Customer>();
-      tables = new ArrayList<Table>();
-      //creates six tables
-      tables.add(new Table(1, 400, 400));
-      tables.add(new Table(2, 656, 400));
-      tables.add(new Table(3, 913, 400));
-      tables.add(new Table(4, 400, 600));
-      tables.add(new Table(5, 656, 600));
-      tables.add(new Table(6, 912, 600));
+    //creates a waiter
 
-      nodes = new int[9][2];
-      orders = new ArrayList<Order>(); 
-      finishedOrders = new Order[2];
-      k = kitch;
+    //Mutators
 
-      x = 15;
-      y = 15;
-      waiterMoves = false;
-      state = 0;
-    }
-    =======
-      //Mutators
-      >>>>>>> f1708cff2a4e1055aacbf715b8fbe7dbd8189840
-
-      //adds a customer to the customers ArrayList
-      public void addCustomer(Customer c) 
+    //adds a customer to the customers ArrayList
+    public void addCustomer(Customer c) 
     {
       customers.add(c);
     }
