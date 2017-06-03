@@ -30,10 +30,6 @@ public class Customer extends Draggable
         bx = mouseX-xOffset; 
         by = mouseY-yOffset; 
       }
-      else
-      {
-        bx = origX; by = origY;
-      }
     }
   }
   

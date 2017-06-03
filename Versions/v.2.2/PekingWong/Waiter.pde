@@ -14,22 +14,19 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
-  private int points;
 
   //create a waiter
   public Waiter(Kitchen kitch) 
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
-    //creates eight tables
-    tables.add(new Table(1, 100, 350));
-    tables.add(new Table(2, 100, 450));
-    tables.add(new Table(3, 300, 250));
-    tables.add(new Table(4, 300, 350));
-    tables.add(new Table(5, 300, 450));
-    tables.add(new Table(6, 500, 250));
-    tables.add(new Table(7, 500, 350));
-    tables.add(new Table(8, 500, 450));
+    //creates six tables
+    tables.add(new Table(1, 400, 400));
+    tables.add(new Table(2, 656, 400));
+    tables.add(new Table(3, 913, 400));
+    tables.add(new Table(4, 400, 600));
+    tables.add(new Table(5, 656, 600));
+    tables.add(new Table(6, 912, 600));
 
     nodes = new int[9][2];
     orders = new ArrayList<Order>(); 
@@ -47,8 +44,11 @@ public class Waiter
   //Displays the customers, the tables, and the waiter her/himself
   void display()
   {
-    for (int i = 0; i < 8; i++) {
+
+    for (int i = 0; i < 6; i++) {
       tables.get(i).display();
+      /* for (int j = 0; i < 6; i++) {
+       tables.get(i).display();*/
     }
     for (Customer c : customers) {
       c.display();
@@ -56,7 +56,8 @@ public class Waiter
     fill(0, 120, 100);
     ellipse(x, y, 30, 30);
   }
-  
+
+
   /*------
    * Updates the state of the waiter. Invoked when the mouse is clicked. 
    * If the mouse has clicked on the Order at the Kitchen, state = 1.
@@ -126,11 +127,11 @@ public class Waiter
 
   //Mechanics Functions
 
- /*------
-  * Performs an action based on the state of the waiter. 
-  * States and what they represent are delineated above, before the "update" method. 
-  ------*/
- void performAct()
+  /*------
+   * Performs an action based on the state of the waiter. 
+   * States and what they represent are delineated above, before the "update" method. 
+   ------*/
+  void performAct()
   {
     if (state == 1)
     {
@@ -169,7 +170,7 @@ public class Waiter
     //Customers are ready to order
     if (t.state == 1)
     {
-      println("took order of table " + t.tableNum);
+      //println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
       t.state = 2;
     }
@@ -180,7 +181,7 @@ public class Waiter
       {
         if (finishedOrders[0].getTable() == t.tableNum)
         {
-          println("served order of table " + t.tableNum);
+          //println("served order of table " + t.tableNum);
           t.c.nowServed();
           finishedOrders[0] = null;
           t.state = 3;
@@ -190,7 +191,7 @@ public class Waiter
       {
         if (finishedOrders[1].getTable() == t.tableNum)
         {
-          println("served order of table " + t.tableNum);
+          //println("served order of table " + t.tableNum);
           t.c.nowServed();
           finishedOrders[1] = null;
           t.state = 3;
@@ -200,13 +201,14 @@ public class Waiter
     //Customers are done eating
     else if (t.state == 3)
     {
-      println("finished serving table " + t.tableNum);
+      //println("finished serving table " + t.tableNum);
       removeCustomer(t.c);
       t.c = null;
-      t.state = 0;
     }
   }
-  
+
+  //creates a waiter
+
   //Mutators
 
   //adds a customer to the customers ArrayList
@@ -225,7 +227,6 @@ public class Waiter
         customers.remove(i);
       }
     }
-    points += 5;
   }
 
 
@@ -238,14 +239,7 @@ public class Waiter
   }
 
   //returns list of tables
-  public ArrayList<Table> getTables()
-  {
+  public ArrayList<Table> getTables() {
     return tables;
-  }
-  
-  //returns current number of points
-  public int getPoints()
-  {
-    return points;
   }
 }

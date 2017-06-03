@@ -9,26 +9,11 @@ class Time
   long elapsed;
   long target;
   
-  //Default Constructor, target time can be modified later
-  Time()
-  {
-    start = 0;
-    end = 0;
-    elapsed = 0;
-    target = 0;
-  }
-  
   //Constructor sets the target time to be reached
   Time(long goalTime)
   {
-    this();
     //should be in seconds
     target = goalTime;
-  }
-  
-  String toString()
-  {
-    return "Time passed: " + getElapsed();
   }
   
   //Starts the time
@@ -65,11 +50,5 @@ class Time
   long toSeconds(long time)
   {
   return time / 1000000000;
-  }
-  
-  //Sets the target time (should be in seconds)
-  void setGoal(long goalTime)
-  {
-    target = goalTime;
   }
 }
