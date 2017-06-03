@@ -148,7 +148,6 @@ public class ALHeap
         pos = minChildPos;
       }
     }
-    
     //return removed value
     return retVal;
     }//O(logn)
@@ -188,6 +187,11 @@ public class ALHeap
     private void swap( int pos1, int pos2 ) 
     {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );  
+    }
+    
+    public int sizeOf()
+    {
+      return _heap.size();
     }
     //********************************************
 

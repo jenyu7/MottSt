@@ -8,16 +8,23 @@ void setup()
 {
  bgimg = loadImage("RestaurantFloorV3.jpg");
  // size(1920,1080);
+<<<<<<< HEAD
   size(1280,720);
   pekingWong = new Restaurant();
   d = pekingWong.waitList.peekMin();
+=======
+  size(1024,768);
+>>>>>>> f1708cff2a4e1055aacbf715b8fbe7dbd8189840
   k = new Kitchen();
   ling = new Waiter(k);
+  pekingWong = new Restaurant(ling);
+  d = pekingWong.waitList.peekMin();
   run();
 }
 
 void draw()
 {
+<<<<<<< HEAD
    background(bgimg);
   //background(0);
   //pekingWong.display();
@@ -26,6 +33,17 @@ void draw()
   if (d != null){d.display();}
   if (ling.waiterMoves)
     ling.move();
+=======
+  background(0);
+  if (pekingWong.hasCust())
+  {
+    ling.display();
+    k.display();
+    if (d != null){d.display();}
+    if (ling.waiterMoves)
+      ling.move();
+  }
+>>>>>>> f1708cff2a4e1055aacbf715b8fbe7dbd8189840
 }
 
 void mouseClicked() 

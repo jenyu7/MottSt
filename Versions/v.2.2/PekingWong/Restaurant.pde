@@ -7,9 +7,10 @@ public class Restaurant {
     private Kitchen kitchen;
     ALHeap waitList;
     ArrayList<Customer> serveList;
+    Waiter BJB;
 
     //overloaded constructor
-    public Restaurant() 
+    public Restaurant(Waiter w) 
     {
       waitList = new ALHeap();
       for (int i = 0; i < 5; i++)
@@ -19,6 +20,7 @@ public class Restaurant {
       kitchen = new Kitchen();
       serveList = new ArrayList<Customer>();
       points = 0;
+      BJB = w;
     }
      
     void display()
@@ -28,6 +30,11 @@ public class Restaurant {
       {
         d.display();
       }
+    }
+    
+    boolean hasCust()
+    {
+      return waitList.sizeOf() == 0 && BJB.getCustomers().size() == 0;
     }
 
 }
