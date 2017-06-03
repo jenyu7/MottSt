@@ -6,9 +6,9 @@ PImage bgimg;
 
 void setup()
 {
- // bgimg = loadImage("RestaurantFloor.jpg");
- // size(1920,1080);
-  size(1024,768);
+  // bgimg = loadImage("RestaurantFloor.jpg");
+  // size(1920,1080);
+  size(1024, 768);
   k = new Kitchen();
   ling = new Waiter(k);
   pekingWong = new Restaurant(ling);
@@ -19,14 +19,13 @@ void setup()
 void draw()
 {
   background(0);
-  if (pekingWong.hasCust())
-  {
-    ling.display();
-    k.display();
-    if (d != null){d.display();}
-    if (ling.waiterMoves)
-      ling.move();
+  ling.display();
+  k.display();
+  if (d != null) {
+    d.display();
   }
+  if (ling.waiterMoves)
+    ling.move();
 }
 
 void mouseClicked() 
@@ -39,16 +38,21 @@ void mousePressed()
 {
   if (d != null)
   {
-    if(d.overBox) { d.locked = true; } 
-    else {d.locked = false;}
+    if (d.overBox) { 
+      d.locked = true;
+    } else {
+      d.locked = false;
+    }
     d.xOffset = mouseX-d.bx; 
-    d.yOffset = mouseY-d.by; 
+    d.yOffset = mouseY-d.by;
   }
 }
 
 void mouseDragged() 
 {
-  if (d != null){d.checkState();}
+  if (d != null) {
+    d.checkState();
+  }
 }
 
 void mouseReleased() 
@@ -57,9 +61,9 @@ void mouseReleased()
   if (d != null)
   {
     d.locked = false;
-    for (Table t : ling.getTables()){
-      if (t.inside(d.bx, d.by)){
-        if (t.getCust() == null){
+    for (Table t : ling.getTables()) {
+      if (t.inside(d.bx, d.by)) {
+        if (t.getCust() == null) {
           t.setCust(d);
           t.state = 1;
           t.setOrder(new Order(t.tableNum));
@@ -69,17 +73,15 @@ void mouseReleased()
           d.setState(1);
           d = pekingWong.waitList.peekMin();
           break;
-        }
-        else{
+        } else {
           d.bx = d.origX;
           d.by = d.origY;
-            }
         }
       }
     }
   }
+}
 
 void run()
 {
-    
 }
