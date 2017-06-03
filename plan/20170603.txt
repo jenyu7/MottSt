@@ -1,0 +1,17 @@
+Jen: 
+- Begin to utilize the Time class in order to: 
+   - update customers' moods if they haven't been served after a while
+   - Have the kitchen take a certain amount of time to cook food
+- Create customer spawning mechanism
+
+Brooke and Bryan: 
+- Begin to code to plug in graphics
+- Load images and utilize animation for the following tasks: 
+   - waiter should change direction visually
+   - When a waiter picks up a dish, it should be visually shown 
+   - Kitchen is the lucky cat, it moves its paw when clicked on
+   - Load images into classes (tables should look like tables, customers should look like customers, etc)
+	- if you want to vary how the customers look, you can create an arraylist of PImages and just extract random ones from there for each customer spawned
+- @BRYAN: if you have time, try to create the start screen, end screen, and instructions page for the game. Either way, it has to be done before the weekend ends
+
+WE r trying to spend all Monday debugging, not adding new features! Let's start da grind 
