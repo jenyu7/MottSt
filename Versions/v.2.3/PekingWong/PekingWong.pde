@@ -10,7 +10,8 @@ PImage bgimg;
 //Sets up the screen 
 void setup()
 {
-  size(1024, 768);
+  bgimg = loadImage("RestaurantFloorV3.jpg");
+  size(1280, 720);
   k = new Kitchen();
   ling = new Waiter(k);
   pekingWong = new Restaurant(ling);
@@ -20,7 +21,7 @@ void setup()
 //Calls the display functions of the globals, and updates them if necessary
 void draw()
 {
-  background(0);
+  background(bgimg);
   if (!pekingWong.strikeOut())
   {
     pekingWong.update();

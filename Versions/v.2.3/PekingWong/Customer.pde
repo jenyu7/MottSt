@@ -11,6 +11,8 @@ public class Customer extends Draggable
   private int state;
   int origX;
   int origY;
+  PImage[] images;
+  int rand = (int) (Math.random() * 3);
 
   void display()
   {
@@ -21,8 +23,10 @@ public class Customer extends Draggable
       bx = table.x - 10;
       by = table.y+20;
     }
-    fill(20, 20, 150);
-    ellipse(bx, by, 20, 20);
+    //fill(20, 20, 150);
+    //ellipse(bx, by, 20, 20);    
+    image(images[rand],bx,by);
+
   }
 
   void checkState()
@@ -52,6 +56,13 @@ public class Customer extends Draggable
     by = 100;
     origX = 100;
     origY = 100;
+    
+    images = new PImage[4];
+    images[0] = loadImage("Customer1.png");
+    images[1] = loadImage("Customer2.png");
+    images[2] = loadImage("Customer3.png");
+    images[3] = loadImage("Customer4.png");
+
   }
 
 

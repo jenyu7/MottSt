@@ -10,6 +10,7 @@ class Table
   int prevState;
   int x;
   int y;
+  PImage visual;
 
   //New table with no customer, but a number assignment and (x,y)
   Table(int num, int setX, int setY)
@@ -20,6 +21,7 @@ class Table
     y = setY; 
     order = null;
     wait = new Time();
+    visual = loadImage("table2v2.png");
   }
 
   //Display Functions
@@ -28,7 +30,8 @@ class Table
   void display() { 
     update();
     fill(255);
-    rect(x, y, 50, 50, 7);
+    //rect(x, y, 50, 50, 7);
+    image(visual,x,y);
   }
 
   //Checks if the customer has been waiting a certain amount of time. 

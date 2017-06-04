@@ -9,13 +9,17 @@ public class Kitchen {
   Order currOrder;
   int x;
   int y;
+  PImage[] images;
+  int frame;
 
   //Display
 
   void display()
   {
-    fill(130);
-    rect(400, 20, 300, 50);
+    //fill(130);
+    //rect(400, 20, 300, 50);
+    frame = (frame + 1) % 2;
+    image(images[frame], x, y);
     if (!finishedFoodList.isEmpty())
     {
       if (currOrder == null) {
@@ -42,11 +46,14 @@ public class Kitchen {
   //default constructor
   public Kitchen() 
   {
+    images = new PImage[2];
+    images[0] = loadImage("luckycatF1.jpg");
+    images[1] = loadImage("luckycatF2.jpg");
     pendingFoodList = new ArrayDeque<Order>();
     finishedFoodList = new ALQueue<Order>();
     stovetops = new Order[3];
     x = 400;
-    y = 20;
+    y = 112;
   }
 
   public boolean hasStoveSpace()

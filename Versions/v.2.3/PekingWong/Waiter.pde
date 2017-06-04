@@ -15,21 +15,22 @@ public class Waiter
   int state;
   private int strikes;
   private int points;
+  PImage waiterNoFood;
+  PImage waiterWithFood;
+
 
   //create a waiter
   public Waiter(Kitchen kitch) 
   {
     customers = new ArrayList<Customer>();
     tables = new ArrayList<Table>();
-    //creates eight tables
-    tables.add(new Table(1, 100, 350));
-    tables.add(new Table(2, 100, 450));
-    tables.add(new Table(3, 300, 250));
-    tables.add(new Table(4, 300, 350));
-    tables.add(new Table(5, 300, 450));
-    tables.add(new Table(6, 500, 250));
-    tables.add(new Table(7, 500, 350));
-    tables.add(new Table(8, 500, 450));
+    //creates six tables
+    tables.add(new Table(1, 400, 400));
+    tables.add(new Table(2, 656, 400));
+    tables.add(new Table(3, 913, 400));
+    tables.add(new Table(4, 400, 600));
+    tables.add(new Table(5, 656, 600));
+    tables.add(new Table(6, 912, 600));
 
     orders = new ArrayList<Order>(); 
     finishedOrders = new Order[2];
@@ -46,7 +47,7 @@ public class Waiter
   //Displays the customers, the tables, and the waiter her/himself
   void display()
   {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 6; i++) {
       tables.get(i).display();
     }
     for (int i = customers.size()-1; i >= 0; i --) {
@@ -64,8 +65,14 @@ public class Waiter
         c.display();
       }
     }
-    fill(0, 120, 100);
-    ellipse(x, y, 30, 30);
+    //fill(0, 120, 100);
+    //ellipse(x, y, 30, 30);
+    waiterNoFood = loadImage("Waiter.png");
+    waiterWithFood = loadImage("WaiterBillFood.png");
+    if (state == 3 || state == 2 || state == 0)
+      image(waiterNoFood,x,y);
+    if (state == 1) 
+      image(waiterWithFood,x,y);
   }
 
   /*------
@@ -106,9 +113,9 @@ public class Waiter
   void move()
   {
     if (state == 1) {
-      goTo(615, 85);
+      goTo(k.x, k.y);
     } else if (state == 2) {
-      goTo(415, 85);
+      goTo(600, 60);
     } else if (state == 3) {
       goTo(currTable.x+65, currTable.y-15);
     }
