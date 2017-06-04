@@ -16,7 +16,8 @@ public class Waiter
   private int strikes;
   private int points;
   PImage waiterNoFood;
-  PImage waiterWithFood;
+  int test;
+  //PImage waiterWithFood;
 
 
   //create a waiter
@@ -40,6 +41,7 @@ public class Waiter
     y = 15;
     waiterMoves = false;
     state = 0;
+    waiterNoFood = loadImage("Images/Waiter.png");
   }
 
   //Displaying Functions
@@ -65,16 +67,17 @@ public class Waiter
         c.display();
       }
     }
+    image(waiterNoFood, x, y);
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
-    waiterNoFood = loadImage("Images/Waiter.png");
-   // waiterWithFood = loadImage("Images/WaiterBillFood.png");
+
+    // waiterWithFood = loadImage("Images/WaiterBillFood.png");
     /*
     if (state == 3 || state == 2 || state == 0)
-      image(waiterNoFood,x,y);
-    if (state == 1) 
-      image(waiterWithFood,x,y);
-      */
+     image(waiterNoFood,x,y);
+     if (state == 1) 
+     image(waiterWithFood,x,y);
+     */
   }
 
   /*------
@@ -126,15 +129,32 @@ public class Waiter
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
   void goTo(int targetX, int targetY) {
     if (y < targetY) {
-      y+=10;
+      if (y + 5 > height) {
+        y += height-y-1; 
+        return;
+      }
+      if (y + 5 > targetY) {
+        y += targetY-y-1;
+        return;
+      }
+      y+=5;
     } else if (y > targetY) {
-      y-=10;
+      y-=5;
     } else {
       if (x < targetX) {
-        x+=10;
+        if (x + 5 > width) {
+          x += width-x-1;
+          return;
+        }
+        if (x + 5 > targetX) {
+          x += targetX-x-1;
+          return;
+        }
+        x+=5;
       } else if (x > targetX) {
-        x-=10;
+        x-=5;
       } else {
+
         waiterMoves = false;
         performAct();
       }
@@ -273,7 +293,7 @@ public class Waiter
   {
     return points;
   }
-  
+
   //returns the current amount of strikes
   public int getStrikes()
   {

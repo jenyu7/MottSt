@@ -68,7 +68,6 @@ class Table
   boolean overTable() {
     if (mouseX >= x && mouseX <= x+128 && 
       mouseY >= y && mouseY <= y+100) {
-      println("over");
       return true;
     } else {
       return false;
@@ -78,7 +77,7 @@ class Table
   boolean inside(float currX, float currY)
   {
     //println("in");
-    return currX >= x && currX <= x + 128 && currY <= y+100; //&& currY >= y ;
+    return currX >= x && currX <= x + 128 && currY <= y+120; //&& currY >= y ;
   }
   //Mutators
   //Sets the table# of the customer
