@@ -1,7 +1,7 @@
 class Time
 {
   //Instance variables
-  
+
   //nanoseconds
   long start;
   long end;
@@ -10,7 +10,7 @@ class Time
   long target;
   int interval;
   long threshold;
-  
+
   //Default Constructor, target time can be modified later
   Time()
   {
@@ -19,7 +19,7 @@ class Time
     elapsed = 0;
     target = 0;
   }
-  
+
   //Constructor sets the target time to be reached
   Time(long goalTime)
   {
@@ -28,24 +28,24 @@ class Time
     target = goalTime;
     threshold = (goalTime*7)/10;
   }
-  
+
   String toString()
   {
     return "Time passed: " + getElapsed();
   }
-  
+
   //Starts the time
   void startTime()
   {
     start = System.nanoTime();
   }
-  
+
   //Ends the current time
   void endTime()
   {
     end = System.nanoTime();
   }
-  
+
   //Finds the elapsed time 
   long getElapsed()
   {
@@ -57,31 +57,31 @@ class Time
     }
     return elapsed;
   }
-  
+
   //Returns whether or not elapsed time has surpassed goal time
   boolean atGoal()
   {
     return getElapsed() >= target;
   }
-  
+
   //Returns whether or not elapsed time has surpassed an inputted time
   boolean atInputTime(long input)
   {
     return getElapsed() >= input;
   }
-  
+
   //Returns whether or not elapsed time has surpassed a threshold
   boolean atThreshold()
   {
     return getElapsed() >= threshold;
   }
-  
+
   //Converts nanoTime to seconds
   long toSeconds(long time)
   {
-  return time / 1000000000;
+    return time / 1000000000;
   }
-  
+
   //Sets the target time (should be in seconds)
   void setGoal(long goalTime)
   {

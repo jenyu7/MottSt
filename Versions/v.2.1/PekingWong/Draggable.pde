@@ -7,7 +7,7 @@ class Draggable
   boolean locked;
   float xOffset; 
   float yOffset;
-  
+
   Draggable(int num)
   {
     size = num;
@@ -18,19 +18,17 @@ class Draggable
     bx = width/2.0;
     by = height/2.0;
   }
-  
+
   void display() 
   { 
     // Test if the cursor is over the box 
     if (pmouseX > bx-size && pmouseX < bx+size && 
-        pmouseY > by-size && pmouseY < by+size) 
+      pmouseY > by-size && pmouseY < by+size) 
     {
-      overBox = true;  
-    } 
-    else 
+      overBox = true;
+    } else 
     {
       overBox = false;
     }
   }
-  
 }

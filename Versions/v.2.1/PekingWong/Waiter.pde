@@ -13,6 +13,7 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
+  private int strikes;
   private int points;
 
   //create a waiter
@@ -55,6 +56,7 @@ public class Waiter
         Table t = c.getTable();
         println("The customer at table " + t.tableNum + " has left...");
         removeCustomer(t.c);
+        strikes ++;
         t.c = null;
         t.state = 0;
       } else
@@ -141,6 +143,12 @@ public class Waiter
   {
     if (state == 1)
     {
+      if (k.currOrder.getTable().c == null)
+      {
+        println("The customer has already left...");
+        k.currOrder = null;
+        return;
+      }
       if (finishedOrders[0] == null) {
         finishedOrders[0] = k.currOrder;
         k.currOrder = null;
@@ -153,9 +161,8 @@ public class Waiter
       if (orders.size() > 0)
       {
         Order o = orders.remove(0);
-        println(o);
+        println("placed order at kitchen");
         k.addLastToPending(o);
-        k.enqueueFinished(o);
       }
     } else if (state == 3)
     {
@@ -185,7 +192,7 @@ public class Waiter
     {
       if (finishedOrders[0] != null)
       {
-        if (finishedOrders[0].getTable() == t.tableNum)
+        if (finishedOrders[0].getTable().tableNum == t.tableNum)
         {
           println("served order of table " + t.tableNum);
           finishedOrders[0] = null;
@@ -194,7 +201,7 @@ public class Waiter
       }
       if (finishedOrders[1] != null)
       {
-        if (finishedOrders[1].getTable() == t.tableNum)
+        if (finishedOrders[1].getTable().tableNum == t.tableNum)
         {
           println("served order of table " + t.tableNum);
           finishedOrders[1] = null;

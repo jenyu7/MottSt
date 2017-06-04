@@ -1,71 +1,73 @@
-//Class Order (Vanilla Version)
+//Class Order
 public class Order
 {
   //Instance Variables
   protected String dishName;
-  protected int tableNum;
+  protected Table table;
+  int tableNum;
   Time t;
   int x;
   int y;
   int state;
-  
+
   //Display
   void display()
   {
     fill(255);
-    ellipse(600,50,30,30);
+    ellipse(600, 50, 30, 30);
     fill(0);
     text(tableNum + "", 600, 50);
   }
-  
-  boolean overOrder()  {
-      if (mouseX >= 570 && mouseX <= 630 && 
+
+  boolean overOrder() {
+    if (mouseX >= 570 && mouseX <= 630 && 
       mouseY >= 20 && mouseY <= 80) {
-        return true;
-      } 
-      else {
-        return false;
-      }
+      return true;
+    } else {
+      return false;
     }
-        
+  }
+
   //Mechanics
-  Order(int table)
+  Order(Table tab)
   {
     dishName = "food";
-    tableNum = table;
-    t = new Time(30);
+    table = tab;
+    tableNum = tab.tableNum;
+    t = new Time(5);
   }
   //returns table number and name of dish
   public String toString()
   {
     return dishName;
   }
-  
+
   //Two orders are the same if they have the same name and the same table placed the order
   public boolean equals(Order o)
   {
-    return this.dishName.equals(o.dishName) && (this.tableNum == o.tableNum);
+    return this.dishName.equals(o.dishName) && (this.table == o.table);
   }
-  
+
   //Mutator
-  
+
   //sets the table# of the order, if it needs to change
-  public void setTable(int t)
+  public void setTable(Table t)
   {
-    tableNum = t;
+    table = t;
+    tableNum = t.tableNum;
   }
-  
+
   //Accessors
-  
+
   //returns the dishName
   public String getDishName()
   {
     return dishName;
   }
-  
+
   //returns the table that placed the order
-  public int getTable()
+  public Table getTable()
   {
-    return tableNum;
+    return table;
   }
 }

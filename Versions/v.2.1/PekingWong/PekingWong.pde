@@ -1,3 +1,5 @@
+//Driver
+
 Customer d;
 Waiter ling;
 Restaurant pekingWong;
@@ -75,7 +77,7 @@ void mouseReleased()
         if (t.getCust() == null) {
           t.setCust(d);
           t.state = 1;
-          t.setOrder(new Order(t.tableNum));
+          t.setOrder(new Order(t));
           d.setTable(t);
           ling.addCustomer(d);
           d.setState(1);

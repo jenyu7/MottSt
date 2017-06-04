@@ -37,9 +37,9 @@ class Table
         {
           /*
           println("target: " + wait.target);
-          println("threshold: " + wait.threshold);
-          println("elapsed: " + wait.getElapsed());
-          */
+           println("threshold: " + wait.threshold);
+           println("elapsed: " + wait.getElapsed());
+           */
           c.mood --;
           wait.interval += 2;
         }
