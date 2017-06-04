@@ -1,16 +1,17 @@
-
+//Class Table
 class Table
 {
+  //Instance Variables
   Customer c; 
   Order order;
   Time wait;
   int tableNum;
   int state;
+  int prevState;
   int x;
   int y;
-  //Location l;
 
-  //New table with no customer, but a number assignment
+  //New table with no customer, but a number assignment and (x,y)
   Table(int num, int setX, int setY)
   {
     tableNum = num;
@@ -21,15 +22,19 @@ class Table
     wait = new Time();
   }
 
+  //Display Functions
+  
+  //Updates the mood of the customer at the table, and then displays. 
   void display() { 
     update();
     fill(255);
     rect(x, y, 50, 50, 7);
   }
 
+  //Checks if the customer has been waiting a certain amount of time. 
   void update()
   {
-    if (wait != null && c != null)
+    if (wait != null && c != null && state != -1)
     {
       if (!wait.atGoal() && wait.atThreshold())
       {
@@ -46,6 +51,13 @@ class Table
       } else if (wait.atGoal())
       {
         c.state = 4;
+      }
+    }
+    else if (state == -1)
+    {
+      if(wait.atInputTime(8))
+      {
+        state = prevState +1;
       }
     }
   }
@@ -75,8 +87,8 @@ class Table
   {
     c = in;
     //wait time is lower for customers of higher priority (lower VIPNum)
-    //wait.setGoal(c.getVIPNum() * 10);
-    wait.setGoal(5);
+    wait.setGoal(c.getVIPNum() * 10);
+    //wait.setGoal(5);
     wait.startTime();
   }
 

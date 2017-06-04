@@ -185,7 +185,8 @@ public class Waiter
     {
       println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
-      t.state = 2;
+      t.prevState = t.state;
+      t.state = -1;
     }
     //Customers are ready to be served
     else if (t.state == 2)
@@ -196,7 +197,8 @@ public class Waiter
         {
           println("served order of table " + t.tableNum);
           finishedOrders[0] = null;
-          t.state = 3;
+          t.prevState = t.state;
+          t.state = -1;
         }
       }
       if (finishedOrders[1] != null)
@@ -205,7 +207,8 @@ public class Waiter
         {
           println("served order of table " + t.tableNum);
           finishedOrders[1] = null;
-          t.state = 3;
+          t.prevState = t.state;
+          t.state = -1;
         }
       }
     }
