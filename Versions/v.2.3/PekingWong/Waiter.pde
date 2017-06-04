@@ -11,10 +11,12 @@ public class Waiter
   private Order[] finishedOrders;
   float x;
   float y;
+  int ind;
   boolean waiterMoves;
   int state;
   private int strikes;
   private int points;
+  PImage[] walkingRight;
   PImage waiterNoFood;
   PImage bowtie;
   //int test;
@@ -42,7 +44,11 @@ public class Waiter
     y = 200;
     waiterMoves = false;
     state = 0;
-    waiterNoFood = loadImage("Images/waiterNoFood/walking1.gif");
+    walkingRight = new PImage[4];
+    walkingRight[0] = loadImage("Images/waiterNoFood/walking1.gif");
+    walkingRight[1] = loadImage("Images/waiterNoFood/walking2.gif");
+    walkingRight[2] = loadImage("Images/waiterNoFood/walking3.gif");
+    walkingRight[3] = loadImage("Images/waiterNoFood/walking4.gif");
     bowtie = loadImage("Images/bowtie1.gif");
   }
 
@@ -69,7 +75,7 @@ public class Waiter
         c.display();
       }
     }
-    image(waiterNoFood, x, y);
+    image(walkingRight[ind%4], x, y);
     image(bowtie, x+30, y +15);
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
@@ -127,6 +133,8 @@ public class Waiter
     } else if (state == 3) {
       goTo(currTable.x+65, currTable.y-15);
     }
+    ind ++;
+    delay(10);
   }
 
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
