@@ -16,6 +16,7 @@ public class Waiter
   private int strikes;
   private int points;
   PImage waiterNoFood;
+  PImage bowtie;
   //int test;
   //PImage waiterWithFood;
 
@@ -37,11 +38,12 @@ public class Waiter
     finishedOrders = new Order[2];
     k = kitch;
 
-    x = 100;
+    x = 300;
     y = 200;
     waiterMoves = false;
     state = 0;
-    waiterNoFood = loadImage("Images/Waiter.png");
+    waiterNoFood = loadImage("Images/waiterNoFood/walking1.gif");
+    bowtie = loadImage("Images/bowtie1.gif");
   }
 
   //Displaying Functions
@@ -68,6 +70,7 @@ public class Waiter
       }
     }
     image(waiterNoFood, x, y);
+    image(bowtie, x+30, y +15);
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
 
@@ -118,7 +121,7 @@ public class Waiter
   void move()
   {
     if (state == 1) {
-      goTo(k.x+30, k.y);
+      goTo(k.x+120,k.y);
     } else if (state == 2) {
       goTo(k.x, k.y);
     } else if (state == 3) {

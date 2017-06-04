@@ -16,8 +16,10 @@ public class Kitchen {
 
   void display()
   {
-    //fill(130);
-    //rect(400, 20, 300, 50);
+    noStroke();
+    //fill(0);
+    fill(20, 20, 150, 0);
+    rect(500, 200, 300, 50);
     frame = (frame + 1) % 2;
     image(images[frame], x, y);
     if (!finishedFoodList.isEmpty())
@@ -33,8 +35,9 @@ public class Kitchen {
   }
 
   boolean overKitchen() {
-    if (mouseX >= x && mouseX <= x+50 && 
+    if (mouseX >= x && mouseX <= x+300 && 
       mouseY >= y && mouseY <= y+50) {
+       println("kitch");
       return true;
     } else {
       return false;

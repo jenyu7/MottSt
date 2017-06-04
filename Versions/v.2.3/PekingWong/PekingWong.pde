@@ -22,6 +22,7 @@ void setup()
 void draw()
 {
   background(bgimg);
+  ellipse(0,0,50,50);
   //background(0);
   if (!pekingWong.strikeOut())
   {

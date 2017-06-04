@@ -9,19 +9,25 @@ public class Order
   int x;
   int y;
   int state;
+  PImage[] imgs;
+  PImage image;
+  int rand = (int) (Math.random() * 12);
 
   //Display
   void display()
   {
-    fill(255);
-    ellipse(600, 50, 30, 30);
-    fill(0);
-    text(tableNum + "", 600, 50);
+    image(image,700,180);
+    //fill(0);
+    fill(20, 20, 150, 0);
+    ellipse(725,205, 50,50);
+    //fill(0);
+    //text(tableNum + "", 600, 50);
   }
 
   boolean overOrder() {
-    if (mouseX >= 570 && mouseX <= 630 && 
-      mouseY >= 20 && mouseY <= 80) {
+    if (mouseX >= 700 && mouseX <= 750 && 
+      mouseY >= 180 && mouseY <= 230) {
+        println("over");
       return true;
     } else {
       return false;
@@ -35,6 +41,22 @@ public class Order
     table = tab;
     tableNum = tab.tableNum;
     t = new Time(5);
+    imgs = new PImage[12];
+    imgs[0] = loadImage("Images/foodstuffs/1.png");
+    imgs[1] = loadImage("Images/foodstuffs/2.png");
+    imgs[2] = loadImage("Images/foodstuffs/3.png");
+    imgs[3] = loadImage("Images/foodstuffs/4.png");
+    imgs[4] = loadImage("Images/foodstuffs/5.png");
+    imgs[5] = loadImage("Images/foodstuffs/6.png");
+    imgs[6] = loadImage("Images/foodstuffs/7.png");
+    imgs[7] = loadImage("Images/foodstuffs/8.png");
+    imgs[8] = loadImage("Images/foodstuffs/9.png");
+    imgs[9] = loadImage("Images/foodstuffs/10.png");
+    imgs[10] = loadImage("Images/foodstuffs/11.png");
+    imgs[11] = loadImage("Images/foodstuffs/12.png");
+    
+    image = imgs[rand];
+    image.resize(50,50);
   }
   //returns table number and name of dish
   public String toString()
