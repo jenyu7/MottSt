@@ -56,7 +56,6 @@ void mousePressed()
   if (d != null)
   {
     if (d.overBox) { 
-      println("over");
       d.locked = true;
     } else {
       d.locked = false;
@@ -82,12 +81,12 @@ void mouseReleased()
     for (Table t : ling.getTables()) {
       if (t.inside(d.bx, d.by)) {
         if (t.getCust() == null) {
+          d.setState(1);
           t.setCust(d);
           t.state = 1;
           t.setOrder(new Order(t));
           d.setTable(t);
           ling.addCustomer(d);
-          d.setState(1);
           if (pekingWong.waitList.peekMin() != null)
             d = pekingWong.waitList.removeMin();
           else{d = null;}

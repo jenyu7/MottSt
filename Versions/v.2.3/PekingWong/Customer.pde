@@ -12,18 +12,21 @@ public class Customer extends Draggable
   int origX;
   int origY;
   PImage[] images;
-  int rand = (int) (Math.random() * 3);
+  PImage waiting;
+  PImage sitting;
+  int rand = (int) (Math.random() * 4);
 
   void display()
   {
     if (state == 0) {
       super.display();
+      image(waiting, bx, by);
     }
     if (state == 1) {
       bx = table.x - 10;
       by = table.y+20;
+      image(sitting, bx, by);
     }
-    image(images[rand],bx,by);
     noStroke();
     fill(20, 20, 150, 0);
     rect(bx, by, 80, 150);    
@@ -57,11 +60,18 @@ public class Customer extends Draggable
     origX = 100;
     origY = 100;
     
-    images = new PImage[4];
+    images = new PImage[8];
     images[0] = loadImage("Images/Customer1.png");
     images[1] = loadImage("Images/Customer2.png");
     images[2] = loadImage("Images/Customer3.png");
     images[3] = loadImage("Images/Customer4.png");
+    images[4] = loadImage("Images/Cust1SitLeft.png");
+    images[5] = loadImage("Images/Cust2SitLeft.png");
+    images[6] = loadImage("Images/Cust3SitRight.png");
+    images[7] = loadImage("Images/Cust4SitRight.png");
+    
+    waiting = images[rand];
+    sitting = images[rand+4];
 
   }
 
