@@ -21,17 +21,18 @@ class Table
     y = setY; 
     order = null;
     wait = new Time();
-    visual = loadImage("table2v2.png");
+    visual = loadImage("Images/table2v2.png");
   }
 
   //Display Functions
-  
+
   //Updates the mood of the customer at the table, and then displays. 
-  void display() { 
+  void display() 
+  { 
     update();
     fill(255);
     //rect(x, y, 50, 50, 7);
-    image(visual,x,y);
+    image(visual, x, y);
   }
 
   //Checks if the customer has been waiting a certain amount of time. 
@@ -55,10 +56,9 @@ class Table
       {
         c.state = 4;
       }
-    }
-    else if (state == -1)
+    } else if (state == -1)
     {
-      if(wait.atInputTime(8))
+      if (wait.atInputTime(8))
       {
         state = prevState +1;
       }

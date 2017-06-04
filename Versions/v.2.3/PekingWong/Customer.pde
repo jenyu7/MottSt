@@ -23,10 +23,10 @@ public class Customer extends Draggable
       bx = table.x - 10;
       by = table.y+20;
     }
-    //fill(20, 20, 150);
-    //ellipse(bx, by, 20, 20);    
     image(images[rand],bx,by);
-
+    noStroke();
+    fill(20, 20, 150, 0);
+    rect(bx, by, 80, 150);    
   }
 
   void checkState()
@@ -48,7 +48,7 @@ public class Customer extends Draggable
   //Constructor: populates order with random dishes
   public Customer()
   {
-    super(20);
+    super(80,150);
     name = "BJB";
     VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
@@ -58,10 +58,10 @@ public class Customer extends Draggable
     origY = 100;
     
     images = new PImage[4];
-    images[0] = loadImage("Customer1.png");
-    images[1] = loadImage("Customer2.png");
-    images[2] = loadImage("Customer3.png");
-    images[3] = loadImage("Customer4.png");
+    images[0] = loadImage("Images/Customer1.png");
+    images[1] = loadImage("Images/Customer2.png");
+    images[2] = loadImage("Images/Customer3.png");
+    images[3] = loadImage("Images/Customer4.png");
 
   }
 

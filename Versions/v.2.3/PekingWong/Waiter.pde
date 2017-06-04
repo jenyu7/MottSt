@@ -67,12 +67,14 @@ public class Waiter
     }
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
-    waiterNoFood = loadImage("Waiter.png");
-    waiterWithFood = loadImage("WaiterBillFood.png");
+    waiterNoFood = loadImage("Images/Waiter.png");
+    waiterWithFood = loadImage("Images/WaiterBillFood.png");
+    /*
     if (state == 3 || state == 2 || state == 0)
       image(waiterNoFood,x,y);
     if (state == 1) 
       image(waiterWithFood,x,y);
+      */
   }
 
   /*------

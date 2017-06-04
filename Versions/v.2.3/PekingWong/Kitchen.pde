@@ -47,8 +47,8 @@ public class Kitchen {
   public Kitchen() 
   {
     images = new PImage[2];
-    images[0] = loadImage("luckycatF1.jpg");
-    images[1] = loadImage("luckycatF2.jpg");
+    images[0] = loadImage("Images/luckycatF1.jpg");
+    images[1] = loadImage("Images/luckycatF2.jpg");
     pendingFoodList = new ArrayDeque<Order>();
     finishedFoodList = new ALQueue<Order>();
     stovetops = new Order[3];

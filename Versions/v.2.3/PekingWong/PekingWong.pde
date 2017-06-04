@@ -10,7 +10,7 @@ PImage bgimg;
 //Sets up the screen 
 void setup()
 {
-  bgimg = loadImage("RestaurantFloorV3.jpg");
+  //bgimg = loadImage("Images/RestaurantFloorV3.jpg");
   size(1280, 720);
   k = new Kitchen();
   ling = new Waiter(k);
@@ -21,7 +21,8 @@ void setup()
 //Calls the display functions of the globals, and updates them if necessary
 void draw()
 {
-  background(bgimg);
+  //background(bgimg);
+  background(0);
   if (!pekingWong.strikeOut())
   {
     pekingWong.update();
@@ -55,6 +56,7 @@ void mousePressed()
   if (d != null)
   {
     if (d.overBox) { 
+      println("over");
       d.locked = true;
     } else {
       d.locked = false;
