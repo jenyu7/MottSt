@@ -37,8 +37,8 @@ public class Waiter
     finishedOrders = new Order[2];
     k = kitch;
 
-    x = 15;
-    y = 15;
+    x = 100;
+    y = 200;
     waiterMoves = false;
     state = 0;
     waiterNoFood = loadImage("Images/Waiter.png");
@@ -118,9 +118,9 @@ public class Waiter
   void move()
   {
     if (state == 1) {
-      goTo(k.x, k.y);
+      goTo(k.x+30, k.y);
     } else if (state == 2) {
-      goTo(600, 60);
+      goTo(k.x, k.y);
     } else if (state == 3) {
       goTo(currTable.x+65, currTable.y-15);
     }
