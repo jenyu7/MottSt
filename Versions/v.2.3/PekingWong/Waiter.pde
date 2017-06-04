@@ -16,7 +16,7 @@ public class Waiter
   private int strikes;
   private int points;
   PImage waiterNoFood;
-  int test;
+  //int test;
   //PImage waiterWithFood;
 
 

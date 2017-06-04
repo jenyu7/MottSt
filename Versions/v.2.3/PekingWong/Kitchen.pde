@@ -33,7 +33,7 @@ public class Kitchen {
   }
 
   boolean overKitchen() {
-    if (mouseX >= x && mouseX <= x+300 && 
+    if (mouseX >= x && mouseX <= x+50 && 
       mouseY >= y && mouseY <= y+50) {
       return true;
     } else {
@@ -47,13 +47,13 @@ public class Kitchen {
   public Kitchen() 
   {
     images = new PImage[2];
-    images[0] = loadImage("Images/luckycatF1.jpg");
-    images[1] = loadImage("Images/luckycatF2.jpg");
+    images[0] = loadImage("Images/luckycat1.gif");
+    images[1] = loadImage("Images/luckycat2.gif");
     pendingFoodList = new ArrayDeque<Order>();
     finishedFoodList = new ALQueue<Order>();
     stovetops = new Order[3];
-    x = 400;
-    y = 112;
+    x = 510;
+    y = 180;
   }
 
   public boolean hasStoveSpace()
