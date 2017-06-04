@@ -50,9 +50,9 @@ public class Restaurant {
     calcSpawn.startTime();
   }
 
-  boolean hasCust()
+  boolean strikeOut()
   {
-    return waitList.sizeOf() != 0 || BJB.getCustomers().size() != 0;
+    return BJB.getStrikes() == 5;
   }
 
   boolean shouldSpawn()

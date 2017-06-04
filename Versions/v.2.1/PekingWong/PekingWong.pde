@@ -19,7 +19,7 @@ void setup()
 void draw()
 {
   background(0);
-  if (pekingWong.hasCust())
+  if (!pekingWong.strikeOut())
   {
     pekingWong.update();
     ling.display();

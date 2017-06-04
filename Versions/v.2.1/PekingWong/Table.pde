@@ -75,7 +75,8 @@ class Table
   {
     c = in;
     //wait time is lower for customers of higher priority (lower VIPNum)
-    wait.setGoal(c.getVIPNum() * 10);
+    //wait.setGoal(c.getVIPNum() * 10);
+    wait.setGoal(5);
     wait.startTime();
   }
 

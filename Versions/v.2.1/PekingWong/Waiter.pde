@@ -261,4 +261,10 @@ public class Waiter
   {
     return points;
   }
+  
+  //returns the current amount of strikes
+  public int getStrikes()
+  {
+    return strikes;
+  }
 }
