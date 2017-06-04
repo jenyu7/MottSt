@@ -14,6 +14,8 @@ public class Waiter
   float y;
   boolean waiterMoves;
   int state;
+  PImage waiterNoFood;
+  PImage waiterWithFood;
 
   //create a waiter
   public Waiter(Kitchen kitch) 
@@ -53,8 +55,14 @@ public class Waiter
     for (Customer c : customers) {
       c.display();
     }
-    fill(0, 120, 100);
-    ellipse(x, y, 30, 30);
+    //fill(0, 120, 100);
+    //ellipse(x, y, 30, 30);
+    waiterNoFood = loadImage("Waiter.png");
+    waiterWithFood = loadImage("WaiterBillFood.png");
+    if (state == 3 || state == 2 || state == 0)
+      image(waiterNoFood,x,y);
+    if (state == 1) 
+      image(waiterWithFood,x,y);
   }
 
 
