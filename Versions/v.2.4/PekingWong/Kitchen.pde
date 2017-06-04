@@ -37,7 +37,7 @@ public class Kitchen {
   boolean overKitchen() {
     if (mouseX >= x && mouseX <= x+300 && 
       mouseY >= y && mouseY <= y+50) {
-       println("kitch");
+      println("kitch");
       return true;
     } else {
       return false;
