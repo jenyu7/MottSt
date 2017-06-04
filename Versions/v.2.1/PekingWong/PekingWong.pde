@@ -48,7 +48,7 @@ void mouseClicked()
   ling.update();
 }
 
-//When the mouse is pressed
+//When the mouse is pressed 
 void mousePressed()
 {
   if (d != null)
