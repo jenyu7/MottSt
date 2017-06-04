@@ -78,7 +78,7 @@ class Table
   boolean inside(float currX, float currY)
   {
     //println("in");
-    return currX >= x && currX <= x + 128; //&& currY >= y && currY <= y+100;
+    return currX >= x && currX <= x + 128 && currY <= y+100; //&& currY >= y ;
   }
   //Mutators
   //Sets the table# of the customer

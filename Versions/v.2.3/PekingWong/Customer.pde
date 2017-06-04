@@ -23,8 +23,8 @@ public class Customer extends Draggable
       image(waiting, bx, by);
     }
     if (state == 1) {
-      bx = table.x - 10;
-      by = table.y+20;
+      bx = table.x - 50;
+      by = table.y-50;
       image(sitting, bx, by);
     }
     noStroke();
@@ -67,8 +67,8 @@ public class Customer extends Draggable
     images[3] = loadImage("Images/Customer4.png");
     images[4] = loadImage("Images/Cust1SitLeft.png");
     images[5] = loadImage("Images/Cust2SitLeft.png");
-    images[6] = loadImage("Images/Cust3SitRight.png");
-    images[7] = loadImage("Images/Cust4SitRight.png");
+    images[6] = loadImage("Images/Cust3SitLeft.png");
+    images[7] = loadImage("Images/Cust4SitLeft.png");
     
     waiting = images[rand];
     sitting = images[rand+4];
