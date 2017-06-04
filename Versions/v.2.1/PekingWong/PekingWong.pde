@@ -10,7 +10,7 @@ void setup()
   k = new Kitchen();
   ling = new Waiter(k);
   pekingWong = new Restaurant(ling);
-  d = pekingWong.waitList.peekMin();
+  d = pekingWong.waitList.removeMin();
   run();
 }
 
@@ -19,14 +19,21 @@ void draw()
   background(0);
   if (pekingWong.hasCust())
   {
+    pekingWong.update();
     ling.display();
     k.display();
     if (d != null) {
       d.display();
     }
+    if (d == null)
+    {
+      if (pekingWong.waitList.peekMin() != null)
+      {
+        d = pekingWong.waitList.removeMin();
+      }
+    }
     if (ling.waiterMoves)
       ling.move();
-    pekingWong.update();
   }
 }
 
@@ -71,9 +78,10 @@ void mouseReleased()
           t.setOrder(new Order(t.tableNum));
           d.setTable(t);
           ling.addCustomer(d);
-          pekingWong.waitList.removeMin();
           d.setState(1);
-          d = pekingWong.waitList.peekMin();
+          if (pekingWong.waitList.peekMin() != null)
+            d = pekingWong.waitList.removeMin();
+          else{d = null;}
           return;
         }
       }
