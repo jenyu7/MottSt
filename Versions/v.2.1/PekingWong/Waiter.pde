@@ -9,7 +9,6 @@ public class Waiter
   private ArrayList<Table> tables;
   private ArrayList<Order> orders;
   private Order[] finishedOrders;
-  private int[][] nodes;
   float x;
   float y;
   boolean waiterMoves;
@@ -31,7 +30,6 @@ public class Waiter
     tables.add(new Table(7, 500, 350));
     tables.add(new Table(8, 500, 450));
 
-    nodes = new int[9][2];
     orders = new ArrayList<Order>(); 
     finishedOrders = new Order[2];
     k = kitch;
@@ -50,13 +48,24 @@ public class Waiter
     for (int i = 0; i < 8; i++) {
       tables.get(i).display();
     }
-    for (Customer c : customers) {
-      c.display();
+    for (int i = customers.size()-1; i >= 0; i --) {
+      Customer c = customers.get(i);
+      if (c.state == 4)
+      {
+        Table t = c.getTable();
+        println("The customer at table " + t.tableNum + " has left...");
+        removeCustomer(t.c);
+        t.c = null;
+        t.state = 0;
+      } else
+      {
+        c.display();
+      }
     }
     fill(0, 120, 100);
     ellipse(x, y, 30, 30);
   }
-  
+
   /*------
    * Updates the state of the waiter. Invoked when the mouse is clicked. 
    * If the mouse has clicked on the Order at the Kitchen, state = 1.
@@ -72,11 +81,9 @@ public class Waiter
     {
       if (k.currOrder != null && k.currOrder.overOrder())
       {
-        //state 1: picking up order from kitchen
         state = 1;
         return;
       }
-      //state 2: going to kitchen to place order
       state = 2;
     } else {
       for (Table t : tables) {
@@ -126,11 +133,11 @@ public class Waiter
 
   //Mechanics Functions
 
- /*------
-  * Performs an action based on the state of the waiter. 
-  * States and what they represent are delineated above, before the "update" method. 
-  ------*/
- void performAct()
+  /*------
+   * Performs an action based on the state of the waiter. 
+   * States and what they represent are delineated above, before the "update" method. 
+   ------*/
+  void performAct()
   {
     if (state == 1)
     {
@@ -181,7 +188,6 @@ public class Waiter
         if (finishedOrders[0].getTable() == t.tableNum)
         {
           println("served order of table " + t.tableNum);
-          t.c.nowServed();
           finishedOrders[0] = null;
           t.state = 3;
         }
@@ -191,7 +197,6 @@ public class Waiter
         if (finishedOrders[1].getTable() == t.tableNum)
         {
           println("served order of table " + t.tableNum);
-          t.c.nowServed();
           finishedOrders[1] = null;
           t.state = 3;
         }
@@ -205,8 +210,9 @@ public class Waiter
       t.c = null;
       t.state = 0;
     }
+    t.wait.startTime();
   }
-  
+
   //Mutators
 
   //adds a customer to the customers ArrayList
@@ -242,7 +248,7 @@ public class Waiter
   {
     return tables;
   }
-  
+
   //returns current number of points
   public int getPoints()
   {

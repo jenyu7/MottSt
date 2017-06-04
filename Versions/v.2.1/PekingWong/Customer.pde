@@ -9,7 +9,6 @@ public class Customer extends Draggable
   private int VIPNum;
   private int mood;
   private int state;
-  private boolean served;
   int origX;
   int origY;
 
@@ -47,7 +46,7 @@ public class Customer extends Draggable
   {
     super(20);
     name = "BJB";
-    VIPNum = (int) (Math.random() * 10);
+    VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
     bx = 100;
     by = 100;
@@ -72,11 +71,6 @@ public class Customer extends Draggable
     }
     return 0;
   }
-  
-  public boolean isNull()
-  {
-    return this == null;
-  }
 
   public void setTable(Table t)
   {
@@ -86,11 +80,6 @@ public class Customer extends Draggable
   public void setState(int i)
   {
     state = i;
-  }
-
-  public void nowServed()
-  {
-    served = true;
   }
 
   //returns table number
