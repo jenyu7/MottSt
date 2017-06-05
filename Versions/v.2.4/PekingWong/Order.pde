@@ -16,12 +16,14 @@ public class Order
   //Display
   void display()
   {
+    if (state == 1)
+    {
+      image(image, table.x+30, table.y-10);
+      return;
+    }
     image(image,700,180);
-    //fill(0);
     fill(20, 20, 150, 0);
     ellipse(725,205, 50,50);
-    //fill(0);
-    //text(tableNum + "", 600, 50);
   }
 
   boolean overOrder() {

@@ -33,46 +33,28 @@ class Table
     fill(255);
     //rect(x, y, 50, 50, 7);
     image(visual, x, y);
+    if (order != null && order.state == 1)
+    {
+      //println("order");
+      order.display();
+    }
   }
 
   //Checks if the customer has been waiting a certain amount of time. 
   void update()
   {
-    if (wait != null && c != null && state != -1)
+    if (wait != null && c != null)
     {
-      if (!wait.atGoal() && wait.atThreshold())
+      //println("elapsed: " + wait.getElapsed());
+      if (state == -1)
       {
-        if (wait.atInputTime(wait.threshold + wait.interval))
+        if (wait.atInputTime(8))
         {
-          /*
-          println("target: " + wait.target);
-           println("threshold: " + wait.threshold);
-           println("elapsed: " + wait.getElapsed());
-           */
-           
-          c.mood --;
-          wait.interval += 2;
-          
-          if (c.mood == 0) {
-            c.state = 4;
-          }
+          state = prevState +1;
         }
-      } else if (wait.atGoal())
-      {
-        //c.state = 4;
-        
-        //c.mood--;
-        //wait.interval += 2;
-        //if (c.mood == 0)
-        //  c.state = 4;
-      }
-    } else if (state == -1)
-    {
-      if (wait.atInputTime(8))
-      {
-        state = prevState +1;
       }
     }
+   // println(state);
   }
 
   boolean overTable() {
@@ -83,7 +65,7 @@ class Table
       return false;
     }
   }
-
+  
   boolean inside(float currX, float currY)
   {
     //println("in");
@@ -95,7 +77,7 @@ class Table
   {
     tableNum = num;
   }
-
+  
   //sets the customer seated at the table
   void setCust(Customer in)
   {
@@ -105,19 +87,19 @@ class Table
     //wait.setGoal(5);
     wait.startTime();
   }
-
+  
   void setOrder(Order o)
   {
     order = o;
   }
-
+  
   //Accessors
   //returns order placed by table
   public Order getOrder()
   {
     return order;
   }
-
+  
   //returns customer seated at table
   public Customer getCust()
   {

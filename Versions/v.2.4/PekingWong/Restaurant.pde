@@ -9,7 +9,6 @@ public class Restaurant {
   ALHeap waitList;
   ArrayList<Customer> serveList;
   Waiter BJB;
- // PFont cFood = loadFont("chinese_takeaway/CHINESETAKEAWAY.ttf");
 
   //overloaded constructor
   public Restaurant(Waiter w) 
@@ -36,9 +35,6 @@ public class Restaurant {
     {
       d.display();
     }
-    //fill(0);
-    //textSize(32);
-    //text("POINTS: " + BJB.getPoints(),15,15);
   }
   
   //Checks if another customer should be spawned

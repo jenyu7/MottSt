@@ -8,8 +8,6 @@ class Time
   //seconds
   long elapsed;
   long target;
-  int interval;
-  long threshold;
 
   //Default Constructor, target time can be modified later
   Time()
@@ -26,7 +24,7 @@ class Time
     this();
     //should be in seconds
     target = goalTime;
-    threshold = (goalTime*7)/10;
+    //threshold = (goalTime*7)/10;
   }
 
   String toString()
@@ -63,19 +61,20 @@ class Time
   {
     return getElapsed() >= target;
   }
-
+  
   //Returns whether or not elapsed time has surpassed an inputted time
   boolean atInputTime(long input)
   {
     return getElapsed() >= input;
   }
-
+  /*
   //Returns whether or not elapsed time has surpassed a threshold
   boolean atThreshold()
   {
     return getElapsed() >= threshold;
   }
-
+  */
+  
   //Converts nanoTime to seconds
   long toSeconds(long time)
   {
@@ -86,6 +85,6 @@ class Time
   void setGoal(long goalTime)
   {
     target = goalTime;
-    threshold = (goalTime * 7)/10;
+    //threshold = (goalTime * 7)/10;
   }
 }
