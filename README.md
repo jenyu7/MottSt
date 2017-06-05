@@ -11,20 +11,24 @@ Hello, and welcome! In this game, you are a new waiter at the famous Peking Wong
 
 _Seating customers:_
 
-Customers are on 
+Customers appear in the upper left corner. The waiter seats customers by dragging the customer to an empty table. 
 
 _Taking down orders and bringing out food:_
 
-When a table is ready to order, the waiter will record the order and add it to an “Order” ArrayList and the “Pending Food” Deque, adding fast orders such as drinks to the front of the deque to be processed first, and the other, slower, orders to the end of the deque. However, the waiter retains the freedom to add a dish either to the front or end of the deque; they just have to make sure the customer stays happy. 
-The chef will add completed food items to a “Finished Food” Queue, and the waiter will deliver the next item in the queue to the correct table. Food items take different amounts of time to prepare, but will be listed in three main categories: small, medium and large. Small dishes include items such as beverages, salads, and soups. Medium dishes involve desserts, sandwiches, and general breakfast/lunch items. Large dishes consist of main courses and dinner meals. 
+When a table is ready to order, the waiter will take the order by going to the table, and add it to an “Order” ArrayList. The waiter goes to the lucky cat to add the order to the "Pending Food" Deque. 
+The chef will add completed food items to a “Finished Food” Queue. Finished foods will appear at the counter, and the waiter will deliver the next item in the queue to the correct table. 
+
+_Bringing the Bill_
+
+When a customer is done eating, the waiter must bring the customer the bill, and the customer will leave the restaurant. 
 
 _Points System:_
 
 The user is given points doing tasks correctly, such as: 
 - Seating customers at tables
 - Taking and bringing out food orders to the correct table
-- Drinks and appetizers should be brought out first, then the meal, then dessert.  
 
+The customers each have moods, and the waiter gets more points by keeping the customer happy. The number of points is proportional to the customer's mood. If the customer's mood counts down to 0, the customer will leave the restaurant, and the waiter will be deducted points.
 
 ### _Launch Instructions_
 
