@@ -18,13 +18,17 @@ _Taking down orders and bringing out food:_
 When a table is ready to order, the waiter will take the order by going to the table, and add it to an “Order” ArrayList. The waiter goes to the lucky cat to add the order to the "Pending Food" Deque. 
 The chef will add completed food items to a “Finished Food” Queue. Finished foods will appear at the counter, and the waiter will deliver the next item in the queue to the correct table. 
 
+_Bringing the Bill_
+
+When a customer is done eating, the waiter must bring the customer the bill, and the customer will leave the restaurant. 
+
 _Points System:_
 
 The user is given points doing tasks correctly, such as: 
 - Seating customers at tables
 - Taking and bringing out food orders to the correct table
 
-The customers each have randomized moods, and the waiter gets more points by keeping the customer happy. If the customer's mood counts down to 0, the customer will leave the restaurant, and the waiter will be deducted points.
+The customers each have moods, and the waiter gets more points by keeping the customer happy. The number of points is proportional to the customer's mood. If the customer's mood counts down to 0, the customer will leave the restaurant, and the waiter will be deducted points.
 
 ### _Launch Instructions_
 
