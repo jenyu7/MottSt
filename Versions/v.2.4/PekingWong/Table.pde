@@ -49,12 +49,22 @@ class Table
            println("threshold: " + wait.threshold);
            println("elapsed: " + wait.getElapsed());
            */
+           
           c.mood --;
           wait.interval += 2;
+          
+          if (c.mood == 0) {
+            c.state = 4;
+          }
         }
       } else if (wait.atGoal())
       {
-        c.state = 4;
+        //c.state = 4;
+        
+        //c.mood--;
+        //wait.interval += 2;
+        //if (c.mood == 0)
+        //  c.state = 4;
       }
     } else if (state == -1)
     {

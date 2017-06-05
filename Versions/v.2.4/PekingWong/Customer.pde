@@ -58,7 +58,7 @@ public class Customer extends Draggable
     name = "BJB";
     VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
-    mood = (int) (Math.random() * 10);
+    mood = (int) (Math.random() * 9) + 1;
     bx = 100;
     by = 100;
     origX = 100;
