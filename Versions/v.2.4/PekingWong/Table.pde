@@ -11,6 +11,7 @@ class Table
   int x;
   int y;
   PImage visual;
+  PFont cFood = createFont("AFont.ttf", 20);
 
   //New table with no customer, but a number assignment and (x,y)
   Table(int num, int setX, int setY)
@@ -33,6 +34,9 @@ class Table
     fill(255);
     //rect(x, y, 50, 50, 7);
     image(visual, x, y);
+    textSize(25);
+    textFont(cFood);
+    text("" + tableNum, x +60, y + 40);
     if (order != null && order.state == 1)
     {
       //println("order");

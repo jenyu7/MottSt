@@ -10,7 +10,7 @@ public class Kitchen {
   int x;
   int y;
   PImage[] images;
-  int frame;
+  int state;
 
   //Display
 
@@ -20,8 +20,16 @@ public class Kitchen {
     //fill(0);
     fill(20, 20, 150, 0);
     rect(500, 200, 300, 50);
-    frame = (frame + 1) % 2;
-    image(images[frame], x, y);
+    image(images[0],x, y);
+    //frame = (frame + 1) % 2;
+    //image(images[frame], x, y);
+    if (state == 1)
+    {
+      image(images[1], x, y);
+      //println("animate");
+      delay(10);
+      image(images[0],x,y);
+    }
     if (!finishedFoodList.isEmpty())
     {
       if (currOrder == null) {
@@ -37,7 +45,7 @@ public class Kitchen {
   boolean overKitchen() {
     if (mouseX >= x && mouseX <= x+300 && 
       mouseY >= y && mouseY <= y+50) {
-      println("kitch");
+      //println("kitch");
       return true;
     } else {
       return false;

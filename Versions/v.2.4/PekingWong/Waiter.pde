@@ -139,7 +139,7 @@ public class Waiter
     if (state == 1) {
       goTo(k.x+120,k.y);
     } else if (state == 2) {
-      goTo(k.x, k.y);
+      goTo(k.x-15, k.y);
     } else if (state == 3) {
       goTo(currTable.x+65, currTable.y-15);
     }
@@ -205,6 +205,7 @@ public class Waiter
         Order o = orders.remove(0);
         println("placed order at kitchen");
         k.addLastToPending(o);
+        k.state = 1;
       }
     } else if (state == 3)
     {
