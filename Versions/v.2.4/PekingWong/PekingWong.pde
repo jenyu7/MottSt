@@ -22,12 +22,11 @@ void setup()
 void draw()
 {
   background(bgimg);
-  ellipse(0,0,50,50);
+  ellipse(0, 0, 50, 50);
   //background(0);
   if (!pekingWong.strikeOut())
   {
     pekingWong.update();
-    ling.display();
     k.display();
     if (d != null) {
       d.display();
@@ -41,6 +40,7 @@ void draw()
     }
     if (ling.waiterMoves)
       ling.move();
+    ling.display();
   }
 }
 
@@ -90,7 +90,9 @@ void mouseReleased()
           ling.addCustomer(d);
           if (pekingWong.waitList.peekMin() != null)
             d = pekingWong.waitList.removeMin();
-          else{d = null;}
+          else {
+            d = null;
+          }
           return;
         }
       }

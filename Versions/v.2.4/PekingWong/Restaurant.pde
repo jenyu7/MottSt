@@ -9,6 +9,7 @@ public class Restaurant {
   ALHeap waitList;
   ArrayList<Customer> serveList;
   Waiter BJB;
+ // PFont cFood = loadFont("chinese_takeaway/CHINESETAKEAWAY.ttf");
 
   //overloaded constructor
   public Restaurant(Waiter w) 

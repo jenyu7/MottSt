@@ -17,6 +17,7 @@ public class Waiter
   private int strikes;
   private int points;
   PImage waiterNoFood;
+  PFont cFood = createFont("AFont.ttf", 20);
  // PImage bowtie;
   //int test;
   //PImage waiterWithFood;
@@ -81,9 +82,9 @@ public class Waiter
     //image(bowtie, x+30, y +15);
     image(waiterNoFood, x, y);
     fill(0);
+    textSize(20);
+    textFont(cFood);
     text("POINTS: " + points,30,30);
-    
-    fill(0);
     text("STRIKES: " + strikes + "/5",30,50);
     
     //fill(0, 120, 100);
