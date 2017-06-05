@@ -290,7 +290,7 @@ public class Waiter
     if (c.state == 4) 
       points -= 5;
     else
-      points += 5;
+      points += c.getMood();
   }
 
 
