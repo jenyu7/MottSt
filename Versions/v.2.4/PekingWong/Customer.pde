@@ -61,10 +61,10 @@ public class Customer extends Draggable
     VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
     mood = (int) (Math.random() * 9) + 1;
-    bx = 100;
-    by = 100;
-    origX = 100;
-    origY = 100;
+    bx = 75;
+    by = 190;
+    origX = 75;
+    origY = 190;
     
     images = new PImage[8];
     images[0] = loadImage("Images/Customer1.png");
