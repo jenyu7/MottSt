@@ -32,7 +32,9 @@ public class Customer extends Draggable
     rect(bx, by, 80, 150);
     
     fill(0);
-    text("MOOD: " + mood,bx,by+10);
+    if (state == 1)
+      text("MOOD: " + mood,bx,by+10);
+      //println(mood);
   }
 
   void checkState()

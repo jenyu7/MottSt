@@ -43,17 +43,22 @@ class Table
   //Checks if the customer has been waiting a certain amount of time. 
   void update()
   {
-    if (wait != null && c != null)
+    if (wait != null && c != null && state != -1)
     {
-      //println("elapsed: " + wait.getElapsed());
-      if (state == -1)
+       c.mood = 10 - (int)(((float)wait.getElapsed()/wait.target) * 10);
+       if (c.mood <= 0)
+       {
+         c.state = 4;
+       }
+      
+    }
+    else if (state == -1)
       {
         if (wait.atInputTime(8))
         {
           state = prevState +1;
         }
       }
-    }
    // println(state);
   }
 
