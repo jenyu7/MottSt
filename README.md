@@ -23,6 +23,7 @@ _Points System:_
 The user is given points doing tasks correctly, such as: 
 - Seating customers at tables
 - Taking and bringing out food orders to the correct table
+
 The customers each have randomized moods, and the waiter gets more points by keeping the customer happy. If the customer's mood counts down to 0, the customer will leave the restaurant, and the waiter will be deducted points.
 
 ### _Launch Instructions_
