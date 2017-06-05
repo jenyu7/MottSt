@@ -18,7 +18,7 @@ _Taking down orders and bringing out food:_
 When a table is ready to order, the waiter will take the order by going to the table, and add it to an “Order” ArrayList. The waiter goes to the lucky cat to add the order to the "Pending Food" Deque. 
 The chef will add completed food items to a “Finished Food” Queue. Finished foods will appear at the counter, and the waiter will deliver the next item in the queue to the correct table. 
 
-_Bringing the Bill_
+_Bringing the Bill:_
 
 When a customer is done eating, the waiter must bring the customer the bill, and the customer will leave the restaurant. 
 
