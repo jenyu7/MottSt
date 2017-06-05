@@ -35,6 +35,9 @@ public class Restaurant {
     {
       d.display();
     }
+    //fill(0);
+    //textSize(32);
+    //text("POINTS: " + BJB.getPoints(),15,15);
   }
   
   //Checks if another customer should be spawned

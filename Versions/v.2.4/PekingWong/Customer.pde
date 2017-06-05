@@ -29,7 +29,10 @@ public class Customer extends Draggable
     }
     noStroke();
     fill(20, 20, 150, 0);
-    rect(bx, by, 80, 150);    
+    rect(bx, by, 80, 150);
+    
+    fill(0);
+    text("MOOD: " + mood,bx,by+10);
   }
 
   void checkState()
@@ -55,6 +58,7 @@ public class Customer extends Draggable
     name = "BJB";
     VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
+    mood = (int) (Math.random() * 10);
     bx = 100;
     by = 100;
     origX = 100;

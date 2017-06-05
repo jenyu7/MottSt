@@ -77,6 +77,13 @@ public class Waiter
     }
     image(walkingRight[ind%4], x, y);
     image(bowtie, x+30, y +15);
+    
+    fill(0);
+    text("POINTS: " + points,30,30);
+    
+    fill(0);
+    text("STRIKES: " + strikes + "/5",30,50);
+    
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
 
@@ -281,7 +288,10 @@ public class Waiter
         customers.remove(i);
       }
     }
-    points += 5;
+    if (c.state == 4) 
+      points -= 5;
+    else
+      points += 5;
   }
 
 
