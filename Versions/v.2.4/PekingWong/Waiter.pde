@@ -16,9 +16,8 @@ public class Waiter
   int state;
   private int strikes;
   private int points;
-  PImage[] walkingRight;
   PImage waiterNoFood;
-  PImage bowtie;
+ // PImage bowtie;
   //int test;
   //PImage waiterWithFood;
 
@@ -44,12 +43,15 @@ public class Waiter
     y = 200;
     waiterMoves = false;
     state = 0;
+    waiterNoFood = loadImage("Images/WaiterRight.png");
+    /*
     walkingRight = new PImage[4];
     walkingRight[0] = loadImage("Images/waiterNoFood/walking1.gif");
     walkingRight[1] = loadImage("Images/waiterNoFood/walking2.gif");
     walkingRight[2] = loadImage("Images/waiterNoFood/walking3.gif");
     walkingRight[3] = loadImage("Images/waiterNoFood/walking4.gif");
     bowtie = loadImage("Images/bowtie1.gif");
+    */
   }
 
   //Displaying Functions
@@ -75,9 +77,9 @@ public class Waiter
         c.display();
       }
     }
-    image(walkingRight[ind%4], x, y);
-    image(bowtie, x+30, y +15);
-    
+    //image(walkingRight[ind%4], x, y);
+    //image(bowtie, x+30, y +15);
+    image(waiterNoFood, x, y);
     fill(0);
     text("POINTS: " + points,30,30);
     
@@ -147,12 +149,8 @@ public class Waiter
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
   void goTo(int targetX, int targetY) {
     if (y < targetY) {
-      if (y + 5 > height) {
-        y += height-y-1; 
-        return;
-      }
       if (y + 5 > targetY) {
-        y += targetY-y-1;
+        y = targetY;
         return;
       }
       y+=5;
@@ -160,12 +158,8 @@ public class Waiter
       y-=5;
     } else {
       if (x < targetX) {
-        if (x + 5 > width) {
-          x += width-x-1;
-          return;
-        }
         if (x + 5 > targetX) {
-          x += targetX-x-1;
+          x = targetX;
           return;
         }
         x+=5;
