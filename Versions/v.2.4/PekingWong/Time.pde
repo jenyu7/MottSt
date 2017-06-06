@@ -8,6 +8,10 @@ class Time
   //seconds
   long elapsed;
   long target;
+  
+  boolean pause;
+  long pauseTime;
+  long pauseTimeStart;
 
   //Default Constructor, target time can be modified later
   Time()
@@ -37,6 +41,18 @@ class Time
   {
     start = System.nanoTime();
   }
+  
+  void pauseTime()
+  {
+   pauseTimeStart = System.nanoTime();
+   pause = true;
+  }
+  
+  void endPause()
+  {
+    pauseTime += System.nanoTime()-pauseTimeStart;
+    pause = false;
+  }
 
   //Ends the current time
   void endTime()
@@ -48,10 +64,14 @@ class Time
   long getElapsed()
   {
     elapsed = 0;
-    if (start != 0)
+    if (start != 0 && !pause)
     {
       endTime();
-      elapsed = toSeconds(end-start);
+      elapsed = toSeconds(end-start+pauseTime);
+    }
+    else if (pause)
+    {
+      elapsed = toSeconds(pauseTimeStart-start);
     }
     return elapsed;
   }
@@ -62,12 +82,18 @@ class Time
     return getElapsed() >= target;
   }
   
+  boolean endInterval()
+  {
+    return System.nanoTime()-pauseTimeStart >= 8;
+  }
+  
+  /*
   //Returns whether or not elapsed time has surpassed an inputted time
   boolean atInputTime(long input)
   {
-    return getElapsed() >= input;
+    return System.nanoTime()-pauseTimeStart >= input;
   }
-  /*
+  
   //Returns whether or not elapsed time has surpassed a threshold
   boolean atThreshold()
   {

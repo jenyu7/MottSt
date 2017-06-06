@@ -54,16 +54,17 @@ class Table
        {
          c.state = 4;
        }
-      
+       if (wait.pause)
+       {
+         //println("pause");
+         if (wait.endInterval())
+         {
+           println("end pause");
+           wait.endPause();
+           order.state = 0;
+         }
+       }
     }
-    else if (state == -1)
-      {
-        if (wait.atInputTime(8))
-        {
-          state = prevState +1;
-        }
-      }
-   // println(state);
   }
 
   boolean overTable() {
@@ -92,7 +93,7 @@ class Table
   {
     c = in;
     //wait time is lower for customers of higher priority (lower VIPNum)
-    wait.setGoal(c.getVIPNum() * 10);
+    wait.setGoal(c.getVIPNum() * 20);
     //wait.setGoal(5);
     wait.startTime();
   }

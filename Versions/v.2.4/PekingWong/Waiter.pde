@@ -228,8 +228,7 @@ public class Waiter
     {
       println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
-      t.prevState = t.state;
-      t.state = -1;
+      t.state = 2;
     }
     //Customers are ready to be served
     else if (t.state == 2)
@@ -241,8 +240,8 @@ public class Waiter
           println("served order of table " + t.tableNum);
           finishedOrders[0] = null;
           t.order.state = 1;
-          t.prevState = t.state;
-          t.state = -1;
+          t.state = 3;
+          t.wait.pauseTime();
         }
       }
       if (finishedOrders[1] != null)
@@ -252,13 +251,13 @@ public class Waiter
           println("served order of table " + t.tableNum);
           finishedOrders[1] = null;
           t.order.state = 1;
-          t.prevState = t.state;
-          t.state = -1;
+          t.state = 3;
+          t.wait.pauseTime();
         }
       }
     }
     //Customers are done eating
-    else if (t.state == 3)
+    else if (t.state == 3 && !t.wait.pause)
     {
       println("finished serving table " + t.tableNum);
       removeCustomer(t.c);
@@ -266,7 +265,7 @@ public class Waiter
       t.order = null;
       t.state = 0;
     }
-    t.wait.startTime();
+   // t.wait.startTime();
   }
 
   //Mutators
