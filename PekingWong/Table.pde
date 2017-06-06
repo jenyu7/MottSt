@@ -1,15 +1,19 @@
-
+//Class Table
 class Table
 {
+  //Instance Variables
   Customer c; 
   Order order;
+  Time wait;
   int tableNum;
   int state;
+  int prevState;
   int x;
   int y;
-  //Location l;
-  
-  //New table with no customer, but a number assignment
+  PImage visual;
+  PFont cFood = createFont("AFont.ttf", 20);
+
+  //New table with no customer, but a number assignment and (x,y)
   Table(int num, int setX, int setY)
   {
     tableNum = num;
@@ -17,47 +21,81 @@ class Table
     x = setX;
     y = setY; 
     order = null;
-    //l = new Location(x-55, y);
+    wait = new Time();
+    visual = loadImage("Images/table2v2.png");
   }
-  
-  void display() { 
-    if (c != null && state == 1)
-    {
-    }
-    else if(state == 2)
-    {
-    }
-    else
-    {
-    }
+
+  //Display Functions
+
+  //Updates the mood of the customer at the table, and then displays. 
+  void display() 
+  { 
+    update();
     fill(255);
-    rect(x,y,50,50,7);
+    //rect(x, y, 50, 50, 7);
+    image(visual, x, y);
+    textSize(25);
+    textFont(cFood);
+    text("" + tableNum, x +60, y + 40);
+    if (order != null && order.state == 1)
+    {
+      //println("order");
+      order.display();
+    }
   }
-  
-  boolean overTable()  {
-  if (mouseX >= x && mouseX <= x+50 && 
-      mouseY >= y && mouseY <= y+50) {
-    return true;
-  } else {
-    return false;
+
+  //Checks if the customer has been waiting a certain amount of time. 
+  void update()
+  {
+    if (wait != null && c != null && state != -1)
+    {
+       c.mood = 10 - (int)(((float)wait.getElapsed()/wait.target) * 10);
+       if (c.mood <= 0)
+       {
+         c.state = 4;
+       }
+       if (wait.pause)
+       {
+         //println("pause");
+         if (wait.endInterval())
+         {
+           println("end pause");
+           wait.endPause();
+           order.state = 0;
+         }
+       }
+    }
   }
-}
+
+  boolean overTable() {
+    if (mouseX >= x && mouseX <= x+128 && 
+      mouseY >= y && mouseY <= y+100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   
   boolean inside(float currX, float currY)
   {
-    return currX >= x && currX <= x + 50 && currY >= y && currY <= y+50;
+    //println("in");
+    return currX >= x && currX <= x + 128 && currY <= y+120; //&& currY >= y ;
   }
   //Mutators
   //Sets the table# of the customer
   public void setTable(int num) 
   {
-      tableNum = num;
+    tableNum = num;
   }
   
   //sets the customer seated at the table
   void setCust(Customer in)
   {
     c = in;
+    //wait time is lower for customers of higher priority (lower VIPNum)
+    wait.setGoal(c.getVIPNum() * 20);
+    //wait.setGoal(5);
+    wait.startTime();
   }
   
   void setOrder(Order o)

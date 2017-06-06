@@ -202,9 +202,11 @@ public class Waiter
     {
       if (orders.size() > 0)
       {
-        Order o = orders.remove(0);
-        println("placed order at kitchen");
-        k.addLastToPending(o);
+        for (int i = orders.size()-1; i >= 0; i --)
+        {
+          println("placed order at kitchen");
+          k.addLastToPending(orders.remove(i));
+        }
         k.state = 1;
       }
     } else if (state == 3)

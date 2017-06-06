@@ -7,31 +7,31 @@ import java.util.ArrayList;
 
 public class ALHeap
 {
-    //instance vars
-    private ArrayList<Customer> _heap; //underlying container is array of Customers
+  //instance vars
+  private ArrayList<Customer> _heap; //underlying container is array of Customers
 
-    /*****************************************************
-     * default constructor  ---  inits empty heap
-     *****************************************************/
-    public ALHeap() 
-    { 
+  /*****************************************************
+   * default constructor  ---  inits empty heap
+   *****************************************************/
+  public ALHeap() 
+  { 
     _heap = new ArrayList<Customer>();
-    }
+  }
 
-    /*****************************************************
-     * toString()  ---  overrides inherited method
-     * Returns either 
-     * a) a level-order traversal of the tree (simple version)
-     * b) ASCII representation of the tree (bit more complicated, much more fun)
-     *****************************************************/
-    public String toString() 
-    {
+  /*****************************************************
+   * toString()  ---  overrides inherited method
+   * Returns either 
+   * a) a level-order traversal of the tree (simple version)
+   * b) ASCII representation of the tree (bit more complicated, much more fun)
+   *****************************************************/
+  public String toString() 
+  {
     String retStr = "";
     int ctr = 1;
     for (int i = 0; i < _heap.size(); i++) 
     {
       retStr += _heap.get(i) + " ";
-      if (i >= (int)Math.pow(2,ctr)-2) 
+      if (i >= (int)Math.pow(2, ctr)-2) 
       {
         retStr += "\n";
         ctr++;
@@ -39,45 +39,45 @@ public class ALHeap
     }
     retStr += "\n";
     return retStr;
-    }//O(n)
+  }//O(n)
 
 
 
-    /*****************************************************
-     * boolean isEmpty()
-     * Returns true if no meaningful elements in heap, false otherwise
-     *****************************************************/
-    public boolean isEmpty() 
-    { 
-    return _heap.isEmpty(); 
-    } //O(1)
+  /*****************************************************
+   * boolean isEmpty()
+   * Returns true if no meaningful elements in heap, false otherwise
+   *****************************************************/
+  public boolean isEmpty() 
+  { 
+    return _heap.isEmpty();
+  } //O(1)
 
 
-     /*****************************************************
-     * Customer peekMin()
-     * Returns min value in heap
-     * Postcondition: Heap remains unchanged.
-     *****************************************************/
-    public Customer peekMin() 
-    {
+  /*****************************************************
+   * Customer peekMin()
+   * Returns min value in heap
+   * Postcondition: Heap remains unchanged.
+   *****************************************************/
+  public Customer peekMin() 
+  {
     if (!_heap.isEmpty())
       return _heap.get(0);
     else
       return null;
-    } //O(1)
+  } //O(1)
 
 
 
-    /*****************************************************
-     * add(Customer) 
-     * Inserts an element in the heap
-     * Postcondition: Tree maintains heap property.
-     * Algo: 
-     * Adds addVal to the end of the ArrayList,
-     * swaps with its parent if it is less than its parent, and so on
-     *****************************************************/
-    public void add( Customer addVal ) 
-    { 
+  /*****************************************************
+   * add(Customer) 
+   * Inserts an element in the heap
+   * Postcondition: Tree maintains heap property.
+   * Algo: 
+   * Adds addVal to the end of the ArrayList,
+   * swaps with its parent if it is less than its parent, and so on
+   *****************************************************/
+  public void add( Customer addVal ) 
+  { 
     //Add value as last node, to maintain balance, completeness of tree
     _heap.add( addVal );
 
@@ -85,7 +85,7 @@ public class ALHeap
     int parentPos;
 
     //potentially swap until reach root
-    while( addValPos > 0 ) 
+    while ( addValPos > 0 ) 
     { 
       //pinpoint parent
       parentPos = (addValPos-1) / 2;
@@ -94,23 +94,24 @@ public class ALHeap
       {
         swap( addValPos, parentPos );
         addValPos = parentPos;
+      } else {
+        break;
       }
-      else {break;}
     }
-    } //O(logn)
+  } //O(logn)
 
 
 
-    /*****************************************************
-     * removeMin()  ---  means of removing an element from heap
-     * Removes and returns least element in heap.
-     * Postcondition: Tree maintains heap property.
-     * Algo: 
-     * Swaps the last item with the first item and removes the last item,
-     * then swaps the root with the lesser child if it is greater than the child, and so on
-     *****************************************************/
-    public Customer removeMin() 
-    {
+  /*****************************************************
+   * removeMin()  ---  means of removing an element from heap
+   * Removes and returns least element in heap.
+   * Postcondition: Tree maintains heap property.
+   * Algo: 
+   * Swaps the last item with the first item and removes the last item,
+   * then swaps the root with the lesser child if it is greater than the child, and so on
+   *****************************************************/
+  public Customer removeMin() 
+  {
     if ( _heap.size() == 0 ) 
       return null;
 
@@ -130,7 +131,7 @@ public class ALHeap
     int pos = 0;
     int minChildPos;
 
-    while( pos < _heap.size() ) 
+    while ( pos < _heap.size() ) 
     {
       //choose child w/ min value, or check for child
       minChildPos = minChildPos(pos);
@@ -148,21 +149,20 @@ public class ALHeap
         pos = minChildPos;
       }
     }
-    
     //return removed value
     return retVal;
-    }//O(logn)
+  }//O(logn)
 
 
 
-    /*****************************************************
-     * minChildPos(int)  ---  helper fxn for removeMin()
-     * Returns index of least child, or 
-     * -1 if no children, or if input pos is not in ArrayList
-     * Postcondition: Tree unchanged
-     *****************************************************/
-    private int minChildPos( int pos ) 
-    {
+  /*****************************************************
+   * minChildPos(int)  ---  helper fxn for removeMin()
+   * Returns index of least child, or 
+   * -1 if no children, or if input pos is not in ArrayList
+   * Postcondition: Tree unchanged
+   *****************************************************/
+  private int minChildPos( int pos ) 
+  {
     int retVal;
     int lc = 2*pos + 1; //index of left child
     int rc = 2*pos + 2; //index of right child
@@ -179,16 +179,20 @@ public class ALHeap
     else
       retVal = rc;
     return retVal;
-    }//O(1)
+  }//O(1)
 
 
-    //************ aux helper fxns ***************
+  //************ aux helper fxns ***************
 
-    //swap for an ArrayList
-    private void swap( int pos1, int pos2 ) 
-    {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );  
-    }
-    //********************************************
+  //swap for an ArrayList
+  private void swap( int pos1, int pos2 ) 
+  {
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
+  }
 
+  public int sizeOf()
+  {
+    return _heap.size();
+  }
+  //********************************************
 }//end class ALHeap
