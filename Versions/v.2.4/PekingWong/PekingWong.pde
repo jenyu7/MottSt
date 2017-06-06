@@ -6,24 +6,26 @@ Waiter ling;
 Restaurant pekingWong;
 Kitchen k;
 PImage bgimg;
+PImage endimg;
+PFont cFood;
 
 //Sets up the screen 
 void setup()
 {
   bgimg = loadImage("Images/RestaurantFloorV3.jpg");
+  endimg = loadImage("Images/endscreen.jpg");
   size(1280, 720);
   k = new Kitchen();
   ling = new Waiter(k);
   pekingWong = new Restaurant(ling);
   d = pekingWong.waitList.removeMin();
+  cFood = createFont("AFont.ttf", 65);
 }
 
 //Calls the display functions of the globals, and updates them if necessary
 void draw()
 {
   background(bgimg);
-  ellipse(0, 0, 50, 50);
-  //background(0);
   if (!pekingWong.strikeOut())
   {
     pekingWong.update();
@@ -41,6 +43,11 @@ void draw()
     if (ling.waiterMoves)
       ling.move();
     ling.display();
+  } else { 
+    background(endimg);
+    textSize(65);
+    textFont(cFood);
+    text("" + ling.getPoints(), 500, 475);
   }
 }
 

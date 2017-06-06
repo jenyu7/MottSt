@@ -84,8 +84,8 @@ public class Waiter
     fill(0);
     textSize(20);
     textFont(cFood);
-    text("POINTS: " + points,30,30);
-    text("STRIKES: " + strikes + "/5",30,50);
+    text("POINTS: " + points,155,100);
+    text("STRIKES: " + strikes + "/5",155,150);
     
     //fill(0, 120, 100);
     //ellipse(x, y, 30, 30);
