@@ -18,6 +18,7 @@ void setup()
   size(1280, 720);
   k = new Kitchen();
   ling = new Waiter(k);
+  waitTime = new Time();
   pekingWong = new Restaurant(ling);
   d = pekingWong.waitList.removeMin();
   cFood = createFont("AFont.ttf", 65);
@@ -28,6 +29,7 @@ void setup()
 void draw()
 {
   background(bgimg);
+  //ellipse(775,205, 50,50);
   if (!pekingWong.strikeOut())
   {
     pekingWong.update();

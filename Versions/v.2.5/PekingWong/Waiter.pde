@@ -141,7 +141,7 @@ public class Waiter
     } else if (state == 2) {
       goTo(k.x-15, k.y);
     } else if (state == 3) {
-      goTo(currTable.x+65, currTable.y-15);
+      goTo(currTable.x+105, currTable.y-15);
     }
     ind ++;
     delay(10);
@@ -149,23 +149,23 @@ public class Waiter
 
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
   void goTo(int targetX, int targetY) {
-    if (y < targetY) {
-      if (y + 5 > targetY) {
-        y = targetY;
+    if (x < targetX) {
+      if (x + 10 > targetX) {
+        x = targetX;
         return;
       }
-      y+=5;
-    } else if (y > targetY) {
-      y-=5;
+      x+=10;
+    } else if (x > targetX) {
+      x-=10;
     } else {
-      if (x < targetX) {
-        if (x + 5 > targetX) {
-          x = targetX;
+      if (y < targetY) {
+        if (y + 10 > targetY) {
+          y = targetY;
           return;
         }
-        x+=5;
-      } else if (x > targetX) {
-        x-=5;
+        y+=10;
+      } else if (y > targetY) {
+        y-=10;
       } else {
 
         waiterMoves = false;

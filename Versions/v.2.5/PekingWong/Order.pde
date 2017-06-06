@@ -21,13 +21,13 @@ public class Order
       image(image, table.x+30, table.y-10);
       return;
     }
-    image(image,700,180);
+    image(image,750, 180);
     fill(20, 20, 150, 0);
-    ellipse(725,205, 50,50);
+    ellipse(775,205, 50,50);
   }
 
   boolean overOrder() {
-    if (mouseX >= 700 && mouseX <= 750 && 
+    if (mouseX >= 750 && mouseX <= 800 && 
       mouseY >= 180 && mouseY <= 230) {
         println("over");
       return true;
