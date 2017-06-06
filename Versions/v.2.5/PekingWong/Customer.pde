@@ -15,9 +15,11 @@ public class Customer extends Draggable
   PImage waiting;
   PImage sitting;
   int rand = (int) (Math.random() * 4);
+  Time wait;
 
   void display()
   {
+    update();
     if (state == 0) {
       super.display();
       image(waiting, bx, by);
@@ -32,9 +34,31 @@ public class Customer extends Draggable
     rect(bx, by, 80, 150);
     
     fill(0);
-    if (state == 1)
-      text("MOOD: " + mood,bx,by+10);
+    text("MOOD: " + mood,bx,by+10);
       //println(mood);
+  }
+  
+  //Checks if the customer has been waiting a certain amount of time. 
+  void update()
+  {
+    if (wait != null && state != -1)
+    {
+       mood = 10 - (int)(((float)wait.getElapsed()/wait.target) * 10);
+       if (mood <= 0)
+       {
+         state = 4;
+       }
+       if (wait.pause)
+       {
+         //println("pause");
+         if (wait.endInterval())
+         {
+           println("end pause");
+           wait.endPause();
+           table.order.state = 0;
+         }
+       }
+    }
   }
 
   void checkState()
@@ -60,11 +84,17 @@ public class Customer extends Draggable
     name = "BJB";
     VIPNum = (int) (Math.random() * 10) + 1;
     state = 0;
-    mood = (int) (Math.random() * 9) + 1;
+    mood = 10;
     bx = 75;
     by = 190;
     origX = 75;
     origY = 190;
+    
+    wait = new Time();
+    //wait time is lower for customers of higher priority (lower VIPNum)
+    wait.setGoal(getVIPNum() * 20);
+    //wait.setGoal(5);
+    wait.startTime();
     
     images = new PImage[8];
     images[0] = loadImage("Images/Customer1.png");

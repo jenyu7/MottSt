@@ -4,7 +4,6 @@ class Table
   //Instance Variables
   Customer c; 
   Order order;
-  Time wait;
   int tableNum;
   int state;
   int prevState;
@@ -21,7 +20,6 @@ class Table
     x = setX;
     y = setY; 
     order = null;
-    wait = new Time();
     visual = loadImage("Images/table2v2.png");
   }
 
@@ -29,8 +27,7 @@ class Table
 
   //Updates the mood of the customer at the table, and then displays. 
   void display() 
-  { 
-    update();
+  {
     fill(255);
     //rect(x, y, 50, 50, 7);
     image(visual, x, y);
@@ -41,29 +38,6 @@ class Table
     {
       //println("order");
       order.display();
-    }
-  }
-
-  //Checks if the customer has been waiting a certain amount of time. 
-  void update()
-  {
-    if (wait != null && c != null && state != -1)
-    {
-       c.mood = 10 - (int)(((float)wait.getElapsed()/wait.target) * 10);
-       if (c.mood <= 0)
-       {
-         c.state = 4;
-       }
-       if (wait.pause)
-       {
-         //println("pause");
-         if (wait.endInterval())
-         {
-           println("end pause");
-           wait.endPause();
-           order.state = 0;
-         }
-       }
     }
   }
 
@@ -93,9 +67,9 @@ class Table
   {
     c = in;
     //wait time is lower for customers of higher priority (lower VIPNum)
-    wait.setGoal(c.getVIPNum() * 20);
-    //wait.setGoal(5);
-    wait.startTime();
+    //wait.setGoal(c.getVIPNum() * 20);
+    ////wait.setGoal(5);
+    c.wait.startTime();
   }
   
   void setOrder(Order o)

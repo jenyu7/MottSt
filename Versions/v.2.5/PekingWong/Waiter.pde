@@ -150,22 +150,22 @@ public class Waiter
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
   void goTo(int targetX, int targetY) {
     if (x < targetX) {
-      if (x + 10 > targetX) {
+      if (x + 8 > targetX) {
         x = targetX;
         return;
       }
-      x+=10;
+      x+=8;
     } else if (x > targetX) {
-      x-=10;
+      x-=8;
     } else {
       if (y < targetY) {
-        if (y + 10 > targetY) {
+        if (y + 8 > targetY) {
           y = targetY;
           return;
         }
-        y+=10;
+        y+=8;
       } else if (y > targetY) {
-        y-=10;
+        y-=8;
       } else {
 
         waiterMoves = false;
@@ -188,6 +188,7 @@ public class Waiter
       if (k.currOrder.getTable().c == null)
       {
         println("The customer has already left...");
+        k.currOrder.getTable().order = null;
         k.currOrder = null;
         return;
       }
@@ -243,7 +244,7 @@ public class Waiter
           finishedOrders[0] = null;
           t.order.state = 1;
           t.state = 3;
-          t.wait.pauseTime();
+          t.c.wait.pauseTime();
         }
       }
       if (finishedOrders[1] != null)
@@ -254,12 +255,12 @@ public class Waiter
           finishedOrders[1] = null;
           t.order.state = 1;
           t.state = 3;
-          t.wait.pauseTime();
+          t.c.wait.pauseTime();
         }
       }
     }
     //Customers are done eating
-    else if (t.state == 3 && !t.wait.pause)
+    else if (t.state == 3 && !t.c.wait.pause)
     {
       println("finished serving table " + t.tableNum);
       removeCustomer(t.c);
