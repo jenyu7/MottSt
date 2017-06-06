@@ -20,6 +20,7 @@ class Time
     end = 0;
     elapsed = 0;
     target = 0;
+    pauseTime = 0;
   }
 
   //Constructor sets the target time to be reached

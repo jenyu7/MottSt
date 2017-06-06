@@ -43,6 +43,7 @@ public class Customer extends Draggable
   {
     if (wait != null && state != -1)
     {
+       println(wait.getElapsed());
        mood = 10 - (int)(((float)wait.getElapsed()/wait.target) * 10);
        if (mood <= 0)
        {
@@ -56,7 +57,7 @@ public class Customer extends Draggable
            wait.endPause();
            println("Table " + table.tableNum + " is ready to order.");
          }
-         else if (wait.endInterval()&& table.state == 2)
+         if (wait.endInterval()&& table.state == 2)
          {
            println("Table " + table.tableNum + " finished eating.");
            wait.endPause();
