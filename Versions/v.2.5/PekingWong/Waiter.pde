@@ -227,7 +227,7 @@ public class Waiter
   void detAct(Table t)
   {
     //Customers are ready to order
-    if (t.state == 1)
+    if (t.state == 1 && !t.c.wait.pause)
     {
       println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
@@ -277,6 +277,7 @@ public class Waiter
   public void addCustomer(Customer c) 
   {
     customers.add(c);
+    c.wait.pauseTime();
   }
 
   //removes the customer c from customers

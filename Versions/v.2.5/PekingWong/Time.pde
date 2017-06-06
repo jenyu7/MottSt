@@ -70,7 +70,7 @@ class Time
     if (start != 0 && !pause)
     {
       endTime();
-      elapsed = toSeconds(end-start+pauseTime);
+      elapsed = toSeconds(end-start-pauseTime);
     }
     else if (pause)
     {

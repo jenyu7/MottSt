@@ -11,7 +11,7 @@ public class Customer extends Draggable
   private int state;
   int origX;
   int origY;
-  PImage[] images;
+  PImage[] images; 
   PImage waiting;
   PImage sitting;
   int rand = (int) (Math.random() * 4);
@@ -53,11 +53,12 @@ public class Customer extends Draggable
          //println("pause");
          if (wait.endInterval() && table.state == 1)
          {
-           
+           wait.endPause();
+           println("Table " + table.tableNum + " is ready to order.");
          }
-         if (wait.endInterval()&& table.state == 2)
+         else if (wait.endInterval()&& table.state == 2)
          {
-           println("end pause");
+           println("Table " + table.tableNum + " finished eating.");
            wait.endPause();
            table.order.state = 0;
          }
