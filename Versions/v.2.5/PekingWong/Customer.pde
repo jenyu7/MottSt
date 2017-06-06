@@ -51,7 +51,11 @@ public class Customer extends Draggable
        if (wait.pause)
        {
          //println("pause");
-         if (wait.endInterval())
+         if (wait.endInterval() && table.state == 1)
+         {
+           
+         }
+         if (wait.endInterval()&& table.state == 2)
          {
            println("end pause");
            wait.endPause();
@@ -94,7 +98,7 @@ public class Customer extends Draggable
     //wait time is lower for customers of higher priority (lower VIPNum)
     wait.setGoal(getVIPNum() * 20);
     //wait.setGoal(5);
-    wait.startTime();
+   // wait.startTime();
     
     images = new PImage[8];
     images[0] = loadImage("Images/Customer1.png");

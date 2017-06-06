@@ -96,7 +96,13 @@ class Time
   {
     return time / 1000000000;
   }
-
+  
+  //Converts seconds to nanoTime
+  long toNano(long time)
+  {
+    return time * 1000000000;
+  }
+  
   //Sets the target time (should be in seconds)
   void setGoal(long goalTime)
   {

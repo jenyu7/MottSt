@@ -42,6 +42,7 @@ void draw()
       if (pekingWong.waitList.peekMin() != null)
       {
         d = pekingWong.waitList.removeMin();
+        d.wait.startTime();
       }
     }
     if (ling.waiterMoves)
