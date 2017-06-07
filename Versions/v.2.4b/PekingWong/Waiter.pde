@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-//Class Waiter
 public class Waiter 
 {
   //instance vars
@@ -19,6 +18,10 @@ public class Waiter
   private int points;
   PImage waiterNoFood;
   PFont cFood = createFont("AFont.ttf", 20);
+ // PImage bowtie;
+  //int test;
+  //PImage waiterWithFood;
+
 
   //create a waiter
   public Waiter(Kitchen kitch) 
@@ -42,6 +45,14 @@ public class Waiter
     waiterMoves = false;
     state = 0;
     waiterNoFood = loadImage("Images/WaiterRight.png");
+    /*
+    walkingRight = new PImage[4];
+    walkingRight[0] = loadImage("Images/waiterNoFood/walking1.gif");
+    walkingRight[1] = loadImage("Images/waiterNoFood/walking2.gif");
+    walkingRight[2] = loadImage("Images/waiterNoFood/walking3.gif");
+    walkingRight[3] = loadImage("Images/waiterNoFood/walking4.gif");
+    bowtie = loadImage("Images/bowtie1.gif");
+    */
   }
 
   //Displaying Functions
@@ -57,7 +68,7 @@ public class Waiter
       if (c.state == 4)
       {
         Table t = c.getTable();
-        //println("The customer at table " + t.tableNum + " has left...");
+        println("The customer at table " + t.tableNum + " has left...");
         removeCustomer(t.c);
         strikes ++;
         t.c = null;
@@ -67,12 +78,25 @@ public class Waiter
         c.display();
       }
     }
+    //image(walkingRight[ind%4], x, y);
+    //image(bowtie, x+30, y +15);
     image(waiterNoFood, x, y);
     fill(0);
     textSize(20);
     textFont(cFood);
     text("POINTS: " + points,155,100);
     text("STRIKES: " + strikes + "/5",155,150);
+    
+    //fill(0, 120, 100);
+    //ellipse(x, y, 30, 30);
+
+    // waiterWithFood = loadImage("Images/WaiterBillFood.png");
+    /*
+    if (state == 3 || state == 2 || state == 0)
+     image(waiterNoFood,x,y);
+     if (state == 1) 
+     image(waiterWithFood,x,y);
+     */
   }
 
   /*------
@@ -113,7 +137,7 @@ public class Waiter
   void move()
   {
     if (state == 1) {
-      goTo(k.x+250,k.y);
+      goTo(k.x+120,k.y);
     } else if (state == 2) {
       goTo(k.x-15, k.y);
     } else if (state == 3) {
@@ -126,22 +150,22 @@ public class Waiter
   //Goes to the target X and Y coordinates by incrementing by 10 each time the function is invoked if the waiter is not yet at those coordinates.
   void goTo(int targetX, int targetY) {
     if (x < targetX) {
-      if (x + 8 > targetX) {
+      if (x + 10 > targetX) {
         x = targetX;
         return;
       }
-      x+=8;
+      x+=10;
     } else if (x > targetX) {
-      x-=8;
+      x-=10;
     } else {
       if (y < targetY) {
-        if (y + 8 > targetY) {
+        if (y + 10 > targetY) {
           y = targetY;
           return;
         }
-        y+=8;
+        y+=10;
       } else if (y > targetY) {
-        y-=8;
+        y-=10;
       } else {
 
         waiterMoves = false;
@@ -163,8 +187,7 @@ public class Waiter
     {
       if (k.currOrder.getTable().c == null)
       {
-        //println("The customer has already left...");
-        k.currOrder.getTable().order = null;
+        println("The customer has already left...");
         k.currOrder = null;
         return;
       }
@@ -179,11 +202,9 @@ public class Waiter
     {
       if (orders.size() > 0)
       {
-        for (int i = orders.size()-1; i >= 0; i --)
-        {
-          //println("placed order at kitchen");
-          k.addLastToPending(orders.remove(i));
-        }
+        Order o = orders.remove(0);
+        println("placed order at kitchen");
+        k.addLastToPending(o);
         k.state = 1;
       }
     } else if (state == 3)
@@ -203,9 +224,9 @@ public class Waiter
   void detAct(Table t)
   {
     //Customers are ready to order
-    if (t.state == 1 && !t.c.wait.pause)
+    if (t.state == 1)
     {
-      //println("took order of table " + t.tableNum);
+      println("took order of table " + t.tableNum);
       orders.add(t.getOrder());
       t.state = 2;
     }
@@ -216,34 +237,35 @@ public class Waiter
       {
         if (finishedOrders[0].getTable().tableNum == t.tableNum)
         {
-          //println("served order of table " + t.tableNum);
+          println("served order of table " + t.tableNum);
           finishedOrders[0] = null;
           t.order.state = 1;
-          t.state = 2;
-          t.c.wait.pauseTime();
+          t.state = 3;
+          t.wait.pauseTime();
         }
       }
       if (finishedOrders[1] != null)
       {
         if (finishedOrders[1].getTable().tableNum == t.tableNum)
         {
-          //println("served order of table " + t.tableNum);
+          println("served order of table " + t.tableNum);
           finishedOrders[1] = null;
           t.order.state = 1;
-          t.state = 2;
-          t.c.wait.pauseTime();
+          t.state = 3;
+          t.wait.pauseTime();
         }
       }
     }
     //Customers are done eating
-    else if (t.state == 3 && !t.c.wait.pause)
+    else if (t.state == 3 && !t.wait.pause)
     {
-      //println("finished serving table " + t.tableNum);
+      println("finished serving table " + t.tableNum);
       removeCustomer(t.c);
       t.c = null;
       t.order = null;
       t.state = 0;
     }
+   // t.wait.startTime();
   }
 
   //Mutators
@@ -252,18 +274,11 @@ public class Waiter
   public void addCustomer(Customer c) 
   {
     customers.add(c);
-    c.wait.pauseTime();
   }
 
-  //removes the customer c from customers, changes the points
+  //removes the customer c from customers
   public void removeCustomer(Customer c) 
   {
-    if (c.state == 4) {}
-    else
-    {
-      //The points increase the higher the VIP number of the customer
-      points += c.getMood() + (int)((1.0/c.getVIPNum())*100);
-    }
     for (int i = 0; i < customers.size(); i++) 
     {
       if (customers.get(i).equals(c))
@@ -271,6 +286,10 @@ public class Waiter
         customers.remove(i);
       }
     }
+    if (c.state == 4) 
+      points -= 5;
+    else
+      points += c.getMood();
   }
 
 

@@ -1,4 +1,3 @@
-//Class Time
 class Time
 {
   //Instance variables
@@ -21,7 +20,6 @@ class Time
     end = 0;
     elapsed = 0;
     target = 0;
-    pauseTime = 0;
   }
 
   //Constructor sets the target time to be reached
@@ -72,12 +70,10 @@ class Time
     if (start != 0 && !pause)
     {
       endTime();
-      elapsed = toSeconds(end-start-pauseTime);
-      //println(elapsed);
+      elapsed = toSeconds(end-start+pauseTime);
     }
     else if (pause)
     {
-      //println("pause");
       elapsed = toSeconds(pauseTimeStart-start);
     }
     return elapsed;
@@ -100,13 +96,7 @@ class Time
   {
     return time / 1000000000;
   }
-  
-  //Converts seconds to nanoTime
-  long toNano(long time)
-  {
-    return time * 1000000000;
-  }
-  
+
   //Sets the target time (should be in seconds)
   void setGoal(long goalTime)
   {

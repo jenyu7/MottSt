@@ -1,7 +1,5 @@
-//Class Draggable
 class Draggable
 {
-  //Instance Variables
   float bx;
   float by;
   int xSize;

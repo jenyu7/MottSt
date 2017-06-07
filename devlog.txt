@@ -6,27 +6,48 @@ pd5
 /////////// Zone of Reflection \\\\\\\\\\\
 
 Obstacles Overcome: 
-We struggled for a while on how to have the waiter move, and even considered 
-having the waiter move according to a maze pattern. 
-However, we realized that the waiter could just move in the x-direction first, 
-and then the y-direction, and it looked fine. 
-Also, a major obstacle was the mood of the customers, especially the moods of the waiting customers. 
-We needed the moods to count down to 0, and the customers to leave when their moods hit 0. 
-Shifting our code from one class to another led to other parts of the game not working, 
-but eventually we figured it out through intense debugging.
+- GUI Mindset
+   - Lots of problems with how/when to draw and display an object
+   - Solved issue by utilizing state variables
+   - Update the states of objects, and then display according to their state. 
+- Buttons in Processing
+   - Had recommendation to use cp5 Library for buttons...turned out to be very complicated
+   - Button issue stemmed from having to check simultaneously if the mouse was pressed and over a certain object
+   - Remedied via a simple Processing example from the general reference found online
+- Dragging Customers around the screen 
+   - Necessitated research into mouse actions, such as mouseDragged()
+   - Simple processing example from online general reference again helped optimize functionality 
+   - Customers did not move back to original coordinates if they weren't dragged to a table; remedied with two additonal instance variables 
+- How to find the passage of Time
+   - Originally considered utilizing the Timer class within Java
+   - Ended up writing a Time class, that would utilize nanoTime() and conversion to seconds to determine elapsedTime()
+   - Later, Time class expanded to allow for time to be paused and restarted. 
+- Cooking Food
+   - Considering the usage of threads (e.g. multiple things cooking at the same time), however, threads are rather complicated
+   - Ended up using the Time class written again; had functions that returned whether a certain interval had passed. 
+- Movement of the Waiter
+   - Considered imposing a grid onto the world, and move as if solving for a maze
+   - Decided on a map of nodes, where with tables and objects placed such as to minimize collisions
+- Moods of the Customers
+   - Countdown occurred far too quickly
+   - Moods should not increment while the customer is reading the menu/eating
+- Algorithms regarding Spawning and Point distribution 
+   - Customers with low VIP numbers and higher priority would have a lower Wait time but would deliver more points
+   - Spawning customers was dependent on the amount of points earned. 
+   - Had to math out a bunch of rules for fulfilling goals outlined above...kind of succeeded? 
+- Philosophical issues: should a Waiter have a Kitchen instance variable? 
+   - Decided that a Waiter should: thinking large scale, what if there were multiple Kitchens and Waiters? Each Waiter should be aware of the Kitchen she/he is servicing...
 
 Unresolved Issues:
-None! (fingers crossed)
+- At times, the waiter may seem still to walk over a customer. To whom it may concern, we are sorry. 
+- Spawn time seems to be suboptimal and the game's difficulty isn't increasing as quickly as anticipated with the increasing of points. 
 
 Cool Stuff Learned:
-We learned about timering in processing, which was a major factor in our game. 
+- 
 
 Mid design changes:
-During the course of our project we changed the plan from deducting points 
-based on mistakes to deducting points based on satisfaction of customers. 
-The reason for this is we decided a timer in our project would be fun to implement. 
-This led to us including a mood that is unique to each customer. 
-The customer's mood when they leave will affect your score.
+- Originally had a reservations list; was scrapped because of complexity. Also didn't make much sense, as the game itself doesn't incorporate much of a storyline, but rather is just an endless game where the user tries to earn as many points as possible. 
+- Original command line version included the SDish, MDish, and LDish classes that were not included in the final GUI version. Again, aiming for simplicity, the original idea was that SDish classes would take less time to cook than MDish or LDish classes, but it ended up becoming that such embellishment only clouded the purpose of the game. Additonally, we would have had to include an option for the waiter to add dishes to either the front or back of the queue 
 
 Lessons Learned:
 Organization is key, especially when dealing with many classes. 
@@ -138,7 +159,9 @@ The internet needs more graphics of Chinese people.
 <Jen> :: Implemented mood countdown, added food image to the table
 <Bryan> :: Added points depending on the mood of the customer, added an end screen that displays points
 <Brooke> :: Updated README
+<All> :: General Debugging
 
 2017-06-06
-<Jen> :: Fixed waiter movement, command line status?
+<Jen> :: Fixed waiter movement, created console
 <Brooke> :: Fixed the mood of the customer on line
+<All> :: General debugging

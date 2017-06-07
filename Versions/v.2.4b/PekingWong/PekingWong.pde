@@ -1,7 +1,6 @@
 //Driver
 
 //Globals
-Console console;
 Customer d;
 Waiter ling;
 Restaurant pekingWong;
@@ -21,9 +20,9 @@ void setup()
   ling = new Waiter(k);
   waitTime = new Time();
   pekingWong = new Restaurant(ling);
-  cFood = createFont("AFont.ttf", 20);
+  d = pekingWong.waitList.removeMin();
+  cFood = createFont("AFont.ttf", 65);
   waitTime.startTime();
-  console = new Console(ling);
 }
 
 //Calls the display functions of the globals, and updates them if necessary
@@ -33,10 +32,18 @@ void draw()
   //ellipse(775,205, 50,50);
   if (!pekingWong.strikeOut())
   {
-    console.display();
     pekingWong.update();
     k.display();
-    checkD();
+    if (d != null) {
+      d.display();
+    }
+    if (d == null)
+    {
+      if (pekingWong.waitList.peekMin() != null)
+      {
+        d = pekingWong.waitList.removeMin();
+      }
+    }
     if (ling.waiterMoves)
       ling.move();
     ling.display();
@@ -45,30 +52,6 @@ void draw()
     textSize(65);
     textFont(cFood);
     text("" + ling.getPoints(), 500, 475);
-  }
-}
-
-//Checks the status of the current waiting customer
-void checkD()
-{
-  if (d != null) 
-  {
-    d.display();
-    if (d.state == 4) 
-    {
-      ling.points -= 5;
-      ling.strikes++;
-      d = null;
-    }
-  }
-  if (d == null)
-  {
-    if (pekingWong.waitList.peekMin() != null)
-    {
-      //println("new cust");
-      d = pekingWong.waitList.removeMin();
-      d.wait.startTime();
-    }
   }
 }
 
@@ -94,7 +77,6 @@ void mousePressed()
   }
 }
 
-//Utilized for the dragging mechanism of the customer
 void mouseDragged() 
 {
   if (d != null) {
@@ -102,7 +84,6 @@ void mouseDragged()
   }
 }
 
-//Checks if the mouse releases the customer onto a table
 void mouseReleased() 
 {
   ling.waiterMoves = false;
@@ -118,7 +99,11 @@ void mouseReleased()
           t.setOrder(new Order(t));
           d.setTable(t);
           ling.addCustomer(d);
-          d = null;
+          if (pekingWong.waitList.peekMin() != null)
+            d = pekingWong.waitList.removeMin();
+          else {
+            d = null;
+          }
           return;
         }
       }
