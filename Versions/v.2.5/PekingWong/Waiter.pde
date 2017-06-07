@@ -243,7 +243,7 @@ public class Waiter
           println("served order of table " + t.tableNum);
           finishedOrders[0] = null;
           t.order.state = 1;
-          t.state = 3;
+          t.state = 2;
           t.c.wait.pauseTime();
         }
       }
@@ -254,7 +254,7 @@ public class Waiter
           println("served order of table " + t.tableNum);
           finishedOrders[1] = null;
           t.order.state = 1;
-          t.state = 3;
+          t.state = 2;
           t.c.wait.pauseTime();
         }
       }

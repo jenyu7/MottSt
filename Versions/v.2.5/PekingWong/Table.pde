@@ -36,7 +36,6 @@ class Table
     text("" + tableNum, x +60, y + 40);
     if (order != null && order.state == 1)
     {
-      //println("order");
       order.display();
     }
   }
@@ -56,6 +55,7 @@ class Table
     //println("in");
     return currX >= x && currX <= x + 128 && currY <= y+120; //&& currY >= y ;
   }
+  
   //Mutators
   //Sets the table# of the customer
   public void setTable(int num) 

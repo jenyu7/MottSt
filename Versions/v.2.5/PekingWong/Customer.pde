@@ -55,11 +55,15 @@ public class Customer extends Draggable
            wait.endPause();
            println("Table " + table.tableNum + " is ready to order.");
          }
-         if (wait.endInterval()&& table.state == 2)
+         else{
+          println(wait.toSeconds(System.nanoTime()-wait.pauseTimeStart) + " state: " + table.state);
+         if (wait.endInterval() && table.state == 2)
          {
            println("Table " + table.tableNum + " finished eating.");
            wait.endPause();
            table.order.state = 0;
+           table.state = 3;
+         }
          }
        }
     }
