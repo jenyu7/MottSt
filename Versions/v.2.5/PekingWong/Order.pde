@@ -42,7 +42,7 @@ public class Order
     dishName = "food";
     table = tab;
     tableNum = tab.tableNum;
-    t = new Time(5);
+    t = new Time(2);
     imgs = new PImage[12];
     imgs[0] = loadImage("Images/foodstuffs/1.png");
     imgs[1] = loadImage("Images/foodstuffs/2.png");

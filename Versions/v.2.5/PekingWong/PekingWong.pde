@@ -35,7 +35,6 @@ void draw()
     k.display();
     if (d != null) {
       d.display();
-      println(d.wait.getElapsed());
     }
     if (d == null)
     {
