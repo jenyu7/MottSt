@@ -12,7 +12,7 @@ public class Kitchen {
   int y;
   PImage[] images;
   int state;
-
+  
   //default constructor
   public Kitchen() 
   {
@@ -33,7 +33,7 @@ public class Kitchen {
     //fill(0);
     fill(20, 20, 150, 0);
     rect(500, 200, 300, 50);
-    image(images[0], x, y);
+    image(images[0],x, y);
     if (!finishedFoodList.isEmpty())
     {
       if (currOrder == null) {
@@ -64,7 +64,7 @@ public class Kitchen {
   {
     return stovetops[0] == null || stovetops[1] == null || stovetops[2] == null;
   }
-
+  
   //Places the food item on the stove to cook :)
   public void putOnStove(Order o)
   {
@@ -98,10 +98,10 @@ public class Kitchen {
             o = pendingFoodList.removeFirst();
           }
         }
-      } else
+      }
+      else
       {
-        pendingFoodList.addFirst(o);
-        o = null;
+        pendingFoodList.addFirst(o);o = null;
       }
     }
     for (int i = 0; i < 3; i ++)

@@ -179,16 +179,10 @@ public class Waiter
     {
       if (orders.size() > 0)
       {
-        //Utilizes stack in order to maintain order
-        LLStack<Order> l = new LLStack<Order>();
         for (int i = orders.size()-1; i >= 0; i --)
         {
-          l.push(orders.remove(i));
           //println("placed order at kitchen");
-        }
-        while (!l.isEmpty())
-        {
-           k.addLastToPending(l.pop());
+          k.addLastToPending(orders.remove(i));
         }
         k.state = 1;
       }
