@@ -35,6 +35,7 @@ void draw()
     k.display();
     if (d != null) {
       d.display();
+      println(d.wait.getElapsed());
     }
     if (d == null)
     {
@@ -42,7 +43,6 @@ void draw()
       {
         d = pekingWong.waitList.removeMin();
         d.wait.startTime();
-        //println(d.wait.getElapsed());
       }
     }
     if (ling.waiterMoves)
@@ -101,11 +101,7 @@ void mouseReleased()
           t.setOrder(new Order(t));
           d.setTable(t);
           ling.addCustomer(d);
-          if (pekingWong.waitList.peekMin() != null)
-            d = pekingWong.waitList.removeMin();
-          else {
-            d = null;
-          }
+          d = null;
           return;
         }
       }
