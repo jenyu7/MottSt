@@ -47,6 +47,11 @@ void draw()
         d.wait.startTime();
       }
     }
+    if (d.state == 4) {
+      ling.points -= 5;
+      ling.strikes++;
+      d = null;
+    }
     if (ling.waiterMoves)
       ling.move();
     ling.display();
