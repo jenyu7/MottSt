@@ -72,9 +72,11 @@ class Time
     {
       endTime();
       elapsed = toSeconds(end-start-pauseTime);
+      //println(elapsed);
     }
     else if (pause)
     {
+      //println("pause");
       elapsed = toSeconds(pauseTimeStart-start);
     }
     return elapsed;

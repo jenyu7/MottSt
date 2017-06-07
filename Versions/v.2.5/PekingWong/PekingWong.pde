@@ -20,7 +20,6 @@ void setup()
   ling = new Waiter(k);
   waitTime = new Time();
   pekingWong = new Restaurant(ling);
-  d = pekingWong.waitList.removeMin();
   cFood = createFont("AFont.ttf", 65);
   waitTime.startTime();
 }
@@ -43,6 +42,7 @@ void draw()
       {
         d = pekingWong.waitList.removeMin();
         d.wait.startTime();
+        //println(d.wait.getElapsed());
       }
     }
     if (ling.waiterMoves)
@@ -78,6 +78,7 @@ void mousePressed()
   }
 }
 
+//
 void mouseDragged() 
 {
   if (d != null) {
