@@ -40,7 +40,7 @@ class Table
     }
   }
 
-
+  //Checks if the mouse if over the table
   boolean overTable() {
     if (mouseX >= x && mouseX <= x+128 && 
       mouseY >= y && mouseY <= y+100) {
@@ -50,9 +50,9 @@ class Table
     }
   }
   
+  //Checks if the inputted X and Y coordinate are within the table (doesn't set min Y boundary
   boolean inside(float currX, float currY)
   {
-    //println("in");
     return currX >= x && currX <= x + 128 && currY <= y+120; //&& currY >= y ;
   }
   
@@ -68,8 +68,6 @@ class Table
   {
     c = in;
     //wait time is lower for customers of higher priority (lower VIPNum)
-    //wait.setGoal(c.getVIPNum() * 20);
-    ////wait.setGoal(5);
     c.wait.startTime();
   }
   

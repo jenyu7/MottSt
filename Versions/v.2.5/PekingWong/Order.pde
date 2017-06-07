@@ -12,36 +12,14 @@ public class Order
   PImage[] imgs;
   PImage image;
   int rand = (int) (Math.random() * 12);
-
-  //Display
-  void display()
-  {
-    if (state == 1)
-    {
-      image(image, table.x+30, table.y-10);
-      return;
-    }
-    image(image,750, 180);
-    fill(20, 20, 150, 0);
-    ellipse(775,205, 50,50);
-  }
-
-  boolean overOrder() {
-    if (mouseX >= 750 && mouseX <= 800 && 
-      mouseY >= 180 && mouseY <= 230) {
-        println("over");
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  //Mechanics
+  
+  //Constructs Order 
   Order(Table tab)
   {
     dishName = "food";
     table = tab;
     tableNum = tab.tableNum;
+    //Takes 2 sec to cook food..it's a chinese restaurant :)
     t = new Time(2);
     imgs = new PImage[12];
     imgs[0] = loadImage("Images/foodstuffs/1.png");
@@ -60,6 +38,33 @@ public class Order
     image = imgs[rand];
     image.resize(50,50);
   }
+
+  //Displays the order if the state is 1 (on table or on kitchen), otherwise no
+  void display()
+  {
+    if (state == 1)
+    {
+      image(image, table.x+30, table.y-10);
+      return;
+    }
+    image(image,750, 180);
+    fill(20, 20, 150, 0);
+    ellipse(775,205, 50,50);
+  }
+
+  //Checks if the mouse if over the order
+  boolean overOrder() {
+    if (mouseX >= 750 && mouseX <= 800 && 
+      mouseY >= 180 && mouseY <= 230) {
+        println("over");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //Mechanics
+  
   //returns table number and name of dish
   public String toString()
   {

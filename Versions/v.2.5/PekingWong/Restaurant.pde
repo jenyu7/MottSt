@@ -50,7 +50,7 @@ public class Restaurant {
   void spawn()
   {
     waitList.add(new Customer());
-    println("spawn");
+    //println("spawn");
     calcSpawn.startTime();
   }
   
@@ -63,9 +63,9 @@ public class Restaurant {
   //Checks if the time is right for there to be more customers
   boolean shouldSpawn()
   {
-    if (calcSpawn.getElapsed() > 30)
+    if (calcSpawn.getElapsed() > 60/((int)(BJB.getPoints()/10)+2))
     {
-      println(calcSpawn);
+      //println(calcSpawn);
       return true;
     }
     return false;
