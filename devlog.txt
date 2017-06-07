@@ -41,18 +41,24 @@ Obstacles Overcome:
 Unresolved Issues:
 - At times, the waiter may seem still to walk over a customer. To whom it may concern, we are sorry. 
 - Spawn time seems to be suboptimal and the game's difficulty isn't increasing as quickly as anticipated with the increasing of points. 
+- Times when the customer leaves right after the waiter serves the order...the order remains on the table, but is quickly cleared away when another customer is seated in the same spot.
+- When the waiter is moving and the user simultaneously drags a customer to a table, the waiter will stop in her/his tracks. She/he can resume their path with a simple click on a clickable destination object.
+- Moods do not decrement uniformly. As the algorithm right now decrements mood based on the percentage of the time elapsed and the maximum tolerance time of the Customer, the decrease is not linear but rather curved. 
+- When orders are taken, 
 
 Cool Stuff Learned:
 - 
 
 Mid design changes:
 - Originally had a reservations list; was scrapped because of complexity. Also didn't make much sense, as the game itself doesn't incorporate much of a storyline, but rather is just an endless game where the user tries to earn as many points as possible. 
-- Original command line version included the SDish, MDish, and LDish classes that were not included in the final GUI version. Again, aiming for simplicity, the original idea was that SDish classes would take less time to cook than MDish or LDish classes, but it ended up becoming that such embellishment only clouded the purpose of the game. Additonally, we would have had to include an option for the waiter to add dishes to either the front or back of the queue 
+- Original command line version included the SDish, MDish, and LDish classes that were not included in the final GUI version. Again, aiming for simplicity, the original idea was that SDish classes would take less time to cook than MDish or LDish classes, but it ended up becoming that such embellishment only clouded the purpose of the game. Additonally, we would have had to include an option for the waiter to add dishes to either the front or back of the queue based on their size...again the idea was too complicated for a simple game. 
+- Game would have a fast paced serving of customers. However, with the writing of the Time class, we found that it seemed logical for customers to wait before ordering food and eating food would also require a period of time where the waiter is not involved. Using the Time class, we paused time for customers while they were performing certain actions typical in a restaurant. 
 
 Lessons Learned:
 Organization is key, especially when dealing with many classes. 
 State variables are our friends.
 The internet needs more graphics of Chinese people. 
+
                                
 \\\\\\\\\\\ Zone of Reflection ///////////
 ###############################################################
