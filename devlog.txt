@@ -6,7 +6,11 @@ pd5
 /////////// Zone of Reflection \\\\\\\\\\\
 
 Mid design changes:
-During the course of our project we changed the plan from deducting points based on mistakes to deducting points based on satisfaction of customers. The reason for this is we decided a timer in our project would be fun to implement. This lead to us including a mood that is unique to each customer. The customer's mood when they leave will affect your score.
+During the course of our project we changed the plan from deducting points 
+based on mistakes to deducting points based on satisfaction of customers. 
+The reason for this is we decided a timer in our project would be fun to implement. 
+This lead to us including a mood that is unique to each customer. 
+The customer's mood when they leave will affect your score.
 ###############################################################
 
 
