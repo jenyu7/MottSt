@@ -5,12 +5,23 @@ pd5
 
 /////////// Zone of Reflection \\\\\\\\\\\
 
+Obstacles Overcome: 
+We struggled for a while on how to have the waiter move, and even considered having the waiter move according to a maze pattern. However, we realized that the waiter could just move in the x-direction first, and then the y-direction, and it looked fine. 
+Also, a major obstacle was the mood of the customers, especially the moods of the waiting customers. We needed the moods to count down to 0, and the customers to leave when their moods hit 0. Shifting our code from one class to another led to other parts of the game not working, but eventually we figured it out through intense debugging.
+
+Unresolved Issues:
+None! (fingers crossed)
+
+Cool Stuff Learned:
+We learned about timering in processing, which was a major factor in our game. 
+
 Mid design changes:
-During the course of our project we changed the plan from deducting points 
-based on mistakes to deducting points based on satisfaction of customers. 
-The reason for this is we decided a timer in our project would be fun to implement. 
-This lead to us including a mood that is unique to each customer. 
-The customer's mood when they leave will affect your score.
+During the course of our project we changed the plan from deducting points based on mistakes to deducting points based on satisfaction of customers. The reason for this is we decided a timer in our project would be fun to implement. This led to us including a mood that is unique to each customer. The customer's mood when they leave will affect your score.
+
+Lessons Learned:
+Organization is key, especially when dealing with many classes. 
+State variables are our friends.
+The internet needs more graphics of Chinese people. 
                                
 \\\\\\\\\\\ Zone of Reflection ///////////
 ###############################################################
@@ -77,6 +88,7 @@ The customer's mood when they leave will affect your score.
 <Brooke> :: Coded pathways for the waiter throughout the restaurant, still needs to be improved
 <Jen> :: Worked with the cp5 class to create potential buttons
          Wrote the Table class
+         
 2017-05-29
 <Bryan> :: Added table widgets
 <Brooke> :: Continued working on paths for waiter within restaurant
@@ -119,3 +131,4 @@ The customer's mood when they leave will affect your score.
 
 2017-06-06
 <Jen> :: Fixed waiter movement, command line status?
+<Brooke> :: Fixed the mood of the customer on line
