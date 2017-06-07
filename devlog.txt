@@ -11,6 +11,8 @@ based on mistakes to deducting points based on satisfaction of customers.
 The reason for this is we decided a timer in our project would be fun to implement. 
 This lead to us including a mood that is unique to each customer. 
 The customer's mood when they leave will affect your score.
+                               
+\\\\\\\\\\\ Zone of Reflection ///////////
 ###############################################################
 
 
