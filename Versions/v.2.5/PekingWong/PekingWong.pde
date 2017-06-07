@@ -1,6 +1,7 @@
 //Driver
 
 //Globals
+Console console;
 Customer d;
 Waiter ling;
 Restaurant pekingWong;
@@ -20,8 +21,9 @@ void setup()
   ling = new Waiter(k);
   waitTime = new Time();
   pekingWong = new Restaurant(ling);
-  cFood = createFont("AFont.ttf", 65);
+  cFood = createFont("AFont.ttf", 20);
   waitTime.startTime();
+  console = new Console(ling);
 }
 
 //Calls the display functions of the globals, and updates them if necessary
@@ -31,6 +33,7 @@ void draw()
   //ellipse(775,205, 50,50);
   if (!pekingWong.strikeOut())
   {
+    console.display();
     pekingWong.update();
     k.display();
     if (d != null) {

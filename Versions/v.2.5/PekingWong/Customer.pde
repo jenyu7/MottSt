@@ -16,6 +16,7 @@ public class Customer extends Draggable
   PImage sitting;
   int rand = (int) (Math.random() * 4);
   Time wait;
+  PFont cFood = createFont("AFont.ttf", 20);
 
   void display()
   {
@@ -34,6 +35,7 @@ public class Customer extends Draggable
     rect(bx, by, 80, 150);
     
     fill(0);
+    textFont(cFood);
     text("MOOD: " + mood,bx,by+10);
       //println(mood);
   }
