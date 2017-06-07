@@ -36,22 +36,7 @@ void draw()
     console.display();
     pekingWong.update();
     k.display();
-    if (d != null) {
-      d.display();
-    }
-    if (d == null)
-    {
-      if (pekingWong.waitList.peekMin() != null)
-      {
-        d = pekingWong.waitList.removeMin();
-        d.wait.startTime();
-      }
-    }
-    if (d.state == 4) {
-      ling.points -= 5;
-      ling.strikes++;
-      d = null;
-    }
+    checkD();
     if (ling.waiterMoves)
       ling.move();
     ling.display();
@@ -60,6 +45,29 @@ void draw()
     textSize(65);
     textFont(cFood);
     text("" + ling.getPoints(), 500, 475);
+  }
+}
+
+//Checks the status of the current waiting customer
+void checkD()
+{
+  if (d != null) 
+  {
+    d.display();
+  }
+  if (d == null)
+  {
+    if (pekingWong.waitList.peekMin() != null)
+    {
+      d = pekingWong.waitList.removeMin();
+      d.wait.startTime();
+    }
+  }
+  if (d.state == 4) 
+  {
+    ling.points -= 5;
+    ling.strikes++;
+    d = null;
   }
 }
 
@@ -85,7 +93,7 @@ void mousePressed()
   }
 }
 
-//
+//Utilized for the dragging mechanism of the customer
 void mouseDragged() 
 {
   if (d != null) {
@@ -93,6 +101,7 @@ void mouseDragged()
   }
 }
 
+//Checks if the mouse releases the customer onto a table
 void mouseReleased() 
 {
   ling.waiterMoves = false;

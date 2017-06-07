@@ -1,8 +1,9 @@
 import java.util.*;
 
+//Class Kitchen
 public class Kitchen {
 
-  //instance vars
+  //Instance Vars
   private ArrayDeque<Order> pendingFoodList; //this is a deque
   private ALQueue<Order> finishedFoodList; //this is a queue
   private Order[] stovetops;
@@ -11,49 +12,7 @@ public class Kitchen {
   int y;
   PImage[] images;
   int state;
-
-  //Display
-
-  void display()
-  {
-    noStroke();
-    //fill(0);
-    fill(20, 20, 150, 0);
-    rect(500, 200, 300, 50);
-    image(images[0],x, y);
-    //frame = (frame + 1) % 2;
-    //image(images[frame], x, y);
-    if (state == 1)
-    {
-      image(images[1], x, y);
-      //println("animate");
-      delay(10);
-      image(images[0],x,y);
-    }
-    if (!finishedFoodList.isEmpty())
-    {
-      if (currOrder == null) {
-        currOrder = finishedFoodList.dequeue();
-      }
-    }
-    if (currOrder != null) {
-      currOrder.display();
-    }
-    makeFood();
-  }
-
-  boolean overKitchen() {
-    if (mouseX >= x && mouseX <= x+300 && 
-      mouseY >= y && mouseY <= y+50) {
-      //println("kitch");
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  //Mechanics
-
+  
   //default constructor
   public Kitchen() 
   {
@@ -67,11 +26,46 @@ public class Kitchen {
     y = 180;
   }
 
+  //Displays the Kitchen and the current order on the counter
+  void display()
+  {
+    noStroke();
+    //fill(0);
+    fill(20, 20, 150, 0);
+    rect(500, 200, 300, 50);
+    image(images[0],x, y);
+    if (!finishedFoodList.isEmpty())
+    {
+      if (currOrder == null) {
+        currOrder = finishedFoodList.dequeue();
+      }
+    }
+    if (currOrder != null) {
+      currOrder.display();
+    }
+    makeFood();
+  }
+
+  //Checks if the mouse clicked over the kitchen
+  boolean overKitchen() {
+    if (mouseX >= x && mouseX <= x+300 && 
+      mouseY >= y && mouseY <= y+50) {
+      //println("kitch");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //Mechanics
+
+  //Checks if there are any openings on the stove
   public boolean hasStoveSpace()
   {
     return stovetops[0] == null || stovetops[1] == null || stovetops[2] == null;
   }
-  //
+  
+  //Places the food item on the stove to cook :)
   public void putOnStove(Order o)
   {
     if (stovetops[0] == null)
