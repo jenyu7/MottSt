@@ -96,3 +96,18 @@ pd5
 2017-06-03
 <Jen> :: May have passed her Physics SAT II
          Fixed the waiter moving problem with state vars
+<Bryan> :: Photoshopped customers to have a sitting animation, added graphics
+<Brooke> :: Implemented new graphics
+
+2017-06-04
+<Jen> :: Fixed sitting interaction, added food animations
+<Brooke> :: Fixed mood of the customers
+<Bryan> :: Added different orientations of waiter
+
+2017-06-05
+<Jen> :: Implemented mood countdown, added food image to the table
+<Bryan> :: Added points depending on the mood of the customer, added an end screen that displays points
+<Brooke> :: Updated README
+
+2017-06-06
+<Jen> :: Fixed waiter movement, command line status?
