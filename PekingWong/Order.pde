@@ -48,10 +48,11 @@ public class Order
       return;
     }
     else{
-      fill(20, 20, 150, 0);
+      fill(20, 20, 150);
       ellipse(775,205, 50,50);
+      image(image,750, 180);
     }
-    image(image,750, 180);
+    
   }
 
   //Checks if the mouse if over the order
