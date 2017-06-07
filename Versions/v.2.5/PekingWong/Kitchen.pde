@@ -21,7 +21,7 @@ public class Kitchen {
     images[1] = loadImage("Images/luckycat2.gif");
     pendingFoodList = new ArrayDeque<Order>();
     finishedFoodList = new ALQueue<Order>();
-    stovetops = new Order[6];
+    stovetops = new Order[3];
     x = 510;
     y = 180;
   }
@@ -62,8 +62,7 @@ public class Kitchen {
   //Checks if there are any openings on the stove
   public boolean hasStoveSpace()
   {
-    return stovetops[0] == null || stovetops[1] == null || stovetops[2] == null
-           || stovetops[3] == null || stovetops[4] == null || stovetops[5] == null;
+    return stovetops[0] == null || stovetops[1] == null || stovetops[2] == null;
   }
   
   //Places the food item on the stove to cook :)
@@ -78,15 +77,6 @@ public class Kitchen {
     } else if (stovetops[2] == null)
     {
       stovetops[2] = o;
-    } else if (stovetops[3] == null)
-    {
-      stovetops[3] = o;
-    } else if (stovetops[4] == null)
-    {
-      stovetops[4] = o;
-    } else if (stovetops[5] == null)
-    {
-      stovetops[5] = o;
     }
     o.t.startTime();
   }
@@ -114,7 +104,7 @@ public class Kitchen {
         pendingFoodList.addFirst(o);o = null;
       }
     }
-    for (int i = 0; i < 6; i ++)
+    for (int i = 0; i < 3; i ++)
     {
       Order ord = stovetops[i];
       if (ord != null)
