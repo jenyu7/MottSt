@@ -71,6 +71,7 @@ class Table
     c.wait.startTime();
   }
   
+  //sets the order of the table
   void setOrder(Order o)
   {
     order = o;

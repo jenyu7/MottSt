@@ -81,24 +81,27 @@ public class Kitchen {
     o.t.startTime();
   }
 
-  //removes the first item in pendingFoodList
-  //and enqueues it to finishedFoodList
+  //removes items in pendingFoodList and cooks them on open stovetops
   public void makeFood() 
   {
     if (!pendingFoodList.isEmpty())
     {
       Order o = pendingFoodList.removeFirst();
-      while (o != null && hasStoveSpace())
+      if (o != null && hasStoveSpace())
       {
-        println("placed on stove");
-        putOnStove(o);
-        if (!pendingFoodList.isEmpty())
+        while (o != null && hasStoveSpace())
         {
-          o = pendingFoodList.removeFirst();
-        } else
-        {
-          o = null;
+          //println("placed on stove");
+          putOnStove(o);
+          if (!pendingFoodList.isEmpty() && hasStoveSpace())
+          {
+            o = pendingFoodList.removeFirst();
+          }
         }
+      }
+      else
+      {
+        pendingFoodList.addFirst(o);o = null;
       }
     }
     for (int i = 0; i < 3; i ++)

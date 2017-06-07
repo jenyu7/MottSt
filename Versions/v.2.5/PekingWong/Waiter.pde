@@ -113,7 +113,7 @@ public class Waiter
   void move()
   {
     if (state == 1) {
-      goTo(k.x+120,k.y);
+      goTo(k.x+250,k.y);
     } else if (state == 2) {
       goTo(k.x-15, k.y);
     } else if (state == 3) {
@@ -258,6 +258,12 @@ public class Waiter
   //removes the customer c from customers, changes the points
   public void removeCustomer(Customer c) 
   {
+    if (c.state == 4) {}
+    else
+    {
+      //The points increase the higher the VIP number of the customer
+      points += c.getMood() + (int)((1.0/c.getVIPNum())*100);
+    }
     for (int i = 0; i < customers.size(); i++) 
     {
       if (customers.get(i).equals(c))
@@ -265,9 +271,6 @@ public class Waiter
         customers.remove(i);
       }
     }
-    if (c.state == 4) {}
-    else
-      {points += c.getMood() * (int)((1/c.getVIPNum())*100);}
   }
 
 

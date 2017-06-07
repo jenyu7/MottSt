@@ -65,7 +65,7 @@ void checkD()
   {
     if (pekingWong.waitList.peekMin() != null)
     {
-      println("new cust");
+      //println("new cust");
       d = pekingWong.waitList.removeMin();
       d.wait.startTime();
     }
