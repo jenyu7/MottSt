@@ -171,7 +171,7 @@ public class Waiter
       if (finishedOrders[0] == null) {
         finishedOrders[0] = k.currOrder;
         k.currOrder = null;
-      } else if (finishedOrders[1] == null) {
+      } if (finishedOrders[1] == null) {
         finishedOrders[1] = k.currOrder;
         k.currOrder = null;
       }

@@ -41,7 +41,10 @@ public class Kitchen {
       }
     }
     if (currOrder != null) {
-      currOrder.display();
+      if (currOrder.table.c != null)
+        currOrder.display();
+      else
+        currOrder = null;
     }
     makeFood();
   }

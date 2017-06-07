@@ -47,9 +47,11 @@ public class Order
       image(image, table.x+30, table.y-10);
       return;
     }
+    else{
+      fill(20, 20, 150, 0);
+      ellipse(775,205, 50,50);
+    }
     image(image,750, 180);
-    fill(20, 20, 150, 0);
-    ellipse(775,205, 50,50);
   }
 
   //Checks if the mouse if over the order
