@@ -1,3 +1,4 @@
+//Class Time
 class Time
 {
   //Instance variables

@@ -1,9 +1,12 @@
+//Class Console
 class Console
 {
+  //Instance Variables
   Waiter w;
   PFont type;
   PImage paper;
   
+  //Console: takes in a Waiter
   Console(Waiter wait)
   {
     w = wait;
@@ -27,10 +30,14 @@ class Console
       }
       else
       {
-        text("Platter: " + w.finishedOrders[1].table.tableNum, 960, 195);
+        text("Platter: Table #" + w.finishedOrders[1].table.tableNum, 960, 195);
       }
     }
-    else{text("Platter: " + w.finishedOrders[0] + ", " + w.finishedOrders[1], 960, 195);}
+    else if (w.finishedOrders[1] == null)
+    {
+      text("Platter: Table #" + w.finishedOrders[0].table.tableNum, 960,195); 
+    }
+    else{text("Platter: Table #" + w.finishedOrders[0].table.tableNum + ", Table #" + w.finishedOrders[1].table.tableNum, 960, 195);}
     int y = 195;
     for (Table t: w.tables)
     {
@@ -42,7 +49,7 @@ class Console
       else if (t.state == 1)
       {
         if (!t.c.wait.pause)
-          s += " Ready to place an order.";
+          s += " Ready to order.";
         else
           s += " Reading menu...";
       }

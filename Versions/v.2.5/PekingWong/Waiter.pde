@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+//Class Waiter
 public class Waiter 
 {
   //instance vars
@@ -18,10 +19,6 @@ public class Waiter
   private int points;
   PImage waiterNoFood;
   PFont cFood = createFont("AFont.ttf", 20);
- // PImage bowtie;
-  //int test;
-  //PImage waiterWithFood;
-
 
   //create a waiter
   public Waiter(Kitchen kitch) 
