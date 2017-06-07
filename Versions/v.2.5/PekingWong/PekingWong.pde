@@ -54,20 +54,21 @@ void checkD()
   if (d != null) 
   {
     d.display();
+    if (d.state == 4) 
+    {
+      ling.points -= 5;
+      ling.strikes++;
+      d = null;
+    }
   }
   if (d == null)
   {
     if (pekingWong.waitList.peekMin() != null)
     {
+      println("new cust");
       d = pekingWong.waitList.removeMin();
       d.wait.startTime();
     }
-  }
-  if (d.state == 4) 
-  {
-    ling.points -= 5;
-    ling.strikes++;
-    d = null;
   }
 }
 
