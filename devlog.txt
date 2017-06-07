@@ -35,6 +35,7 @@ Obstacles Overcome:
    - Customers with low VIP numbers and higher priority would have a lower Wait time but would deliver more points
    - Spawning customers was dependent on the amount of points earned. 
    - Had to math out a bunch of rules for fulfilling goals outlined above...kind of succeeded? 
+- Orders were taken into an ArrayList stored by the Waiter. Because the ArrayList shifts whenever an element is removed however, it had to be extracted from back to front. This gave cause for a stack to be used, where elements would be pushed to the stack and then popped, to represent the chronological order in which the Waiter received the original orders. 
 - Philosophical issues: should a Waiter have a Kitchen instance variable? 
    - Decided that a Waiter should: thinking large scale, what if there were multiple Kitchens and Waiters? Each Waiter should be aware of the Kitchen she/he is servicing...
 
@@ -44,10 +45,13 @@ Unresolved Issues:
 - Times when the customer leaves right after the waiter serves the order...the order remains on the table, but is quickly cleared away when another customer is seated in the same spot.
 - When the waiter is moving and the user simultaneously drags a customer to a table, the waiter will stop in her/his tracks. She/he can resume their path with a simple click on a clickable destination object.
 - Moods do not decrement uniformly. As the algorithm right now decrements mood based on the percentage of the time elapsed and the maximum tolerance time of the Customer, the decrease is not linear but rather curved. 
-- When orders are taken, 
+- Aesthetically, the waiter is not animated when she/he walks, and the customers do not move either. 
+
 
 Cool Stuff Learned:
-- 
+- How to load and display images within Processing
+- Conceptual idea of an Update-then-Display approach 
+- Using mouseClicks and other mouse actions to trigger events
 
 Mid design changes:
 - Originally had a reservations list; was scrapped because of complexity. Also didn't make much sense, as the game itself doesn't incorporate much of a storyline, but rather is just an endless game where the user tries to earn as many points as possible. 
@@ -55,9 +59,11 @@ Mid design changes:
 - Game would have a fast paced serving of customers. However, with the writing of the Time class, we found that it seemed logical for customers to wait before ordering food and eating food would also require a period of time where the waiter is not involved. Using the Time class, we paused time for customers while they were performing certain actions typical in a restaurant. 
 
 Lessons Learned:
-Organization is key, especially when dealing with many classes. 
-State variables are our friends.
-The internet needs more graphics of Chinese people. 
+- Many classes get confusing after a while, such as where is a method implemented, and where is a state changed? This is probably why it's important to make and maintain cohesive UML diagrams. 
+- GUI is super powerful but also such an L simultaneously. 
+- Again, big project attested to helpfulness of a flowchart even more. There needs to be a general stream of how the game progresses and updates, especially when working with GUI and draw() is being called constantly. Without a flow, the world becomes dark. 
+- This project really made you think in OOP mindset. At first, we were very skeptical about writing so many different classes. However, classes can be very helpful in generalizing certain attributes/functionality, particularly for our case in the classes Time and Draggable. We didn't have to rewrite functions or redefine variables within only a few classes, but create a bunch of objects and have them interact with one another. 
+- Why are there no cartoons of Asians on the internet?? This is a Chinese restaurant with customers of only one race...
 
                                
 \\\\\\\\\\\ Zone of Reflection ///////////
