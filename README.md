@@ -2,10 +2,22 @@
 **Peking Wong**<br>
 **Jen Yu, Brooke Jin, Bryan Chan**
 
+:rice::rice::rice::rice::rice::rice::rice::rice:
+
 ### Description
 
 Hello, and welcome! In this game, you are a new waiter at the famous Peking Wong restaurant, located on Mott Street in Chinatown. It's rush hour, and customers are just streaming in. Unfortunately, you seem to be the only waiter on duty...the objective is to serve customers and gain the highest tips possible. The game ends when you're unable to satisfactorily serve five customers and they leave the restaurant. As the time progresses, the customer flow will become denser and denser, so try to keep up!
 
+### _Game Instructions_
+
+1. Drag customers from the left side of the screen to a table to seat them. 
+2. Once seated, wait until the customer has finished reading the menu and is ready to order before approaching to take the order. 
+3. At the same time, the customer at the front of the line will decrement mood the longer she/he is not seated. 
+4. Take the customer's order and deliver it to the Kitchen by clicking on the Lucky Cat. 
+5. Pick up the order when it's ready; the order will show up. Multiple orders will show up in the order that they were taken from the customer, and the waiter can only hold two dishes at a time. 
+6. Serve the customer food and wait until they are finished eating to deliver the bill. 
+7. Based on mood and VIP number, the customers will leave a tip that augments the Waiter's points. 
+8. When five customers have left the restaurant as a result of their mood dropping below 0, the game is finished. 
 
 ### _How it Works_
 
@@ -44,10 +56,4 @@ _Disclaimer: The command line version was utilized for testing purposes. It may 
 1. Enter the directory path: ```$ cd <folderClonedInto>/MottSt/Versions/v.1.6b```
 2. Compile the game: ```$ javac PekingWong.java```
 3. Run the game: ```$ java PekingWong```
-
-### _Sources of Help_
-
-[Processing Reference Library](https://processing.org/reference/ "Processing Reference Library")<br>
-[Control P5 Library](https://github.com/sojamo/controlp5 "Control P5 Library")<br>
-[How to Add a Dragging Facility: Stack Overflow](https://stackoverflow.com/questions/22253554/processing-how-to-add-a-drag-facility-to-the-graphics "Dragging Facility")<br>
 
