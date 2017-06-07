@@ -1,0 +1,13 @@
+Bryan: 
+- Modes of the waiter changed
+- It looks strange just sliding around the screen 
+- The waiter should also be a little smaller in order for easier navigation 
+
+Jen: 
+- Add the order display within the project
+- Fix the tables that aren't being served
+- Buggy motion with the waiter
+
+Brooke: 
+- Mood display 
+- Should show strikes when a customer leaves
